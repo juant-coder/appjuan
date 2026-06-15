@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Life OS</title>
+<style>
+:root {
+  --bg:#0a0a0f; --surface:#12121a; --border:#1e1e2e; --border-light:#2a2a3f;
+  --primary:#7c3aed; --primary-l:#8b4cf7;
+  --txt1:#e8e8f0; --txt2:#9090a8; --txt3:#50506a;
+  --success:#10b981; --warning:#f59e0b; --danger:#ef4444; --gold:#fbbf24;
+  --nav-h:60px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--txt1);display:flex;flex-direction:column;}
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:2px;}
+button{cursor:pointer;border:none;background:none;color:inherit;font-family:inherit;}
+input,textarea,select{font-family:inherit;color:var(--txt1);}
+textarea{resize:none;}
+
+/* ── Layout ── */
+#app{display:flex;flex-direction:column;height:100%;}
+#top-bar{display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:52px;border-bottom:1px solid var(--border);shrink:0;flex-shrink:0;}
+#top-bar h1{font-size:1rem;font-weight:700;}
+#top-bar .xp-badge{font-size:11px;color:var(--gold);background:rgba(251,191,36,.12);padding:3px 10px;border-radius:20px;border:1px solid rgba(251,191,36,.2);}
+
+/* Desktop sidebar + mobile bottom nav */
+#layout{display:flex;flex:1;overflow:hidden;}
+#sidebar{width:200px;border-right:1px solid var(--border);padding:12px 8px;display:flex;flex-direction:column;gap:2px;flex-shrink:0;}
+#sidebar button{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:13px;font-weight:500;color:var(--txt2);transition:all .15s;width:100%;text-align:left;}
+#sidebar button.active,#sidebar button:hover{background:rgba(124,58,237,.15);color:var(--primary);}
+#sidebar button.active{color:var(--primary);}
+#views{flex:1;overflow:hidden;position:relative;}
+.view{display:none;height:100%;overflow-y:auto;padding:20px 24px 24px;}
+.view.active{display:block;}
+
+#bottom-nav{display:none;border-top:1px solid var(--border);flex-shrink:0;}
+#bottom-nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;font-size:10px;color:var(--txt3);transition:color .15s;}
+#bottom-nav button.active{color:var(--primary);}
+#bottom-nav button svg{width:20px;height:20px;}
+
+@media(max-width:640px){
+  #sidebar{display:none;}
+  #bottom-nav{display:flex;}
+  .view{padding:16px 16px 80px;}
+  #top-bar h1{font-size:15px;}
+}
+
+/* ── Cards / UI ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;}
+.card-sm{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px;}
+.section-title{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3);margin-bottom:10px;}
+h2.page-title{font-size:17px;font-weight:700;margin-bottom:16px;}
+
+/* Inputs */
+.inp{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--txt1);outline:none;transition:border-color .15s;}
+.inp:focus{border-color:var(--primary);}
+.inp::placeholder{color:var(--txt3);}
+textarea.inp{min-height:80px;}
+select.inp{cursor:pointer;}
+label.lbl{display:block;font-size:11px;color:var(--txt3);margin-bottom:6px;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 18px;border-radius:12px;font-size:13px;font-weight:600;transition:all .15s;cursor:pointer;}
+.btn-primary{background:var(--primary);color:#fff;border:none;}
+.btn-primary:hover{background:var(--primary-l);}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;}
+.btn-ghost{background:transparent;color:var(--txt2);border:1px solid var(--border);}
+.btn-ghost:hover{background:rgba(255,255,255,.05);}
+.btn-danger{background:rgba(239,68,68,.1);color:var(--danger);border:1px solid rgba(239,68,68,.2);}
+.btn-success{background:rgba(16,185,129,.1);color:var(--success);border:1px solid rgba(16,185,129,.2);}
+.btn-warning{background:rgba(245,158,11,.1);color:var(--warning);border:1px solid rgba(245,158,11,.2);}
+.btn-sm{padding:6px 12px;font-size:12px;border-radius:9px;}
+.btn-icon{padding:7px;border-radius:9px;}
+
+/* Progress */
+.prog-bar{background:var(--border);border-radius:4px;overflow:hidden;}
+.prog-fill{height:100%;border-radius:4px;transition:width .3s;}
+
+/* Tabs */
+.tabs{display:flex;gap:2px;background:var(--bg);padding:4px;border-radius:12px;margin-bottom:16px;}
+.tab-btn{flex:1;padding:7px;border-radius:9px;font-size:12px;font-weight:500;color:var(--txt3);transition:all .15s;border:none;background:none;cursor:pointer;}
+.tab-btn.active{background:var(--primary);color:#fff;}
+.tab-btn:not(.active):hover{color:var(--txt1);}
+
+/* Toggle */
+.toggle{position:relative;width:44px;height:24px;border-radius:12px;border:none;cursor:pointer;transition:background .2s;flex-shrink:0;}
+.toggle-knob{position:absolute;top:2px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.3);transition:transform .2s;}
+.toggle.on{background:var(--primary);}
+.toggle.off{background:var(--border-light);}
+.toggle.on .toggle-knob{transform:translateX(20px);}
+.toggle.off .toggle-knob{transform:translateX(2px);}
+
+/* Badge */
+.badge{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:600;}
+
+/* Modal */
+#modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;align-items:flex-end;justify-content:center;}
+#modal-overlay.open{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:20px 20px 0 0;width:100%;max-width:520px;max-height:90dvh;overflow-y:auto;animation:slideUp .2s ease;}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface);z-index:1;}
+.modal-header h3{font-size:15px;font-weight:700;}
+.modal-body{padding:20px;}
+.modal-body .form-row{display:grid;gap:12px;margin-bottom:12px;}
+.modal-body .form-row.cols2{grid-template-columns:1fr 1fr;}
+.modal-footer{display:flex;gap:10px;padding:0 20px 20px;}
+.modal-footer .btn{flex:1;padding:12px;}
+
+@media(min-width:641px){
+  #modal-overlay{align-items:center;}
+  .modal{border-radius:20px;max-height:80dvh;}
+}
+
+/* Toast */
+#toast-container{position:fixed;bottom:72px;left:50%;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none;}
+@media(min-width:641px){#toast-container{bottom:24px;}}
+.toast{background:var(--surface);border:1px solid var(--border-light);padding:10px 18px;border-radius:20px;font-size:13px;font-weight:500;animation:toastIn .2s ease;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.4);}
+@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* Empty state */
+.empty{text-align:center;padding:40px 20px;}
+.empty .empty-icon{font-size:36px;margin-bottom:10px;}
+.empty p{color:var(--txt3);font-size:13px;margin-bottom:12px;}
+
+/* ── Dashboard ── */
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px;}
+@media(min-width:480px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:center;}
+.stat-val{font-size:22px;font-weight:700;margin-bottom:2px;}
+.stat-lbl{font-size:10px;color:var(--txt3);}
+
+/* ── Metas ── */
+.meta-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:10px;}
+.meta-status-bar{height:3px;}
+.meta-body{padding:14px;}
+.meta-expand{padding:0 14px 14px;border-top:1px solid var(--border);}
+.sub-obj{display:flex;align-items:center;gap:8px;padding:5px 0;cursor:pointer;width:100%;text-align:left;background:none;border:none;}
+.sub-checkbox{width:16px;height:16px;border-radius:5px;border:1.5px solid var(--border-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sub-checkbox.done{background:var(--success);border-color:var(--success);}
+.sub-text{font-size:13px;color:var(--txt2);}
+.sub-text.done{text-decoration:line-through;color:var(--txt3);}
+
+/* ── Conhecimento Tabs ── */
+.learn-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px;display:flex;gap:10px;margin-bottom:8px;}
+.note-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:8px;}
+
+/* ── Agenda / Calendar ── */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);}
+.cal-header .cal-cell{text-align:center;padding:8px 0;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--txt3);}
+.cal-cell{border-bottom:1px solid rgba(30,30,46,.6);border-right:1px solid rgba(30,30,46,.6);min-height:60px;padding:4px;cursor:pointer;transition:background .1s;position:relative;}
+.cal-cell:hover{background:rgba(255,255,255,.04);}
+.cal-cell.today .day-num{background:var(--primary);color:#fff;}
+.cal-cell.selected{background:rgba(124,58,237,.12);}
+.cal-cell.empty{cursor:default;}
+.day-num{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--txt2);margin-bottom:2px;}
+.cal-event{font-size:9px;padding:1px 4px;border-radius:3px;truncate:ellipsis;overflow:hidden;white-space:nowrap;margin-bottom:1px;}
+
+/* ── AI Chat ── */
+#chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;}
+.chat-msg{max-width:80%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.5;}
+.chat-msg.user{align-self:flex-end;background:var(--primary);color:#fff;border-bottom-right-radius:4px;}
+.chat-msg.assistant{align-self:flex-start;background:var(--surface);border:1px solid var(--border);color:var(--txt1);border-bottom-left-radius:4px;}
+.chat-msg.thinking{opacity:.6;}
+.chat-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0;}
+.chat-input-row textarea{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--txt1);outline:none;max-height:120px;min-height:42px;}
+.chat-input-row textarea:focus{border-color:var(--primary);}
+#view-ia{display:none;flex-direction:column;padding:0 !important;}
+#view-ia.active{display:flex;}
+.ia-header{padding:16px 16px 12px;border-bottom:1px solid var(--border);flex-shrink:0;}
+
+/* ── Biblioteca rating ── */
+.stars button{background:none;border:none;cursor:pointer;font-size:18px;padding:2px;}
+</style>
+</head>
+<body>
+<div id="app">
+  <!-- Top Bar -->
+  <div id="top-bar">
+    <h1>✨ Life OS</h1>
+    <span class="xp-badge" id="xp-display">0 XP</span>
+  </div>
+
+  <div id="layout">
+    <!-- Sidebar (desktop) -->
+    <nav id="sidebar">
+      <button class="nav-btn active" data-view="dashboard">🏠 Dashboard</button>
+      <button class="nav-btn" data-view="metas">🎯 Metas</button>
+      <button class="nav-btn" data-view="conhecimento">📚 Conhecimento</button>
+      <button class="nav-btn" data-view="agenda">📅 Agenda</button>
+      <button class="nav-btn" data-view="ia">🤖 IA Assistente</button>
+      <button class="nav-btn" data-view="config">⚙️ Config</button>
+    </nav>
+
+    <!-- Views -->
+    <div id="views">
+      <!-- DASHBOARD -->
+      <div class="view active" id="view-dashboard">
+        <h2 class="page-title">🏠 Dashboard</h2>
+        <div class="stat-grid" id="dash-stats"></div>
+        <div class="card" style="margin-bottom:12px;">
+          <p style="font-size:13px;font-weight:600;margin-bottom:10px;">🎯 Metas em progresso</p>
+          <div id="dash-metas"></div>
+        </div>
+        <div class="card">
+          <p style="font-size:13px;font-weight:600;margin-bottom:10px;">📅 Próximos eventos</p>
+          <div id="dash-eventos"></div>
+        </div>
+      </div>
+
+      <!-- METAS -->
+      <div class="view" id="view-metas">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <h2 class="page-title" style="margin-bottom:0;">🎯 Metas</h2>
+          <button class="btn btn-primary btn-sm" onclick="openMetaModal()">+ Nova Meta</button>
+        </div>
+        <div id="metas-list"></div>
+      </div>
+
+      <!-- CONHECIMENTO -->
+      <div class="view" id="view-conhecimento">
+        <h2 class="page-title">📚 Conhecimento</h2>
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchConhTab('aprendizado',this)">🧠 Aprendizado</button>
+          <button class="tab-btn" onclick="switchConhTab('notas',this)">📝 Notas</button>
+          <button class="tab-btn" onclick="switchConhTab('biblioteca',this)">📖 Biblioteca</button>
+        </div>
+        <div id="conh-aprendizado"></div>
+        <div id="conh-notas" style="display:none;"></div>
+        <div id="conh-biblioteca" style="display:none;"></div>
+      </div>
+
+      <!-- AGENDA -->
+      <div class="view" id="view-agenda">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <h2 class="page-title" style="margin-bottom:0;">📅 Agenda</h2>
+          <button class="btn btn-primary btn-sm" onclick="openEventoModal()">+ Evento</button>
+        </div>
+        <div id="agenda-content"></div>
+      </div>
+
+      <!-- IA -->
+      <div class="view" id="view-ia">
+        <div class="ia-header">
+          <p style="font-size:15px;font-weight:700;">🤖 IA Assistente</p>
+          <p style="font-size:11px;color:var(--txt3);margin-top:2px;">Registre, tire dúvidas e receba apoio personalizado</p>
+        </div>
+        <div id="chat-messages"></div>
+        <div class="chat-input-row">
+          <textarea id="chat-input" placeholder="Pergunte algo, peça para criar uma meta, registrar aprendizado..." onkeydown="chatKeydown(event)" rows="1"></textarea>
+          <button class="btn btn-primary btn-icon" onclick="sendChat()" id="chat-send-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- CONFIG -->
+      <div class="view" id="view-config">
+        <h2 class="page-title">⚙️ Configurações</h2>
+        <div id="config-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav (mobile) -->
+  <nav id="bottom-nav">
+    <button class="nav-btn active" data-view="dashboard">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Home
+    </button>
+    <button class="nav-btn" data-view="metas">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      Metas
+    </button>
+    <button class="nav-btn" data-view="conhecimento">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      Saber
+    </button>
+    <button class="nav-btn" data-view="agenda">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Agenda
+    </button>
+    <button class="nav-btn" data-view="ia">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      IA
+    </button>
+    <button class="nav-btn" data-view="config">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Config
+    </button>
+  </nav>
+</div>
+
+<!-- Modal -->
+<div id="modal-overlay" onclick="closeModalIfBg(event)">
+  <div class="modal" id="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-title">Modal</h3>
+      <button onclick="closeModal()" style="color:var(--txt3);font-size:20px;">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast-container"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+const STORE_KEY = 'lifeos_v1';
+let S = load();
+
+function load() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch {}
+  return defaults();
+}
+
+function defaults() {
+  return {
+    xp: 0,
+    config: { nome: 'Você', metaTreinosSemanal: 4, metaHidratacao: 8, metaSono: 8, metaEconomiaMensal: 500, somPomodoro: true, apiKey: '', aiModel: 'claude-opus-4-8' },
+    metas: [],
+    aprendizados: [],
+    notas: [],
+    biblioteca: [],
+    eventos: [],
+    chat: [],
+  };
+}
+
+function save() {
+  localStorage.setItem(STORE_KEY, JSON.stringify(S));
+}
+
+function uid() { return Math.random().toString(36).slice(2, 9); }
+function today() { return new Date().toISOString().slice(0, 10); }
+function nowISO() { return new Date().toISOString(); }
+function addXP(n) { S.xp += n; save(); renderXP(); }
+
+// ═══════════════════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════════════════
+let currentView = 'dashboard';
+
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchView(btn.dataset.view));
+});
+
+function switchView(id) {
+  currentView = id;
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.view === id));
+  render();
+}
+
+function render() {
+  renderXP();
+  if (currentView === 'dashboard') renderDashboard();
+  else if (currentView === 'metas') renderMetas();
+  else if (currentView === 'conhecimento') renderConhecimento();
+  else if (currentView === 'agenda') renderAgenda();
+  else if (currentView === 'ia') renderIA();
+  else if (currentView === 'config') renderConfig();
+}
+
+function renderXP() {
+  document.getElementById('xp-display').textContent = `${S.xp} XP ⚡`;
+}
+
+// ═══════════════════════════════════════════════════════
+//  TOAST
+// ═══════════════════════════════════════════════════════
+function toast(msg, type = 'ok') {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.style.color = type === 'error' ? 'var(--danger)' : type === 'info' ? 'var(--txt2)' : 'var(--txt1)';
+  el.textContent = msg;
+  const c = document.getElementById('toast-container');
+  c.appendChild(el);
+  setTimeout(() => el.remove(), 2800);
+}
+
+// ═══════════════════════════════════════════════════════
+//  MODAL
+// ═══════════════════════════════════════════════════════
+function openModal(title, bodyHTML, onClose) {
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-body').innerHTML = bodyHTML;
+  document.getElementById('modal-overlay').classList.add('open');
+  window._modalOnClose = onClose;
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  if (window._modalOnClose) { window._modalOnClose(); window._modalOnClose = null; }
+}
+
+function closeModalIfBg(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+// ═══════════════════════════════════════════════════════
+//  DASHBOARD
+// ═══════════════════════════════════════════════════════
+function renderDashboard() {
+  const metasAtivas = S.metas.filter(m => m.status === 'ativa').length;
+  const metasConcluidas = S.metas.filter(m => m.status === 'concluida').length;
+  const totalAprendizados = S.aprendizados.length;
+  const totalNotas = S.notas.length;
+
+  document.getElementById('dash-stats').innerHTML = `
+    <div class="stat-card"><div class="stat-val" style="color:var(--primary)">${metasAtivas}</div><div class="stat-lbl">Metas Ativas</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--success)">${metasConcluidas}</div><div class="stat-lbl">Concluídas</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--gold)">${totalAprendizados}</div><div class="stat-lbl">Aprendizados</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--warning)">${totalNotas}</div><div class="stat-lbl">Notas</div></div>
+  `;
+
+  const metasAtList = S.metas.filter(m => m.status === 'ativa').slice(0, 4);
+  if (metasAtList.length === 0) {
+    document.getElementById('dash-metas').innerHTML = '<p style="font-size:12px;color:var(--txt3);">Nenhuma meta ativa. <button onclick="switchView(\'metas\')" style="color:var(--primary);text-decoration:underline;background:none;border:none;cursor:pointer;font-size:12px;">Criar meta</button></p>';
+  } else {
+    document.getElementById('dash-metas').innerHTML = metasAtList.map(m => {
+      const prog = m.valorMeta > 0 ? Math.min(100, Math.round(m.valorAtual / m.valorMeta * 100)) : 0;
+      const cor = { ativa: '#10b981', pausada: '#f59e0b', concluida: '#7c3aed' }[m.status];
+      return `<div style="margin-bottom:10px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+          <span style="font-size:12px;color:var(--txt1);">${m.titulo}</span>
+          <span style="font-size:11px;font-weight:700;color:${cor};">${prog}%</span>
+        </div>
+        <div class="prog-bar" style="height:5px;"><div class="prog-fill" style="width:${prog}%;background:${cor};"></div></div>
+      </div>`;
+    }).join('');
+  }
+
+  const agora = new Date();
+  const proximos = S.eventos.filter(e => new Date(e.dataInicio) > agora).sort((a, b) => a.dataInicio.localeCompare(b.dataInicio)).slice(0, 4);
+  const COR_CAT_EVT = { trabalho:'#7c3aed', pessoal:'#3b82f6', saude:'#10b981', financeiro:'#fbbf24', social:'#f97316', estudos:'#f59e0b' };
+  if (proximos.length === 0) {
+    document.getElementById('dash-eventos').innerHTML = '<p style="font-size:12px;color:var(--txt3);">Nenhum evento próximo.</p>';
+  } else {
+    document.getElementById('dash-eventos').innerHTML = proximos.map(e => {
+      const d = new Date(e.dataInicio);
+      const ds = d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+      return `<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);">
+        <div style="width:3px;height:32px;border-radius:2px;background:${COR_CAT_EVT[e.categoria]||'#7c3aed'};flex-shrink:0;"></div>
+        <div><p style="font-size:13px;color:var(--txt1);">${e.titulo}</p><p style="font-size:11px;color:var(--txt3);">${ds}</p></div>
+      </div>`;
+    }).join('');
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  METAS
+// ═══════════════════════════════════════════════════════
+const STATUS_COR = { ativa: '#10b981', pausada: '#f59e0b', concluida: '#7c3aed' };
+const STATUS_LABEL = { ativa: '🟢 Ativa', pausada: '⏸️ Pausada', concluida: '✅ Concluída' };
+
+function renderMetas() {
+  const list = document.getElementById('metas-list');
+  if (S.metas.length === 0) {
+    list.innerHTML = `<div class="empty"><div class="empty-icon">🎯</div><p>Nenhuma meta criada ainda</p><button class="btn btn-primary" onclick="openMetaModal()">Criar primeira meta</button></div>`;
+    return;
+  }
+  list.innerHTML = S.metas.map(m => metaCardHTML(m)).join('');
+}
+
+function metaCardHTML(m) {
+  const cor = STATUS_COR[m.status];
+  const prog = m.tipo !== 'booleana' && m.valorMeta > 0 ? Math.min(100, Math.round(m.valorAtual / m.valorMeta * 100)) : (m.status === 'concluida' ? 100 : 0);
+  const labelValor = m.tipo === 'financeira' ? `R$ ${fmtNum(m.valorAtual)} / R$ ${fmtNum(m.valorMeta)}`
+    : m.tipo === 'booleana' ? (m.status === 'concluida' ? 'Concluída' : 'Em andamento')
+    : `${m.valorAtual} / ${m.valorMeta}`;
+
+  const subsHTML = m.subObjetivos.length > 0 ? `
+    <div style="margin-bottom:10px;">
+      <p class="section-title">Sub-objetivos</p>
+      ${m.subObjetivos.map(s => `
+        <button class="sub-obj" onclick="toggleSub('${m.id}','${s.id}')">
+          <div class="sub-checkbox ${s.concluido ? 'done' : ''}">${s.concluido ? `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>` : ''}</div>
+          <span class="sub-text ${s.concluido ? 'done' : ''}">${s.texto}</span>
+        </button>`).join('')}
+    </div>` : '';
+
+  const acoes = `<div style="display:flex;gap:8px;margin-top:8px;">
+    ${m.status === 'ativa' ? `<button class="btn btn-warning btn-sm" style="flex:1;" onclick="pausarMeta('${m.id}')">⏸️ Pausar</button>` : ''}
+    ${m.status === 'pausada' ? `<button class="btn btn-success btn-sm" style="flex:1;" onclick="retornarMeta('${m.id}')">▶️ Retomar</button>` : ''}
+    ${m.status === 'ativa' ? `<button class="btn btn-primary btn-sm" style="flex:1;" onclick="concluirMeta('${m.id}')">✅ Concluir</button>` : ''}
+    <button class="btn btn-danger btn-sm btn-icon" onclick="removerMeta('${m.id}')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>
+  </div>`;
+
+  return `<div class="meta-card" id="meta-${m.id}">
+    <div class="meta-status-bar" style="background:${cor};"></div>
+    <div class="meta-body">
+      <div style="display:flex;align-items:start;justify-content:space-between;gap:8px;margin-bottom:8px;">
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+            <span style="font-size:10px;font-weight:700;color:${cor};">${STATUS_LABEL[m.status]}</span>
+            <span style="font-size:10px;color:var(--txt3);">· ${m.categoria}</span>
+          </div>
+          <h3 style="font-size:14px;font-weight:600;line-height:1.3;">${m.titulo}</h3>
+        </div>
+        <button onclick="toggleMetaExpand('${m.id}')" style="color:var(--txt3);margin-top:2px;flex-shrink:0;font-size:14px;">▼</button>
+      </div>
+      ${m.tipo !== 'booleana' ? `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+          <button onclick="editarValorMeta('${m.id}')" style="font-size:12px;color:var(--txt2);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${labelValor}</button>
+          <span style="font-size:12px;font-weight:700;color:${cor};">${prog}%</span>
+        </div>
+        <div class="prog-bar" style="height:6px;"><div class="prog-fill" style="width:${prog}%;background:${cor};"></div></div>
+      ` : m.status !== 'concluida' ? `
+        <button onclick="concluirBool('${m.id}')" style="margin-top:8px;width:100%;padding:8px;border-radius:10px;background:rgba(16,185,129,.15);color:var(--success);font-size:13px;font-weight:600;border:1px solid rgba(16,185,129,.3);cursor:pointer;">✅ Marcar como Concluída</button>
+      ` : ''}
+      ${m.dataLimite ? `<p style="font-size:11px;color:var(--txt3);margin-top:6px;">📅 Prazo: ${m.dataLimite}</p>` : ''}
+    </div>
+    <div class="meta-expand" id="expand-${m.id}" style="display:none;">
+      ${m.descricao ? `<p style="font-size:13px;color:var(--txt2);margin-bottom:10px;">${m.descricao}</p>` : ''}
+      ${subsHTML}
+      ${acoes}
+    </div>
+  </div>`;
+}
+
+function toggleMetaExpand(id) {
+  const el = document.getElementById('expand-' + id);
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function pausarMeta(id) {
+  S.metas = S.metas.map(m => m.id === id ? { ...m, status: 'pausada' } : m);
+  save(); renderMetas(); toast('Meta pausada ⏸️');
+}
+
+function retornarMeta(id) {
+  S.metas = S.metas.map(m => m.id === id ? { ...m, status: 'ativa' } : m);
+  save(); renderMetas(); toast('Meta reativada ▶️');
+}
+
+function concluirMeta(id) {
+  S.metas = S.metas.map(m => m.id === id ? { ...m, status: 'concluida' } : m);
+  save(); addXP(50); renderMetas(); toast('🎯 Meta concluída! +50 XP');
+}
+
+function concluirBool(id) {
+  S.metas = S.metas.map(m => m.id === id ? { ...m, status: 'concluida', valorAtual: 1 } : m);
+  save(); addXP(50); renderMetas(); toast('🎯 Meta concluída!');
+}
+
+function removerMeta(id) {
+  S.metas = S.metas.filter(m => m.id !== id);
+  save(); renderMetas(); toast('Meta removida', 'info');
+}
+
+function toggleSub(metaId, subId) {
+  S.metas = S.metas.map(m => m.id === metaId ? {
+    ...m,
+    subObjetivos: m.subObjetivos.map(s => s.id === subId ? { ...s, concluido: !s.concluido } : s)
+  } : m);
+  save(); renderMetas();
+}
+
+function editarValorMeta(id) {
+  const m = S.metas.find(x => x.id === id);
+  if (!m) return;
+  const label = m.tipo === 'financeira' ? 'Novo valor atual (R$):' : 'Novo valor atual:';
+  const v = prompt(label, m.valorAtual);
+  if (v === null) return;
+  const num = parseFloat(v);
+  if (isNaN(num)) return;
+  S.metas = S.metas.map(x => x.id === id ? { ...x, valorAtual: num } : x);
+  if (num >= m.valorMeta && m.status === 'ativa') {
+    concluirMeta(id);
+  } else {
+    save(); renderMetas(); toast('Progresso atualizado! ✏️');
+  }
+}
+
+function openMetaModal(id) {
+  const editing = id ? S.metas.find(m => m.id === id) : null;
+  const TIPOS = [
+    { v: 'numerica', label: '📊 Numérica', desc: 'Ex: ler 12 livros' },
+    { v: 'financeira', label: '💰 Financeira', desc: 'Ex: juntar R$ 10.000' },
+    { v: 'habito', label: '🔄 Hábito', desc: 'Ex: treinar 4x/semana' },
+    { v: 'booleana', label: '✅ Sim/Não', desc: 'Ex: tirar CNH' },
+  ];
+  const CATS = ['Pessoal', 'Profissional', 'Financeiro', 'Saúde', 'Estudos', 'Relacionamentos'];
+
+  openModal(editing ? 'Editar Meta' : 'Nova Meta', `
+    <div class="modal-body">
+      <div class="form-row"><div>
+        <label class="lbl">Título *</label>
+        <input id="m-titulo" class="inp" placeholder="Qual seu objetivo?" value="${editing?.titulo || ''}">
+      </div></div>
+      <div class="form-row"><div>
+        <label class="lbl">Tipo de Meta</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          ${TIPOS.map(t => `
+            <button type="button" onclick="selectTipoMeta('${t.v}')" id="tipo-btn-${t.v}"
+              style="padding:10px;border-radius:10px;border:1px solid var(--border);text-align:left;cursor:pointer;background:var(--bg);transition:all .15s;"
+              ${editing?.tipo === t.v || (!editing && t.v === 'numerica') ? 'class="tipo-selected"' : ''}>
+              <div style="font-size:13px;font-weight:600;color:var(--txt1);margin-bottom:2px;">${t.label}</div>
+              <div style="font-size:11px;color:var(--txt3);">${t.desc}</div>
+            </button>`).join('')}
+        </div>
+      </div></div>
+      <div class="form-row" id="valor-meta-row" ${editing?.tipo === 'booleana' ? 'style="display:none"' : ''}>
+        <div>
+          <label class="lbl" id="valor-meta-label">${editing?.tipo === 'financeira' ? 'Valor alvo (R$)' : editing?.tipo === 'habito' ? 'Frequência alvo (p/ semana)' : 'Quantidade alvo'}</label>
+          <input id="m-valor" type="number" min="1" class="inp" value="${editing?.valorMeta || 100}">
+        </div>
+      </div>
+      <div class="form-row cols2">
+        <div>
+          <label class="lbl">Categoria</label>
+          <select id="m-cat" class="inp">
+            ${CATS.map(c => `<option ${editing?.categoria === c ? 'selected' : ''}>${c}</option>`).join('')}
+          </select>
+        </div>
+        <div>
+          <label class="lbl">Prazo (opcional)</label>
+          <input id="m-prazo" type="date" class="inp" value="${editing?.dataLimite || ''}">
+        </div>
+      </div>
+      <div class="form-row"><div>
+        <label class="lbl">Descrição (opcional)</label>
+        <textarea id="m-desc" class="inp" placeholder="Descreva sua meta...">${editing?.descricao || ''}</textarea>
+      </div></div>
+      <div class="form-row"><div>
+        <label class="lbl">Sub-objetivos (opcional)</label>
+        <div style="display:flex;gap:8px;margin-bottom:8px;">
+          <input id="m-sub-input" class="inp" placeholder="Adicionar sub-objetivo..." style="flex:1;">
+          <button class="btn btn-primary btn-sm" onclick="addSubTemp()">+</button>
+        </div>
+        <div id="m-subs-list"></div>
+      </div></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarMeta('${id || ''}')">💾 ${editing ? 'Salvar' : 'Criar Meta'}</button>
+    </div>
+  `);
+
+  window._metaSubs = editing ? [...editing.subObjetivos] : [];
+  window._metaTipo = editing?.tipo || 'numerica';
+  renderSubsTemp();
+  highlightTipo(window._metaTipo);
+
+  document.getElementById('m-sub-input').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addSubTemp(); } });
+}
+
+function selectTipoMeta(v) {
+  window._metaTipo = v;
+  highlightTipo(v);
+  const lbl = { financeira: 'Valor alvo (R$)', habito: 'Frequência alvo (p/ semana)', numerica: 'Quantidade alvo', booleana: '' }[v];
+  document.getElementById('valor-meta-row').style.display = v === 'booleana' ? 'none' : '';
+  if (lbl) document.getElementById('valor-meta-label').textContent = lbl;
+}
+
+function highlightTipo(v) {
+  ['numerica', 'financeira', 'habito', 'booleana'].forEach(t => {
+    const btn = document.getElementById('tipo-btn-' + t);
+    if (!btn) return;
+    btn.style.background = t === v ? 'rgba(124,58,237,.2)' : 'var(--bg)';
+    btn.style.borderColor = t === v ? 'rgba(124,58,237,.5)' : 'var(--border)';
+  });
+}
+
+function addSubTemp() {
+  const inp = document.getElementById('m-sub-input');
+  const txt = inp.value.trim();
+  if (!txt) return;
+  window._metaSubs.push({ id: uid(), texto: txt, concluido: false });
+  inp.value = '';
+  renderSubsTemp();
+}
+
+function removeSubTemp(id) {
+  window._metaSubs = window._metaSubs.filter(s => s.id !== id);
+  renderSubsTemp();
+}
+
+function renderSubsTemp() {
+  const el = document.getElementById('m-subs-list');
+  if (!el) return;
+  el.innerHTML = (window._metaSubs || []).map(s => `
+    <div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);">
+      <div style="width:6px;height:6px;border-radius:50%;background:var(--txt3);flex-shrink:0;"></div>
+      <span style="flex:1;font-size:13px;color:var(--txt2);">${s.texto}</span>
+      <button onclick="removeSubTemp('${s.id}')" style="color:var(--txt3);font-size:16px;">✕</button>
+    </div>`).join('');
+}
+
+function salvarMeta(id) {
+  const titulo = document.getElementById('m-titulo').value.trim();
+  if (!titulo) { toast('Título é obrigatório', 'error'); return; }
+  const tipo = window._metaTipo || 'numerica';
+  const valorMeta = tipo !== 'booleana' ? Number(document.getElementById('m-valor').value) : 1;
+  const obj = {
+    titulo, tipo,
+    descricao: document.getElementById('m-desc').value.trim(),
+    categoria: document.getElementById('m-cat').value,
+    dataLimite: document.getElementById('m-prazo').value || undefined,
+    valorMeta,
+    subObjetivos: window._metaSubs || [],
+  };
+  if (id) {
+    S.metas = S.metas.map(m => m.id === id ? { ...m, ...obj } : m);
+    toast('Meta atualizada! ✏️');
+  } else {
+    S.metas.unshift({ id: uid(), status: 'ativa', valorAtual: 0, criadaEm: nowISO(), ...obj });
+    addXP(10);
+    toast('Meta criada! 🎯 +10 XP');
+  }
+  save(); closeModal(); renderMetas();
+}
+
+// ═══════════════════════════════════════════════════════
+//  CONHECIMENTO
+// ═══════════════════════════════════════════════════════
+let conhecTab = 'aprendizado';
+
+function switchConhTab(tab, btn) {
+  conhecTab = tab;
+  document.querySelectorAll('#view-conhecimento .tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('conh-aprendizado').style.display = tab === 'aprendizado' ? '' : 'none';
+  document.getElementById('conh-notas').style.display = tab === 'notas' ? '' : 'none';
+  document.getElementById('conh-biblioteca').style.display = tab === 'biblioteca' ? '' : 'none';
+  renderConhecimento();
+}
+
+function renderConhecimento() {
+  if (conhecTab === 'aprendizado') renderAprendizado();
+  else if (conhecTab === 'notas') renderNotas();
+  else renderBiblioteca();
+}
+
+/* ── Aprendizado ── */
+function renderAprendizado() {
+  document.getElementById('conh-aprendizado').innerHTML = `
+    <div class="card" style="margin-bottom:14px;">
+      <p style="font-size:13px;font-weight:600;margin-bottom:10px;">💡 O que você aprendeu hoje?</p>
+      <textarea id="apr-input" class="inp" rows="3" placeholder="Escreva um aprendizado, insight ou descoberta..."></textarea>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+        <span style="font-size:11px;color:var(--txt3);">Ctrl+Enter para salvar</span>
+        <button class="btn btn-primary btn-sm" onclick="salvarAprendizado()">⚡ Registrar (+20 XP)</button>
+      </div>
+    </div>
+    <p class="section-title">Últimos Aprendizados</p>
+    <div id="apr-list"></div>
+  `;
+  document.getElementById('apr-input').addEventListener('keydown', e => { if (e.key === 'Enter' && e.ctrlKey) salvarAprendizado(); });
+
+  const list = document.getElementById('apr-list');
+  const items = S.aprendizados.slice(0, 14);
+  if (items.length === 0) {
+    list.innerHTML = '<p style="color:var(--txt3);font-size:13px;text-align:center;padding:20px 0;">Nenhum aprendizado registrado ainda.</p>';
+    return;
+  }
+  list.innerHTML = items.map(a => `
+    <div class="learn-card">
+      <div style="font-size:20px;flex-shrink:0;">🧠</div>
+      <div style="flex:1;min-width:0;">
+        <p style="font-size:13px;color:var(--txt1);line-height:1.5;">${escHtml(a.texto)}</p>
+        <p style="font-size:11px;color:var(--txt3);margin-top:4px;">${a.data}</p>
+      </div>
+      <button onclick="removerAprendizado('${a.id}')" style="color:var(--txt3);flex-shrink:0;" onmouseover="this.style.color='var(--danger)'" onmouseout="this.style.color='var(--txt3)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/></svg>
+      </button>
+    </div>`).join('');
+}
+
+function salvarAprendizado() {
+  const inp = document.getElementById('apr-input');
+  const txt = inp?.value?.trim();
+  if (!txt) return;
+  S.aprendizados.unshift({ id: uid(), texto: txt, data: today() });
+  save(); addXP(20); inp.value = '';
+  toast('Aprendizado registrado! +20 XP 🧠');
+  renderAprendizado();
+}
+
+function removerAprendizado(id) {
+  S.aprendizados = S.aprendizados.filter(a => a.id !== id);
+  save(); renderAprendizado(); toast('Removido', 'info');
+}
+
+/* ── Notas ── */
+let notaBusca = '';
+
+function renderNotas() {
+  const el = document.getElementById('conh-notas');
+  el.innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <div style="position:relative;flex:1;">
+        <svg style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--txt3);" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="nota-busca" class="inp" style="padding-left:34px;" placeholder="Buscar notas..." value="${escHtml(notaBusca)}">
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="openNotaModal()">+ Nova</button>
+    </div>
+    <div id="notas-list"></div>
+  `;
+  document.getElementById('nota-busca').addEventListener('input', e => { notaBusca = e.target.value; renderNotasList(); });
+  renderNotasList();
+}
+
+function renderNotasList() {
+  const q = notaBusca.toLowerCase();
+  const filtradas = S.notas.filter(n =>
+    n.titulo.toLowerCase().includes(q) ||
+    n.conteudo.toLowerCase().includes(q) ||
+    n.tags.some(t => t.toLowerCase().includes(q))
+  );
+  const el = document.getElementById('notas-list');
+  if (!el) return;
+  if (filtradas.length === 0) {
+    el.innerHTML = `<div class="empty"><div class="empty-icon">📝</div><p>Nenhuma nota encontrada</p><button class="btn btn-primary btn-sm" onclick="openNotaModal()">+ Nova Nota</button></div>`;
+    return;
+  }
+  el.innerHTML = filtradas.map(n => `
+    <div class="note-card">
+      <div style="display:flex;align-items:start;justify-content:space-between;gap:8px;">
+        <div style="flex:1;min-width:0;">
+          <h3 style="font-size:14px;font-weight:600;margin-bottom:4px;">${escHtml(n.titulo)}</h3>
+          <p style="font-size:12px;color:var(--txt2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${escHtml(n.conteudo)}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;">
+            <span style="font-size:10px;padding:2px 8px;border-radius:20px;background:rgba(124,58,237,.2);color:var(--primary);">${n.categoria}</span>
+            ${n.tags.map(t => `<span style="font-size:10px;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.06);color:var(--txt3);">#${t}</span>`).join('')}
+          </div>
+          <p style="font-size:11px;color:var(--txt3);margin-top:5px;">${n.criadaEm}</p>
+        </div>
+        <div style="display:flex;gap:4px;flex-shrink:0;">
+          <button onclick="openNotaModal('${n.id}')" style="padding:6px;color:var(--txt3);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--txt3)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </button>
+          <button onclick="removerNota('${n.id}')" style="padding:6px;color:var(--txt3);" onmouseover="this.style.color='var(--danger)'" onmouseout="this.style.color='var(--txt3)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+const CATS_NOTA = ['financas', 'investimentos', 'direito', 'produtividade', 'comportamento', 'tecnologia', 'outros'];
+
+function openNotaModal(id) {
+  const n = id ? S.notas.find(x => x.id === id) : null;
+  openModal(n ? 'Editar Nota' : 'Nova Nota', `
+    <div class="modal-body">
+      <div class="form-row"><div>
+        <label class="lbl">Título *</label>
+        <input id="n-titulo" class="inp" placeholder="Título da nota" value="${n ? escHtml(n.titulo) : ''}">
+      </div></div>
+      <div class="form-row"><div>
+        <label class="lbl">Conteúdo</label>
+        <textarea id="n-conteudo" class="inp" rows="5" placeholder="Escreva sua nota...">${n ? escHtml(n.conteudo) : ''}</textarea>
+      </div></div>
+      <div class="form-row cols2">
+        <div>
+          <label class="lbl">Categoria</label>
+          <select id="n-cat" class="inp">${CATS_NOTA.map(c => `<option ${n?.categoria === c ? 'selected' : ''} value="${c}">${c}</option>`).join('')}</select>
+        </div>
+        <div>
+          <label class="lbl">Tags (vírgula)</label>
+          <input id="n-tags" class="inp" placeholder="ex: foco, hábitos" value="${n ? n.tags.join(', ') : ''}">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarNota('${id || ''}')">💾 Salvar</button>
+    </div>
+  `);
+}
+
+function salvarNota(id) {
+  const titulo = document.getElementById('n-titulo').value.trim();
+  if (!titulo) { toast('Título obrigatório', 'error'); return; }
+  const obj = {
+    titulo, conteudo: document.getElementById('n-conteudo').value.trim(),
+    categoria: document.getElementById('n-cat').value,
+    tags: document.getElementById('n-tags').value.split(',').map(t => t.trim()).filter(Boolean),
+  };
+  if (id) {
+    S.notas = S.notas.map(n => n.id === id ? { ...n, ...obj } : n);
+    toast('Nota atualizada!');
+  } else {
+    S.notas.unshift({ id: uid(), criadaEm: today(), ...obj });
+    addXP(15); toast('Nota criada! 📝 +15 XP');
+  }
+  save(); closeModal(); renderNotas();
+}
+
+function removerNota(id) {
+  S.notas = S.notas.filter(n => n.id !== id);
+  save(); renderNotas(); toast('Nota removida', 'info');
+}
+
+/* ── Biblioteca ── */
+const TIPO_ICONS = { livro: '📚', curso: '🎓', podcast: '🎧', video: '🎥' };
+const STATUS_BIBLIO = { quero: { label: '📋 Quero', cor: '#606070' }, lendo: { label: '📖 Lendo', cor: '#f59e0b' }, concluido: { label: '✅ Concluído', cor: '#10b981' } };
+let biblioFiltro = 'todos';
+
+function renderBiblioteca() {
+  const concluidos = {};
+  ['livro', 'curso', 'podcast', 'video'].forEach(t => {
+    concluidos[t] = S.biblioteca.filter(i => i.tipo === t && i.status === 'concluido').length;
+  });
+  const el = document.getElementById('conh-biblioteca');
+  el.innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;">
+      ${['livro', 'curso', 'podcast', 'video'].map(t => `
+        <div class="card-sm" style="text-align:center;padding:10px 6px;">
+          <p style="font-size:22px;">${TIPO_ICONS[t]}</p>
+          <p style="font-size:16px;font-weight:700;">${concluidos[t]}</p>
+          <p style="font-size:10px;color:var(--txt3);">${t}s</p>
+        </div>`).join('')}
+    </div>
+    <div class="tabs" style="margin-bottom:14px;">
+      ${[['todos','Todos'],['quero','Quero'],['lendo','Lendo'],['concluido','Concluído']].map(([v, l]) =>
+        `<button class="tab-btn ${biblioFiltro === v ? 'active' : ''}" onclick="setBiblioFiltro('${v}',this)">${l}</button>`
+      ).join('')}
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:10px;">
+      <button class="btn btn-primary btn-sm" onclick="openBiblioModal()">+ Adicionar</button>
+    </div>
+    <div id="biblio-list"></div>
+  `;
+  renderBiblioList();
+}
+
+function setBiblioFiltro(v, btn) {
+  biblioFiltro = v;
+  document.querySelectorAll('#conh-biblioteca .tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBiblioList();
+}
+
+function renderBiblioList() {
+  const el = document.getElementById('biblio-list');
+  if (!el) return;
+  const itens = S.biblioteca.filter(i => biblioFiltro === 'todos' || i.status === biblioFiltro)
+    .sort((a, b) => b.adicionadoEm?.localeCompare(a.adicionadoEm || '') || 0);
+  if (itens.length === 0) {
+    el.innerHTML = `<div class="empty"><div class="empty-icon">📚</div><p>Biblioteca vazia</p><button class="btn btn-primary btn-sm" onclick="openBiblioModal()">+ Adicionar</button></div>`;
+    return;
+  }
+  el.innerHTML = itens.map(item => `
+    <div class="note-card">
+      <div style="display:flex;align-items:start;gap:12px;">
+        <span style="font-size:24px;flex-shrink:0;">${TIPO_ICONS[item.tipo]}</span>
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px;">
+            <h3 style="font-size:14px;font-weight:600;">${escHtml(item.titulo)}</h3>
+            <span style="font-size:10px;font-weight:700;color:${STATUS_BIBLIO[item.status].cor};">${STATUS_BIBLIO[item.status].label}</span>
+          </div>
+          ${item.autor ? `<p style="font-size:12px;color:var(--txt2);">${escHtml(item.autor)}</p>` : ''}
+          ${item.rating ? `<p style="font-size:14px;margin-top:2px;">${'⭐'.repeat(item.rating)}</p>` : ''}
+          ${item.notas ? `<p style="font-size:12px;color:var(--txt2);margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${escHtml(item.notas)}</p>` : ''}
+        </div>
+        <div style="display:flex;gap:4px;flex-shrink:0;">
+          <button onclick="openBiblioModal('${item.id}')" style="padding:6px;color:var(--txt3);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--txt3)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </button>
+          <button onclick="removerBiblio('${item.id}')" style="padding:6px;color:var(--txt3);" onmouseover="this.style.color='var(--danger)'" onmouseout="this.style.color='var(--txt3)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function openBiblioModal(id) {
+  const item = id ? S.biblioteca.find(x => x.id === id) : null;
+  openModal(item ? 'Editar Item' : 'Adicionar à Biblioteca', `
+    <div class="modal-body">
+      <div class="form-row"><div>
+        <label class="lbl">Título *</label>
+        <input id="b-titulo" class="inp" placeholder="Nome do livro, curso..." value="${item ? escHtml(item.titulo) : ''}">
+      </div></div>
+      <div class="form-row"><div>
+        <label class="lbl">Autor / Plataforma</label>
+        <input id="b-autor" class="inp" placeholder="Ex: James Clear, Udemy" value="${item ? escHtml(item.autor || '') : ''}">
+      </div></div>
+      <div class="form-row cols2">
+        <div>
+          <label class="lbl">Tipo</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            ${['livro', 'curso', 'podcast', 'video'].map(t => `
+              <button onclick="selectBiblioTipo('${t}')" id="bt-${t}"
+                style="padding:7px;border-radius:9px;border:1px solid var(--border);font-size:12px;cursor:pointer;background:var(--bg);${item?.tipo === t || (!item && t === 'livro') ? 'background:rgba(124,58,237,.2);border-color:rgba(124,58,237,.5);color:var(--primary);' : 'color:var(--txt3);'}">
+                ${TIPO_ICONS[t]} ${t}</button>`).join('')}
+          </div>
+        </div>
+        <div>
+          <label class="lbl">Status</label>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            ${['quero', 'lendo', 'concluido'].map(s => `
+              <button onclick="selectBiblioStatus('${s}')" id="bs-${s}"
+                style="padding:7px 10px;border-radius:9px;border:1px solid var(--border);font-size:12px;cursor:pointer;text-align:left;background:var(--bg);${item?.status === s || (!item && s === 'quero') ? 'background:rgba(124,58,237,.2);border-color:rgba(124,58,237,.5);color:var(--primary);' : 'color:var(--txt3);'}">
+                ${STATUS_BIBLIO[s].label}</button>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="form-row" id="b-rating-row" style="${(item?.status === 'concluido' || (!item)) ? '' : 'display:none'}">
+        <div>
+          <label class="lbl">Rating</label>
+          <div class="stars" id="b-stars">${[1,2,3,4,5].map(n => `<button type="button" onclick="setRatingTemp(${n})" id="star-${n}" style="font-size:20px;background:none;border:none;cursor:pointer;opacity:${n <= (item?.rating || 0) ? 1 : 0.3};">⭐</button>`).join('')}</div>
+        </div>
+      </div>
+      <div class="form-row"><div>
+        <label class="lbl">Notas pessoais</label>
+        <textarea id="b-notas" class="inp" rows="2" placeholder="Suas impressões...">${item ? escHtml(item.notas || '') : ''}</textarea>
+      </div></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarBiblio('${id || ''}')">💾 Salvar</button>
+    </div>
+  `);
+  window._biblioTipo = item?.tipo || 'livro';
+  window._biblioStatus = item?.status || 'quero';
+  window._biblioRating = item?.rating || 0;
+}
+
+function selectBiblioTipo(t) {
+  window._biblioTipo = t;
+  ['livro', 'curso', 'podcast', 'video'].forEach(x => {
+    const btn = document.getElementById('bt-' + x);
+    if (!btn) return;
+    btn.style.background = x === t ? 'rgba(124,58,237,.2)' : 'var(--bg)';
+    btn.style.borderColor = x === t ? 'rgba(124,58,237,.5)' : 'var(--border)';
+    btn.style.color = x === t ? 'var(--primary)' : 'var(--txt3)';
+  });
+}
+
+function selectBiblioStatus(s) {
+  window._biblioStatus = s;
+  ['quero', 'lendo', 'concluido'].forEach(x => {
+    const btn = document.getElementById('bs-' + x);
+    if (!btn) return;
+    btn.style.background = x === s ? 'rgba(124,58,237,.2)' : 'var(--bg)';
+    btn.style.borderColor = x === s ? 'rgba(124,58,237,.5)' : 'var(--border)';
+    btn.style.color = x === s ? 'var(--primary)' : 'var(--txt3)';
+  });
+  const ratingRow = document.getElementById('b-rating-row');
+  if (ratingRow) ratingRow.style.display = s === 'concluido' ? '' : 'none';
+}
+
+function setRatingTemp(n) {
+  window._biblioRating = n;
+  [1,2,3,4,5].forEach(i => {
+    const s = document.getElementById('star-' + i);
+    if (s) s.style.opacity = i <= n ? '1' : '0.3';
+  });
+}
+
+function salvarBiblio(id) {
+  const titulo = document.getElementById('b-titulo').value.trim();
+  if (!titulo) { toast('Título obrigatório', 'error'); return; }
+  const obj = {
+    titulo, autor: document.getElementById('b-autor').value.trim(),
+    tipo: window._biblioTipo || 'livro',
+    status: window._biblioStatus || 'quero',
+    rating: window._biblioRating || undefined,
+    notas: document.getElementById('b-notas').value.trim(),
+  };
+  if (id) {
+    S.biblioteca = S.biblioteca.map(i => i.id === id ? { ...i, ...obj } : i);
+    toast('Item atualizado!');
+  } else {
+    S.biblioteca.unshift({ id: uid(), adicionadoEm: nowISO(), ...obj });
+    if (obj.status === 'concluido') { addXP(30); toast(`${TIPO_ICONS[obj.tipo]} Item adicionado! +30 XP`); }
+    else toast(`${TIPO_ICONS[obj.tipo]} Adicionado à biblioteca!`);
+  }
+  save(); closeModal(); renderBiblioteca();
+}
+
+function removerBiblio(id) {
+  S.biblioteca = S.biblioteca.filter(i => i.id !== id);
+  save(); renderBiblioList(); toast('Item removido', 'info');
+}
+
+// ═══════════════════════════════════════════════════════
+//  AGENDA
+// ═══════════════════════════════════════════════════════
+const COR_CAT_EVT = { trabalho:'#7c3aed', pessoal:'#3b82f6', saude:'#10b981', financeiro:'#fbbf24', social:'#f97316', estudos:'#f59e0b' };
+let calMes = new Date(); calMes.setDate(1);
+let calDiaSel = null;
+
+function renderAgenda() {
+  renderCalendario();
+}
+
+function renderCalendario() {
+  const ano = calMes.getFullYear(), mes = calMes.getMonth();
+  const primeiroDia = new Date(ano, mes, 1).getDay();
+  const ultimoDia = new Date(ano, mes + 1, 0).getDate();
+  const nomeMes = calMes.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+
+  const diasSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  const hoje = today();
+
+  let cells = '';
+  // Células vazias antes do primeiro dia
+  for (let i = 0; i < primeiroDia; i++) cells += `<div class="cal-cell empty"></div>`;
+  // Dias do mês
+  for (let d = 1; d <= ultimoDia; d++) {
+    const dStr = `${ano}-${String(mes + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+    const evts = S.eventos.filter(e => e.dataInicio.startsWith(dStr));
+    const isHoje = dStr === hoje;
+    const isSel = dStr === calDiaSel;
+    cells += `<div class="cal-cell${isHoje ? ' today' : ''}${isSel ? ' selected' : ''}" onclick="selDia('${dStr}')">
+      <div class="day-num">${d}</div>
+      ${evts.slice(0, 2).map(e => `<div class="cal-event" style="background:${COR_CAT_EVT[e.categoria] || '#7c3aed'}22;color:${COR_CAT_EVT[e.categoria] || '#7c3aed'};">${escHtml(e.titulo)}</div>`).join('')}
+      ${evts.length > 2 ? `<div style="font-size:9px;color:var(--txt3);">+${evts.length - 2}</div>` : ''}
+    </div>`;
+  }
+
+  const eventosSel = calDiaSel ? S.eventos.filter(e => e.dataInicio.startsWith(calDiaSel)) : [];
+  const agora = new Date();
+  const proximos = S.eventos.filter(e => new Date(e.dataInicio) > agora).sort((a, b) => a.dataInicio.localeCompare(b.dataInicio)).slice(0, 6);
+
+  document.getElementById('agenda-content').innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+      <button onclick="mudarMes(-1)" class="btn btn-ghost btn-sm">◀</button>
+      <h3 style="font-size:14px;font-weight:600;text-transform:capitalize;">${nomeMes}</h3>
+      <button onclick="mudarMes(1)" class="btn btn-ghost btn-sm">▶</button>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px;">
+      <div class="cal-grid" style="border-bottom:1px solid var(--border);">
+        ${diasSemana.map(d => `<div style="text-align:center;padding:8px 0;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--txt3);">${d}</div>`).join('')}
+      </div>
+      <div class="cal-grid">${cells}</div>
+    </div>
+    ${calDiaSel ? `
+      <div style="margin-bottom:14px;">
+        <p class="section-title">${fmtDataPtBR(calDiaSel)}</p>
+        ${eventosSel.length === 0 ? `<p style="font-size:12px;color:var(--txt3);">Nenhum evento. <button onclick="openEventoModal()" style="color:var(--primary);background:none;border:none;cursor:pointer;text-decoration:underline;font-size:12px;">+ Adicionar</button></p>` :
+        eventosSel.map(e => eventoHTML(e)).join('')}
+      </div>` : ''}
+    <p class="section-title">Próximos Eventos</p>
+    ${proximos.length === 0 ? '<p style="font-size:12px;color:var(--txt3);">Nenhum evento próximo.</p>' : proximos.map(e => eventoHTML(e)).join('')}
+  `;
+}
+
+function eventoHTML(e) {
+  const cor = COR_CAT_EVT[e.categoria] || '#7c3aed';
+  const hora = e.dataInicio.length > 10 ? new Date(e.dataInicio).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }) : '';
+  return `<div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;background:var(--surface);border:1px solid var(--border);margin-bottom:6px;">
+    <div style="width:3px;height:36px;border-radius:2px;background:${cor};flex-shrink:0;"></div>
+    <div style="flex:1;min-width:0;">
+      <p style="font-size:13px;font-weight:500;">${escHtml(e.titulo)}${e.importante ? ' ⭐' : ''}</p>
+      <p style="font-size:11px;color:var(--txt3);">${hora}${e.descricao ? ' · ' + escHtml(e.descricao.slice(0, 40)) : ''}</p>
+    </div>
+    <button onclick="removerEvento('${e.id}')" style="color:var(--txt3);flex-shrink:0;" onmouseover="this.style.color='var(--danger)'" onmouseout="this.style.color='var(--txt3)'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/></svg>
+    </button>
+  </div>`;
+}
+
+function mudarMes(dir) {
+  calMes.setMonth(calMes.getMonth() + dir);
+  calDiaSel = null;
+  renderCalendario();
+}
+
+function selDia(d) {
+  calDiaSel = calDiaSel === d ? null : d;
+  renderCalendario();
+}
+
+function openEventoModal() {
+  const hojeStr = today() + 'T09:00';
+  openModal('Novo Evento', `
+    <div class="modal-body">
+      <div class="form-row"><div>
+        <label class="lbl">Título *</label>
+        <input id="e-titulo" class="inp" placeholder="Nome do evento">
+      </div></div>
+      <div class="form-row cols2">
+        <div>
+          <label class="lbl">Início</label>
+          <input id="e-inicio" type="datetime-local" class="inp" value="${hojeStr}">
+        </div>
+        <div>
+          <label class="lbl">Fim (opcional)</label>
+          <input id="e-fim" type="datetime-local" class="inp">
+        </div>
+      </div>
+      <div class="form-row"><div>
+        <label class="lbl">Categoria</label>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;" id="e-cats">
+          ${Object.entries(COR_CAT_EVT).map(([c, cor]) => `
+            <button onclick="selectEvtCat('${c}')" id="ec-${c}"
+              style="padding:6px 12px;border-radius:10px;border:1px solid var(--border);font-size:12px;cursor:pointer;background:var(--bg);color:var(--txt3);${c === 'pessoal' ? `background:${cor}22;border-color:${cor}66;color:${cor};` : ''}capitalize:all;">
+              ${c}</button>`).join('')}
+        </div>
+      </div></div>
+      <div class="form-row"><div>
+        <label class="lbl">Descrição</label>
+        <input id="e-desc" class="inp" placeholder="Detalhes...">
+      </div></div>
+      <div class="form-row"><div>
+        <button id="e-importante-btn" onclick="toggleImportante()" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--txt3);cursor:pointer;font-size:13px;">
+          ⭐ Marcar como importante
+        </button>
+      </div></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarEvento()">📅 Adicionar</button>
+    </div>
+  `);
+  window._evtCat = 'pessoal';
+  window._evtImportante = false;
+}
+
+function selectEvtCat(c) {
+  window._evtCat = c;
+  Object.entries(COR_CAT_EVT).forEach(([cat, cor]) => {
+    const btn = document.getElementById('ec-' + cat);
+    if (!btn) return;
+    btn.style.background = cat === c ? `${cor}22` : 'var(--bg)';
+    btn.style.borderColor = cat === c ? `${cor}66` : 'var(--border)';
+    btn.style.color = cat === c ? cor : 'var(--txt3)';
+  });
+}
+
+function toggleImportante() {
+  window._evtImportante = !window._evtImportante;
+  const btn = document.getElementById('e-importante-btn');
+  if (btn) {
+    btn.style.background = window._evtImportante ? 'rgba(251,191,36,.1)' : 'var(--bg)';
+    btn.style.borderColor = window._evtImportante ? 'rgba(251,191,36,.3)' : 'var(--border)';
+    btn.style.color = window._evtImportante ? 'var(--gold)' : 'var(--txt3)';
+  }
+}
+
+function salvarEvento() {
+  const titulo = document.getElementById('e-titulo').value.trim();
+  if (!titulo) { toast('Título obrigatório', 'error'); return; }
+  const dataInicio = document.getElementById('e-inicio').value;
+  const dataFim = document.getElementById('e-fim').value;
+  S.eventos.push({
+    id: uid(), titulo,
+    dataInicio: dataInicio || (today() + 'T09:00'),
+    dataFim: dataFim || undefined,
+    categoria: window._evtCat || 'pessoal',
+    descricao: document.getElementById('e-desc').value.trim(),
+    importante: window._evtImportante || false,
+  });
+  save(); closeModal(); toast('Evento adicionado! 📅'); renderAgenda();
+}
+
+function removerEvento(id) {
+  S.eventos = S.eventos.filter(e => e.id !== id);
+  save(); renderAgenda(); toast('Evento removido', 'info');
+}
+
+// ═══════════════════════════════════════════════════════
+//  IA ASSISTENTE
+// ═══════════════════════════════════════════════════════
+function renderIA() {
+  if (!S.chat || S.chat.length === 0) {
+    S.chat = [{ role: 'assistant', content: `Olá, ${S.config.nome || 'você'}! 👋 Sou seu assistente pessoal do Life OS.\n\nPosso te ajudar a:\n• Criar e gerenciar suas metas 🎯\n• Registrar aprendizados e notas 📚\n• Organizar eventos na agenda 📅\n• Responder dúvidas sobre produtividade, finanças e mais\n• Analisar seu progresso e dar dicas\n\nConfigure sua chave da API Claude nas ⚙️ Configurações para me ativar. O que posso fazer por você?` }];
+  }
+  renderChatMessages();
+}
+
+function renderChatMessages() {
+  const container = document.getElementById('chat-messages');
+  if (!container) return;
+  container.innerHTML = S.chat.map(m => `
+    <div class="chat-msg ${m.role}${m.thinking ? ' thinking' : ''}">
+      ${m.content.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/•/g, '•')}
+    </div>`).join('');
+  container.scrollTop = container.scrollHeight;
+}
+
+function chatKeydown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+}
+
+async function sendChat() {
+  const input = document.getElementById('chat-input');
+  const msg = input?.value?.trim();
+  if (!msg) return;
+
+  if (!S.chat) S.chat = [];
+  S.chat.push({ role: 'user', content: msg });
+  input.value = '';
+  renderChatMessages();
+
+  const apiKey = S.config.apiKey;
+  if (!apiKey) {
+    S.chat.push({ role: 'assistant', content: '⚠️ Para me ativar, configure sua chave da API Claude nas ⚙️ **Configurações** → "Chave da API Claude".\n\nVocê pode obter sua API key em console.anthropic.com.' });
+    save(); renderChatMessages(); return;
+  }
+
+  // Loading indicator
+  const loadingId = 'loading-' + Date.now();
+  S.chat.push({ role: 'assistant', content: '...', thinking: true });
+  save(); renderChatMessages();
+
+  try {
+    const systemPrompt = buildSystemPrompt();
+    const messages = S.chat.filter(m => !m.thinking).slice(-20).map(m => ({ role: m.role, content: m.content }));
+
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
+      body: JSON.stringify({
+        model: S.config.aiModel || 'claude-opus-4-8',
+        max_tokens: 1024,
+        system: systemPrompt,
+        messages,
+      }),
+    });
+
+    const data = await resp.json();
+    // Remove loading msg
+    S.chat = S.chat.filter(m => !m.thinking);
+
+    if (data.error) {
+      S.chat.push({ role: 'assistant', content: `❌ Erro: ${data.error.message}` });
+    } else {
+      const reply = data.content?.[0]?.text || 'Sem resposta.';
+      S.chat.push({ role: 'assistant', content: reply });
+
+      // Parse commands from AI response
+      parseAICommands(reply);
+    }
+  } catch (err) {
+    S.chat = S.chat.filter(m => !m.thinking);
+    S.chat.push({ role: 'assistant', content: `❌ Erro de conexão: ${err.message}` });
+  }
+  save(); renderChatMessages();
+}
+
+function buildSystemPrompt() {
+  const metasResumo = S.metas.slice(0, 10).map(m =>
+    `- "${m.titulo}" [${m.status}] ${m.tipo !== 'booleana' ? `${m.valorAtual}/${m.valorMeta}` : ''} (${m.categoria})`
+  ).join('\n');
+
+  const aprendizadosRecentes = S.aprendizados.slice(0, 5).map(a => `- ${a.texto} (${a.data})`).join('\n');
+
+  const proximosEventos = S.eventos
+    .filter(e => new Date(e.dataInicio) > new Date())
+    .sort((a, b) => a.dataInicio.localeCompare(b.dataInicio))
+    .slice(0, 5)
+    .map(e => `- ${e.titulo} (${e.dataInicio.slice(0, 16)})`)
+    .join('\n');
+
+  return `Você é o assistente pessoal do Life OS de ${S.config.nome || 'o usuário'}.
+
+Você tem acesso aos dados do usuário e pode ajudar a:
+1. Criar metas, registrar aprendizados, notas e eventos (instrua o usuário como fazer ou mencione que pode ser feito pelo app)
+2. Dar conselhos personalizados baseados nos dados
+3. Responder perguntas sobre produtividade, finanças, hábitos, etc.
+4. Celebrar conquistas e motivar
+
+DADOS ATUAIS DO USUÁRIO:
+- XP Total: ${S.xp}
+- Total de metas: ${S.metas.length} (ativas: ${S.metas.filter(m => m.status === 'ativa').length}, concluídas: ${S.metas.filter(m => m.status === 'concluida').length})
+- Aprendizados registrados: ${S.aprendizados.length}
+- Notas: ${S.notas.length}
+- Biblioteca: ${S.biblioteca.length} itens
+- Eventos futuros: ${S.eventos.filter(e => new Date(e.dataInicio) > new Date()).length}
+
+METAS RECENTES:
+${metasResumo || '(nenhuma)'}
+
+ÚLTIMOS APRENDIZADOS:
+${aprendizadosRecentes || '(nenhum)'}
+
+PRÓXIMOS EVENTOS:
+${proximosEventos || '(nenhum)'}
+
+CONFIGURAÇÕES:
+- Meta de treinos/semana: ${S.config.metaTreinosSemanal}
+- Meta de hidratação: ${S.config.metaHidratacao} copos/dia
+- Meta de sono: ${S.config.metaSono}h
+- Meta de economia mensal: R$ ${S.config.metaEconomiaMensal}
+
+Responda sempre em português brasileiro, de forma direta e motivadora. Seja conciso mas útil. Use emojis com moderação. Se o usuário pedir para criar algo, instrua-o a usar o botão correspondente no app ou diga que você pode sugerir o conteúdo para ele preencher.`;
+}
+
+function parseAICommands(text) {
+  // Simple heuristic: if AI suggests creating a goal, we could parse it
+  // For now, just let the AI respond naturally
+}
+
+// ═══════════════════════════════════════════════════════
+//  CONFIGURAÇÕES
+// ═══════════════════════════════════════════════════════
+function renderConfig() {
+  document.getElementById('config-content').innerHTML = `
+    <div style="max-width:480px;display:flex;flex-direction:column;gap:14px;">
+      <!-- Perfil -->
+      <div class="card">
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px;"><span style="color:var(--primary);">👤</span> Perfil</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;">
+          <span style="font-size:13px;color:var(--txt2);">Seu nome</span>
+          <input id="cfg-nome" class="inp" style="width:140px;text-align:right;padding:6px 10px;" value="${escHtml(S.config.nome || '')}">
+        </div>
+      </div>
+
+      <!-- IA -->
+      <div class="card">
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px;"><span style="color:var(--primary);">🤖</span> IA Assistente</p>
+        <div style="margin-bottom:10px;">
+          <label class="lbl">Chave da API Claude (Anthropic)</label>
+          <input id="cfg-apikey" class="inp" type="password" placeholder="sk-ant-..." value="${S.config.apiKey || ''}">
+          <p style="font-size:11px;color:var(--txt3);margin-top:4px;">Obtenha sua chave em console.anthropic.com. Armazenada localmente.</p>
+        </div>
+        <div>
+          <label class="lbl">Modelo</label>
+          <select id="cfg-model" class="inp">
+            <option value="claude-opus-4-8" ${S.config.aiModel === 'claude-opus-4-8' ? 'selected' : ''}>Claude Opus 4.8 (mais capaz)</option>
+            <option value="claude-sonnet-4-6" ${S.config.aiModel === 'claude-sonnet-4-6' ? 'selected' : ''}>Claude Sonnet 4.6 (equilibrado)</option>
+            <option value="claude-haiku-4-5-20251001" ${S.config.aiModel === 'claude-haiku-4-5-20251001' ? 'selected' : ''}>Claude Haiku 4.5 (rápido)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Metas pessoais -->
+      <div class="card">
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px;"><span style="color:var(--primary);">🎯</span> Metas Pessoais</p>
+        ${cfgField('Treinos por semana', 'cfg-treinos', S.config.metaTreinosSemanal, 'number')}
+        ${cfgField('Copos de água por dia', 'cfg-agua', S.config.metaHidratacao, 'number')}
+        ${cfgField('Meta de sono (horas)', 'cfg-sono', S.config.metaSono, 'number')}
+        ${cfgField('Economia mensal (R$)', 'cfg-economia', S.config.metaEconomiaMensal, 'number')}
+      </div>
+
+      <!-- Dados -->
+      <div class="card">
+        <p style="font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px;"><span style="color:var(--primary);">💾</span> Dados</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <button onclick="exportarDados()" class="btn btn-ghost" style="width:100%;justify-content:flex-start;gap:10px;">
+            ⬇️ Exportar dados (JSON)
+          </button>
+          <label class="btn btn-ghost" style="width:100%;justify-content:flex-start;gap:10px;cursor:pointer;">
+            ⬆️ Importar backup
+            <input type="file" accept=".json" onchange="importarDados(event)" style="display:none;">
+          </label>
+        </div>
+      </div>
+
+      <!-- Danger -->
+      <div class="card" style="border-color:rgba(239,68,68,.3);">
+        <p style="font-size:13px;font-weight:700;margin-bottom:8px;color:var(--danger);">⚠️ Zona de Perigo</p>
+        <p style="font-size:12px;color:var(--txt3);margin-bottom:12px;">Esta ação apagará todos os dados permanentemente.</p>
+        <button id="reset-btn" onclick="handleReset()" style="width:100%;padding:10px;border-radius:12px;border:1px solid rgba(239,68,68,.3);color:var(--danger);font-size:13px;font-weight:600;cursor:pointer;background:rgba(239,68,68,.05);">
+          🗑️ Reset completo
+        </button>
+        <button id="reset-cancel" onclick="cancelReset()" style="display:none;width:100%;margin-top:6px;padding:6px;border-radius:10px;border:none;color:var(--txt3);font-size:12px;cursor:pointer;background:none;">
+          Cancelar
+        </button>
+      </div>
+
+      <button class="btn btn-primary" style="width:100%;" onclick="salvarConfig()">💾 Salvar Configurações</button>
+    </div>
+  `;
+}
+
+function cfgField(label, id, val, type = 'text') {
+  return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);">
+    <span style="font-size:13px;color:var(--txt2);">${label}</span>
+    <input id="${id}" type="${type}" class="inp" style="width:100px;text-align:right;padding:6px 10px;" value="${val}">
+  </div>`;
+}
+
+let resetStep = 0;
+function handleReset() {
+  resetStep++;
+  const btn = document.getElementById('reset-btn');
+  const cancel = document.getElementById('reset-cancel');
+  if (resetStep === 1) {
+    btn.textContent = '⚠️ Tem certeza? Clique novamente';
+    btn.style.background = 'rgba(239,68,68,.15)';
+    cancel.style.display = 'block';
+  } else if (resetStep === 2) {
+    btn.textContent = '⛔ CONFIRMAR RESET TOTAL';
+    btn.style.background = 'var(--danger)';
+    btn.style.color = '#fff';
+  } else {
+    S = defaults(); save(); resetStep = 0; toast('Dados resetados', 'info'); renderConfig();
+  }
+}
+function cancelReset() { resetStep = 0; renderConfig(); }
+
+function salvarConfig() {
+  S.config.nome = document.getElementById('cfg-nome').value.trim() || 'Você';
+  S.config.apiKey = document.getElementById('cfg-apikey').value.trim();
+  S.config.aiModel = document.getElementById('cfg-model').value;
+  S.config.metaTreinosSemanal = Number(document.getElementById('cfg-treinos').value) || 4;
+  S.config.metaHidratacao = Number(document.getElementById('cfg-agua').value) || 8;
+  S.config.metaSono = Number(document.getElementById('cfg-sono').value) || 8;
+  S.config.metaEconomiaMensal = Number(document.getElementById('cfg-economia').value) || 500;
+  save(); toast('Configurações salvas! ✅');
+}
+
+function exportarDados() {
+  const blob = new Blob([JSON.stringify(S, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `life-os-${today()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Exportado com sucesso! 💾');
+}
+
+function importarDados(e) {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const dados = JSON.parse(ev.target.result);
+      S = { ...defaults(), ...dados };
+      save(); toast('Dados importados! ✅'); render();
+    } catch { toast('Erro ao importar JSON', 'error'); }
+  };
+  reader.readAsText(file);
+}
+
+// ═══════════════════════════════════════════════════════
+//  UTILS
+// ═══════════════════════════════════════════════════════
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function fmtNum(n) {
+  return Number(n || 0).toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+}
+
+function fmtDataPtBR(iso) {
+  const d = new Date(iso + 'T12:00:00');
+  return d.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
+}
+
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
+render();
+</script>
+</body>
+</html>
