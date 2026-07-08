@@ -31,7 +31,7 @@ export default function LessonPage({
   const completeLesson = useAppStore((s) => s.completeLesson);
   const resetSession = useAppStore((s) => s.resetSession);
 
-  const [phase, setPhase] = useState<Phase>(hearts <= 0 ? "failed" : "playing");
+  const [phase, setPhase] = useState<Phase>("playing");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [feedback, setFeedback] = useState<{ correct: boolean; explicacao: string } | null>(null);
   const [result, setResult] = useState<{
@@ -43,8 +43,10 @@ export default function LessonPage({
   } | null>(null);
 
   useEffect(() => {
-    if (hearts > 0) {
+    if (useAppStore.getState().hearts > 0) {
       startLesson(unitId, lessonId);
+    } else {
+      setPhase("failed");
     }
     return () => resetSession();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -54,7 +56,7 @@ export default function LessonPage({
     return <div className="p-8 text-center">Lição não encontrada.</div>;
   }
 
-  if (phase === "failed") {
+  if (phase === "failed" || (hearts <= 0 && !currentSession && phase !== "result")) {
     return <LessonResult mode="failed" />;
   }
 
