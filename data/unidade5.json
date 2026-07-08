@@ -1,0 +1,76 @@
+{
+  "id": "u5",
+  "titulo": "Offshore e Estruturas Internacionais",
+  "descricao": "O que é uma offshore, trust, holding internacional e quando faz sentido.",
+  "icone": "🌐",
+  "cor": "#6366F1",
+  "licoes": [
+    {
+      "id": "u5-l1",
+      "titulo": "O que é uma offshore (e quando faz sentido)",
+      "perguntas": [
+        {
+          "pergunta": "O que é, de forma simples, uma \"offshore\" no contexto de investimentos?",
+          "opcoes": [
+            "Uma estrutura (como uma empresa) constituída fora do país de residência do investidor, usada para deter e administrar investimentos",
+            "Um tipo de ação negociada na B3",
+            "Um imposto cobrado sobre investimentos no exterior",
+            "Uma conta poupança em outro banco brasileiro"
+          ],
+          "correta": 0,
+          "explicacao": "Uma offshore é geralmente uma estrutura (como uma empresa) constituída em outro país, usada por investidores para deter ativos e investimentos internacionais."
+        },
+        {
+          "pergunta": "O que é um \"trust\", em termos gerais?",
+          "opcoes": [
+            "Um arranjo jurídico em que uma pessoa transfere bens a um administrador para benefício de terceiros",
+            "Um tipo de ação preferencial",
+            "Um fundo de renda fixa brasileiro",
+            "Um empréstimo bancário internacional"
+          ],
+          "correta": 0,
+          "explicacao": "Um trust é uma estrutura jurídica (comum em países de common law) na qual bens são transferidos a um administrador para benefício de terceiros, frequentemente usada em planejamento patrimonial e sucessório."
+        },
+        {
+          "pergunta": "O que é uma holding internacional?",
+          "opcoes": [
+            "Uma empresa constituída no exterior cujo objetivo é deter participações em outras empresas ou ativos",
+            "Um tipo de conta corrente",
+            "Uma taxa cobrada por bancos estrangeiros",
+            "Um imposto sobre herança"
+          ],
+          "correta": 0,
+          "explicacao": "Uma holding internacional é uma empresa, geralmente no exterior, criada para deter participações em outras empresas ou ativos, muitas vezes com fins de organização patrimonial e sucessória."
+        },
+        {
+          "pergunta": "Em quais situações estruturas offshore costumam fazer mais sentido?",
+          "opcoes": [
+            "Para qualquer pessoa, independentemente do patrimônio ou objetivo",
+            "Geralmente para patrimônios mais robustos, com objetivos específicos de sucessão, diversificação internacional ou proteção patrimonial",
+            "Apenas para quem quer sonegar impostos",
+            "Nunca fazem sentido para nenhum investidor"
+          ],
+          "correta": 1,
+          "explicacao": "Estruturas offshore costumam ser mais relevantes para patrimônios maiores e objetivos específicos (sucessão, diversificação, proteção patrimonial), envolvendo custos e complexidade que precisam ser avaliados."
+        },
+        {
+          "pergunta": "Sobre a tributação de estruturas offshore para residentes no Brasil, o que é importante ter em mente?",
+          "opcoes": [
+            "Investimentos e estruturas no exterior devem ser declarados e podem ter regras específicas de tributação no Brasil",
+            "Não existe nenhuma obrigação de declarar investimentos no exterior",
+            "Offshores eliminam automaticamente qualquer tributação no Brasil",
+            "A legislação brasileira não se aplica a bens no exterior"
+          ],
+          "correta": 0,
+          "explicacao": "Residentes fiscais no Brasil precisam declarar bens e investimentos no exterior, seguindo regras específicas de tributação — é um tema que exige orientação especializada."
+        },
+        {
+          "pergunta": "Antes de montar uma estrutura offshore, é recomendável buscar orientação de profissionais especializados (contadores, advogados) devido à complexidade jurídica e tributária envolvida.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Dada a complexidade jurídica, tributária e regulatória, é essencial contar com orientação especializada antes de estruturar investimentos internacionais desse tipo."
+        }
+      ]
+    }
+  ]
+}

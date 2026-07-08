@@ -1,0 +1,56 @@
+[
+  {
+    "id": "streak-7",
+    "titulo": "7 dias seguidos",
+    "descricao": "Estude por 7 dias consecutivos",
+    "icone": "🔥"
+  },
+  {
+    "id": "perfect-first",
+    "titulo": "Sem erros!",
+    "descricao": "Complete uma lição sem nenhum erro",
+    "icone": "⭐"
+  },
+  {
+    "id": "master-u1",
+    "titulo": "Mestre em Fundamentos",
+    "descricao": "Complete todas as lições de Fundamentos",
+    "icone": "🏅"
+  },
+  {
+    "id": "master-u2",
+    "titulo": "Mestre em Renda Fixa",
+    "descricao": "Complete todas as lições de Renda Fixa",
+    "icone": "🏅"
+  },
+  {
+    "id": "master-u3",
+    "titulo": "Mestre em Renda Variável",
+    "descricao": "Complete todas as lições de Renda Variável",
+    "icone": "🏅"
+  },
+  {
+    "id": "master-u4",
+    "titulo": "Mestre em Investindo no Exterior",
+    "descricao": "Complete todas as lições de Investindo no Exterior",
+    "icone": "🏅"
+  },
+  {
+    "id": "master-u5",
+    "titulo": "Mestre em Offshore e Estruturas Internacionais",
+    "descricao": "Complete todas as lições de Offshore e Estruturas Internacionais",
+    "icone": "🏅"
+  },
+  {
+    "id": "master-u6",
+    "titulo": "Mestre em Cuidado com o Patrimônio",
+    "descricao": "Complete todas as lições de Cuidado com o Patrimônio",
+    "icone": "🏅"
+  },
+  {
+    "id": "master-u7",
+    "titulo": "Mestre em Psicologia Financeira",
+    "descricao": "Complete todas as lições de Psicologia Financeira",
+    "icone": "🏅"
+  }
+]
