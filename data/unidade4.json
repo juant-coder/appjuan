@@ -1,0 +1,65 @@
+{
+  "id": "u4",
+  "titulo": "Investindo no Exterior",
+  "descricao": "BDRs, ETFs internacionais, ações americanas e diversificação cambial.",
+  "icone": "🌎",
+  "cor": "#0EA5E9",
+  "licoes": [
+    {
+      "id": "u4-l1",
+      "titulo": "BDRs e ETFs internacionais: diversificando em dólar",
+      "perguntas": [
+        {
+          "pergunta": "O que é um BDR (Brazilian Depositary Receipt)?",
+          "opcoes": [
+            "Um certificado negociado na bolsa brasileira que representa ações de empresas estrangeiras",
+            "Um tipo de título público brasileiro",
+            "Uma conta bancária em dólar",
+            "Um fundo imobiliário brasileiro"
+          ],
+          "correta": 0,
+          "explicacao": "BDRs permitem investir, a partir da bolsa brasileira, em ações de empresas estrangeiras sem precisar abrir conta no exterior."
+        },
+        {
+          "pergunta": "Qual é uma vantagem de investir em ETFs internacionais?",
+          "opcoes": [
+            "Permitem diversificação geográfica, expondo o investidor a economias e moedas diferentes da brasileira",
+            "Eliminam completamente qualquer tipo de risco",
+            "Garantem retorno fixo todo mês",
+            "São isentos de qualquer oscilação"
+          ],
+          "correta": 0,
+          "explicacao": "ETFs internacionais dão acesso a diferentes mercados e moedas, ajudando a diversificar a carteira para além da economia brasileira."
+        },
+        {
+          "pergunta": "O que significa \"diversificação cambial\"?",
+          "opcoes": [
+            "Distribuir parte dos investimentos em ativos ligados a moedas diferentes do real, reduzindo a dependência de uma única moeda",
+            "Trocar reais por moedas estrangeiras apenas para viagens",
+            "Um tipo de imposto sobre câmbio",
+            "Investir exclusivamente em ações brasileiras"
+          ],
+          "correta": 0,
+          "explicacao": "Diversificação cambial significa ter parte do patrimônio exposta a outras moedas, o que pode proteger o investidor de instabilidades específicas do real."
+        },
+        {
+          "pergunta": "Investir diretamente em ações americanas, por meio de uma corretora internacional, é um exemplo de quê?",
+          "opcoes": [
+            "Investimento internacional direto, exposto a outra bolsa e moeda",
+            "Investimento em renda fixa brasileira",
+            "Um tipo de Tesouro Direto",
+            "Um fundo imobiliário nacional"
+          ],
+          "correta": 0,
+          "explicacao": "Comprar ações americanas diretamente expõe o investidor a outro mercado, moeda e regras tributárias, diferente de investir apenas no Brasil."
+        },
+        {
+          "pergunta": "Investir no exterior pode ajudar a reduzir o risco de depender apenas da economia e da moeda de um único país.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Diversificar internacionalmente reduz a concentração de risco em um único país, moeda ou ciclo econômico."
+        }
+      ]
+    }
+  ]
+}

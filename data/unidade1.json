@@ -1,0 +1,260 @@
+{
+  "id": "u1",
+  "titulo": "Fundamentos",
+  "descricao": "Os primeiros passos para entender o mundo dos investimentos.",
+  "icone": "📘",
+  "cor": "#2ECC71",
+  "licoes": [
+    {
+      "id": "u1-l1",
+      "titulo": "O que é investir",
+      "perguntas": [
+        {
+          "pergunta": "O que significa \"investir\" seu dinheiro?",
+          "opcoes": [
+            "Gastar tudo assim que recebe",
+            "Guardar o dinheiro parado embaixo do colchão",
+            "Aplicar seu dinheiro para que ele gere mais dinheiro ao longo do tempo",
+            "Emprestar dinheiro para amigos sem cobrar juros"
+          ],
+          "correta": 2,
+          "explicacao": "Investir é destinar seu dinheiro a alguma aplicação com o objetivo de fazê-lo crescer ao longo do tempo, em vez de deixá-lo parado."
+        },
+        {
+          "pergunta": "Qual é a principal diferença entre poupar e investir?",
+          "opcoes": [
+            "Não há diferença, são a mesma coisa",
+            "Poupar é guardar dinheiro sem buscar rentabilidade; investir é aplicar esse dinheiro para que ele renda",
+            "Poupar é sempre mais arriscado que investir",
+            "Investir é proibido para pessoas físicas"
+          ],
+          "correta": 1,
+          "explicacao": "Poupar é simplesmente guardar recursos; investir vai além, buscando fazer esse dinheiro se valorizar com o tempo."
+        },
+        {
+          "pergunta": "Deixar dinheiro parado na conta corrente, sem render, faz com que ele perca poder de compra com o tempo por causa da inflação.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "A inflação aumenta os preços ao longo do tempo. Se o dinheiro não rende nada, ele compra cada vez menos coisas."
+        },
+        {
+          "pergunta": "O que é inflação?",
+          "opcoes": [
+            "Uma taxa cobrada pelos bancos para guardar seu dinheiro",
+            "O aumento generalizado dos preços de bens e serviços ao longo do tempo",
+            "Um tipo de investimento de renda fixa",
+            "A queda do valor das ações na bolsa"
+          ],
+          "correta": 1,
+          "explicacao": "Inflação é o aumento médio dos preços na economia, que reduz o poder de compra do dinheiro parado."
+        },
+        {
+          "pergunta": "Por que se diz que investir é \"colocar seu dinheiro para trabalhar por você\"?",
+          "opcoes": [
+            "Porque você precisa administrar ativamente sua carteira todos os dias",
+            "Porque o dinheiro aplicado pode gerar rendimentos (juros, dividendos etc.) sem que você precise trabalhar mais horas",
+            "Porque bancos pagam salário para quem investe",
+            "Porque é uma expressão sem significado real"
+          ],
+          "correta": 1,
+          "explicacao": "Ao investir, seu capital passa a gerar renda (juros, aluguéis, dividendos etc.), funcionando como uma fonte de ganho adicional ao seu trabalho."
+        },
+        {
+          "pergunta": "Na relação risco x retorno, o que costuma ser verdade?",
+          "opcoes": [
+            "Quanto maior o risco potencial, geralmente maior o retorno potencial esperado",
+            "Investimentos de maior risco sempre garantem maior retorno",
+            "Risco e retorno não têm nenhuma relação",
+            "Quanto menor o risco, maior é sempre o retorno"
+          ],
+          "correta": 0,
+          "explicacao": "Em geral, investimentos com potencial de retorno maior também carregam maior risco de oscilação ou perda — não há garantia, apenas potencial."
+        },
+        {
+          "pergunta": "Maria guarda R$100 todo mês debaixo do colchão. João aplica R$100 todo mês em um investimento que rende. Depois de vários anos, o que provavelmente aconteceu?",
+          "opcoes": [
+            "O dinheiro de Maria valerá mais, pois ela não correu riscos",
+            "O dinheiro de João provavelmente terá mais poder de compra, pois rendeu ao longo do tempo",
+            "Os dois terão exatamente o mesmo poder de compra",
+            "O dinheiro de Maria terá desaparecido"
+          ],
+          "correta": 1,
+          "explicacao": "O dinheiro de João rendeu com o tempo, enquanto o de Maria só perdeu valor para a inflação — por isso investir tende a preservar e aumentar o poder de compra."
+        }
+      ]
+    },
+    {
+      "id": "u1-l2",
+      "titulo": "Juros compostos",
+      "perguntas": [
+        {
+          "pergunta": "O que são juros simples?",
+          "opcoes": [
+            "Juros calculados sempre sobre o valor inicial (principal), sem incorporar os juros já ganhos",
+            "Juros que só existem em empréstimos",
+            "Juros que dobram o dinheiro todo mês",
+            "Outra forma de chamar inflação"
+          ],
+          "correta": 0,
+          "explicacao": "Nos juros simples, o cálculo incide sempre sobre o valor original, sem considerar rendimentos anteriores."
+        },
+        {
+          "pergunta": "O que são juros compostos?",
+          "opcoes": [
+            "Juros calculados apenas uma vez, no início da aplicação",
+            "Juros que incidem sobre o valor inicial mais os juros já acumulados (\"juros sobre juros\")",
+            "Um imposto cobrado pelo governo",
+            "Uma taxa fixa que nunca muda"
+          ],
+          "correta": 1,
+          "explicacao": "Juros compostos significam que os rendimentos de um período passam a compor o valor sobre o qual novos juros incidirão — por isso são chamados de \"juros sobre juros\"."
+        },
+        {
+          "pergunta": "Por que o tempo é tão importante nos juros compostos?",
+          "opcoes": [
+            "Porque quanto mais tempo o dinheiro fica investido, mais vezes os juros se acumulam sobre juros anteriores, acelerando o crescimento",
+            "Porque o tempo não influencia em nada o resultado final",
+            "Porque investimentos perdem valor com o passar do tempo",
+            "Porque só existem juros compostos em prazos curtos"
+          ],
+          "correta": 0,
+          "explicacao": "O efeito dos juros compostos se intensifica com o tempo: quanto mais longo o prazo, maior o impacto do \"juros sobre juros\"."
+        },
+        {
+          "pergunta": "Se você investe R$1.000 a uma taxa de 10% ao ano em juros compostos, quanto você terá aproximadamente ao final do primeiro ano?",
+          "opcoes": ["R$1.000", "R$1.010", "R$1.100", "R$2.000"],
+          "correta": 2,
+          "explicacao": "R$1.000 + 10% de R$1.000 (R$100) = R$1.100 ao final do primeiro ano."
+        },
+        {
+          "pergunta": "E no segundo ano, sobre qual valor os novos 10% de juros incidirão (juros compostos)?",
+          "opcoes": [
+            "Sobre os R$1.000 originais apenas",
+            "Sobre os R$1.100 (valor já com os juros do primeiro ano incorporados)",
+            "Sobre um valor aleatório definido pelo banco",
+            "Os juros compostos não têm um segundo ano"
+          ],
+          "correta": 1,
+          "explicacao": "Nos juros compostos, o novo cálculo incide sobre o montante total acumulado (R$1.100), e não apenas sobre o valor inicial."
+        },
+        {
+          "pergunta": "Por que começar a investir cedo costuma trazer vantagem, mesmo com valores pequenos?",
+          "opcoes": [
+            "Porque valores pequenos crescem mais rápido que valores grandes",
+            "Porque o tempo extra permite que os juros compostos atuem por mais ciclos, ampliando o crescimento total",
+            "Porque quem começa cedo paga menos impostos automaticamente",
+            "Não há nenhuma vantagem real em começar cedo"
+          ],
+          "correta": 1,
+          "explicacao": "Começar cedo dá mais tempo para o efeito \"juros sobre juros\" atuar, o que pode gerar um resultado final bem maior, mesmo com aportes pequenos."
+        },
+        {
+          "pergunta": "Juros compostos favorecem mais quem investe por longos períodos do que quem investe por poucos meses.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Quanto mais longo o prazo, mais ciclos de \"juros sobre juros\" acontecem, tornando o efeito composto mais poderoso."
+        },
+        {
+          "pergunta": "Qual das opções abaixo melhor resume o poder dos juros compostos?",
+          "opcoes": [
+            "Pequenos valores investidos regularmente, por muito tempo, podem se transformar em quantias significativas",
+            "Só quem tem muito dinheiro consegue se beneficiar dos juros compostos",
+            "Juros compostos só funcionam em investimentos de altíssimo risco",
+            "O efeito dos juros compostos é igual ao dos juros simples"
+          ],
+          "correta": 0,
+          "explicacao": "O grande poder dos juros compostos está em transformar aportes modestos e constantes em valores expressivos ao longo do tempo."
+        }
+      ]
+    },
+    {
+      "id": "u1-l3",
+      "titulo": "Perfil de risco e reserva de emergência",
+      "perguntas": [
+        {
+          "pergunta": "O que é o \"perfil de risco\" de um investidor?",
+          "opcoes": [
+            "O número de investimentos que uma pessoa possui",
+            "O nível de tolerância de uma pessoa a oscilações e possíveis perdas em seus investimentos",
+            "Uma nota dada pelo governo a cada investidor",
+            "O valor mínimo exigido para começar a investir"
+          ],
+          "correta": 1,
+          "explicacao": "O perfil de risco reflete o quanto uma pessoa está disposta (e preparada) a lidar com oscilações e eventuais perdas em busca de retorno."
+        },
+        {
+          "pergunta": "Qual característica melhor descreve um investidor de perfil conservador?",
+          "opcoes": [
+            "Prioriza segurança e previsibilidade, mesmo que o retorno seja menor",
+            "Busca sempre o maior risco possível",
+            "Não se importa em perder dinheiro no curto prazo",
+            "Investe apenas em ações de empresas pequenas"
+          ],
+          "correta": 0,
+          "explicacao": "O perfil conservador prioriza a preservação do capital e a previsibilidade, aceitando retornos menores em troca de mais segurança."
+        },
+        {
+          "pergunta": "E o perfil arrojado (ou agressivo)?",
+          "opcoes": [
+            "Evita qualquer tipo de oscilação",
+            "Está disposto a aceitar mais oscilações e riscos em busca de retornos potencialmente maiores no longo prazo",
+            "Só investe em poupança",
+            "É o perfil recomendado para quem vai usar o dinheiro no mês seguinte"
+          ],
+          "correta": 1,
+          "explicacao": "O perfil arrojado tolera mais oscilações e riscos, buscando retornos potencialmente maiores, geralmente com foco no longo prazo."
+        },
+        {
+          "pergunta": "O que é a reserva de emergência?",
+          "opcoes": [
+            "Um valor guardado com alta liquidez para cobrir imprevistos, sem depender de vender investimentos de risco às pressas",
+            "Um tipo de ação negociada na bolsa",
+            "Um empréstimo bancário para emergências",
+            "O nome de um fundo de investimento específico"
+          ],
+          "correta": 0,
+          "explicacao": "A reserva de emergência é um montante guardado em local seguro e de fácil acesso, para cobrir imprevistos sem precisar mexer em outros investimentos."
+        },
+        {
+          "pergunta": "Por que é recomendado ter uma reserva de emergência antes de investir em ativos de risco?",
+          "opcoes": [
+            "Não é recomendado, deve-se investir tudo em ações imediatamente",
+            "Para evitar ter que vender investimentos de risco em um momento ruim, caso surja uma necessidade urgente de dinheiro",
+            "Porque a reserva de emergência rende mais que qualquer outro investimento",
+            "Porque é uma exigência legal"
+          ],
+          "correta": 1,
+          "explicacao": "Sem reserva, um imprevisto pode obrigar a venda de investimentos de risco em momento desfavorável, gerando perdas."
+        },
+        {
+          "pergunta": "Qual é uma referência prática comum para o tamanho da reserva de emergência?",
+          "opcoes": [
+            "O equivalente a 1 dia de gastos",
+            "O equivalente a 3 a 6 meses dos gastos mensais",
+            "O equivalente a 20 anos de gastos",
+            "Não existe nenhuma referência prática"
+          ],
+          "correta": 1,
+          "explicacao": "Uma referência comum é guardar de 3 a 6 meses de gastos, variando conforme a estabilidade da renda e outros fatores pessoais."
+        },
+        {
+          "pergunta": "Onde a reserva de emergência deve, idealmente, ser mantida?",
+          "opcoes": [
+            "Em investimentos de alta volatilidade, como ações",
+            "Em aplicações de alta liquidez, que permitam resgate rápido sem grandes perdas",
+            "Embaixo do colchão, em dinheiro vivo",
+            "Em imóveis, para valorização no longo prazo"
+          ],
+          "correta": 1,
+          "explicacao": "A reserva de emergência deve priorizar liquidez (facilidade de resgate) e segurança, para estar disponível quando for necessária."
+        },
+        {
+          "pergunta": "O perfil de risco pode mudar ao longo da vida de uma pessoa, conforme sua idade, renda e objetivos mudam.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "O perfil de risco não é fixo — pode evoluir conforme mudam a idade, a renda, os objetivos e a tolerância pessoal a oscilações."
+        }
+      ]
+    }
+  ]
+}

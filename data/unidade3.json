@@ -1,0 +1,76 @@
+{
+  "id": "u3",
+  "titulo": "Renda Variável",
+  "descricao": "Ações, FIIs, ETFs, dividendos e volatilidade.",
+  "icone": "📈",
+  "cor": "#8B5CF6",
+  "licoes": [
+    {
+      "id": "u3-l1",
+      "titulo": "Ações, FIIs e ETFs: primeiros passos",
+      "perguntas": [
+        {
+          "pergunta": "O que é uma ação?",
+          "opcoes": [
+            "Uma pequena parte do capital social de uma empresa",
+            "Um tipo de título público",
+            "Um empréstimo bancário",
+            "Um seguro de vida"
+          ],
+          "correta": 0,
+          "explicacao": "Uma ação representa uma fração do capital social de uma empresa — ao comprá-la, você se torna sócio dela."
+        },
+        {
+          "pergunta": "O que são FIIs (Fundos de Investimento Imobiliário)?",
+          "opcoes": [
+            "Fundos que reúnem recursos de vários investidores para aplicar em imóveis ou ativos ligados ao setor imobiliário",
+            "Um tipo de ação de bancos",
+            "Um imposto sobre imóveis",
+            "Um financiamento imobiliário tradicional"
+          ],
+          "correta": 0,
+          "explicacao": "FIIs reúnem capital de diversos investidores para investir em imóveis, recebíveis imobiliários ou outros ativos do setor, distribuindo os rendimentos aos cotistas."
+        },
+        {
+          "pergunta": "O que é um ETF (Exchange Traded Fund)?",
+          "opcoes": [
+            "Um fundo negociado em bolsa que busca replicar o desempenho de um índice",
+            "Um tipo de conta poupança",
+            "Um empréstimo consignado",
+            "Um seguro contra oscilação de mercado"
+          ],
+          "correta": 0,
+          "explicacao": "ETFs são fundos negociados em bolsa como se fossem ações, geralmente replicando o desempenho de um índice, como o Ibovespa."
+        },
+        {
+          "pergunta": "O que são dividendos?",
+          "opcoes": [
+            "Parte do lucro de uma empresa distribuída aos acionistas",
+            "Uma taxa cobrada para comprar ações",
+            "Um tipo de imposto sobre ações",
+            "Uma multa por vender ações rapidamente"
+          ],
+          "correta": 0,
+          "explicacao": "Dividendos são a parcela do lucro que uma empresa distribui aos seus acionistas, geralmente de forma periódica."
+        },
+        {
+          "pergunta": "O que significa \"volatilidade\" em renda variável?",
+          "opcoes": [
+            "A intensidade e frequência das variações de preço de um ativo ao longo do tempo",
+            "A taxa de juros de um investimento de renda fixa",
+            "O valor mínimo para investir em ações",
+            "Um tipo de imposto sobre ações"
+          ],
+          "correta": 0,
+          "explicacao": "Volatilidade mede o quanto o preço de um ativo varia ao longo do tempo — quanto maior a volatilidade, maiores tendem a ser as oscilações."
+        },
+        {
+          "pergunta": "Investimentos em renda variável, como ações e FIIs, podem oscilar bastante no curto prazo, mas costumam ser pensados com foco no longo prazo.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Por causa da volatilidade, é comum que investidores em renda variável tenham um horizonte de longo prazo, suportando melhor as oscilações de curto prazo."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "u7",
+  "titulo": "Psicologia Financeira",
+  "descricao": "Vieses comportamentais, disciplina e foco no longo prazo.",
+  "icone": "🧠",
+  "cor": "#EC4899",
+  "licoes": [
+    {
+      "id": "u7-l1",
+      "titulo": "Vieses comportamentais e disciplina no longo prazo",
+      "perguntas": [
+        {
+          "pergunta": "O que são \"vieses comportamentais\" no contexto de finanças?",
+          "opcoes": [
+            "Padrões de pensamento que podem levar a decisões financeiras irracionais ou impulsivas",
+            "Um tipo de imposto sobre investimentos",
+            "Regras oficiais da CVM sobre investimentos",
+            "Um tipo específico de ação na bolsa"
+          ],
+          "correta": 0,
+          "explicacao": "Vieses comportamentais são padrões psicológicos que podem distorcer o julgamento e levar a decisões financeiras impulsivas ou irracionais."
+        },
+        {
+          "pergunta": "O que é o \"viés de manada\" (herd behavior)?",
+          "opcoes": [
+            "A tendência de seguir as decisões da maioria, mesmo sem análise própria, especialmente em momentos de euforia ou pânico",
+            "Um indicador técnico de análise de ações",
+            "Um tipo de fundo de investimento",
+            "Uma regra tributária sobre fundos"
+          ],
+          "correta": 0,
+          "explicacao": "O viés de manada leva investidores a seguir o comportamento da maioria (comprar na euforia, vender no pânico), muitas vezes de forma pouco racional."
+        },
+        {
+          "pergunta": "Por que a disciplina é importante para o sucesso de longo prazo nos investimentos?",
+          "opcoes": [
+            "Porque ajuda a manter a estratégia definida mesmo diante de oscilações de curto prazo do mercado",
+            "Porque garante que nunca haverá perdas",
+            "Porque elimina a necessidade de qualquer planejamento",
+            "Porque a disciplina não tem relação com resultados financeiros"
+          ],
+          "correta": 0,
+          "explicacao": "A disciplina ajuda o investidor a manter o plano traçado, evitando decisões impulsivas motivadas por oscilações de curto prazo."
+        },
+        {
+          "pergunta": "O que é a \"aversão à perda\", um viés comum descrito na economia comportamental?",
+          "opcoes": [
+            "A tendência de sentir o desconforto de uma perda de forma mais intensa do que o prazer equivalente de um ganho",
+            "A preferência por sempre correr o máximo de risco possível",
+            "Um tipo de taxa cobrada por corretoras",
+            "A ausência total de emoção nas decisões financeiras"
+          ],
+          "correta": 0,
+          "explicacao": "A aversão à perda descreve como perdas costumam pesar psicologicamente mais do que ganhos de mesmo valor, podendo levar a decisões pouco racionais."
+        },
+        {
+          "pergunta": "Qual atitude ajuda a reduzir o impacto negativo de vieses comportamentais nos investimentos?",
+          "opcoes": [
+            "Ter um plano definido, com objetivos e estratégia claros, e revisá-lo racionalmente, evitando decisões por impulso",
+            "Tomar decisões financeiras baseadas apenas em notícias do momento",
+            "Mudar de estratégia a cada oscilação do mercado",
+            "Confiar exclusivamente na intuição, sem nenhum planejamento"
+          ],
+          "correta": 0,
+          "explicacao": "Ter um plano estruturado e revisá-lo com racionalidade — em vez de reagir por impulso a cada notícia ou oscilação — ajuda a mitigar os efeitos dos vieses comportamentais."
+        },
+        {
+          "pergunta": "O foco no longo prazo tende a ajudar investidores a suportar melhor a volatilidade de curto prazo, sem tomar decisões precipitadas.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Manter o foco em objetivos de longo prazo ajuda a relativizar oscilações de curto prazo, favorecendo decisões mais racionais e disciplinadas."
+        }
+      ]
+    }
+  ]
+}

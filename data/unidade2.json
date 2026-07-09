@@ -1,0 +1,76 @@
+{
+  "id": "u2",
+  "titulo": "Renda Fixa",
+  "descricao": "Tesouro Direto, CDB, LCI/LCA, debêntures e como funciona o Imposto de Renda.",
+  "icone": "🏦",
+  "cor": "#3B82F6",
+  "licoes": [
+    {
+      "id": "u2-l1",
+      "titulo": "Tesouro Direto, CDB e LCI/LCA: o básico",
+      "perguntas": [
+        {
+          "pergunta": "O que é o Tesouro Direto?",
+          "opcoes": [
+            "Um programa que permite pessoas físicas comprarem títulos públicos do governo federal",
+            "Um tipo de ação negociada na bolsa",
+            "Um fundo imobiliário",
+            "Um cartão de crédito do governo"
+          ],
+          "correta": 0,
+          "explicacao": "O Tesouro Direto é um programa do governo federal que permite a pessoas físicas investir em títulos públicos, emprestando dinheiro ao governo em troca de juros."
+        },
+        {
+          "pergunta": "O que é um CDB (Certificado de Depósito Bancário)?",
+          "opcoes": [
+            "Um título emitido por bancos, no qual o investidor empresta dinheiro à instituição em troca de juros",
+            "Uma ação de banco",
+            "Um imposto sobre depósitos bancários",
+            "Um tipo de conta poupança sem rendimento"
+          ],
+          "correta": 0,
+          "explicacao": "O CDB é um título de renda fixa emitido por bancos: você empresta dinheiro à instituição e recebe de volta com juros."
+        },
+        {
+          "pergunta": "O que diferencia LCI/LCA de um CDB comum, em termos de Imposto de Renda?",
+          "opcoes": [
+            "LCI e LCA são geralmente isentas de Imposto de Renda para pessoa física, enquanto o CDB não é",
+            "LCI e LCA pagam sempre mais imposto que o CDB",
+            "Não há nenhuma diferença tributária entre eles",
+            "CDB é isento de imposto e LCI/LCA não"
+          ],
+          "correta": 0,
+          "explicacao": "LCI (Letra de Crédito Imobiliário) e LCA (Letra de Crédito do Agronegócio) costumam ser isentas de IR para pessoa física, um diferencial importante frente ao CDB."
+        },
+        {
+          "pergunta": "O que é uma debênture?",
+          "opcoes": [
+            "Um título de dívida emitido por empresas (não bancos) para captar recursos",
+            "Uma ação preferencial",
+            "Um tipo de imóvel comercial",
+            "Uma taxa cobrada pela CVM"
+          ],
+          "correta": 0,
+          "explicacao": "Debêntures são títulos de dívida emitidos por empresas para captar recursos, funcionando como um empréstimo do investidor à companhia."
+        },
+        {
+          "pergunta": "Sobre a tabela regressiva do Imposto de Renda em renda fixa, o que geralmente acontece quanto mais tempo o dinheiro fica investido?",
+          "opcoes": [
+            "A alíquota de IR tende a diminuir quanto mais tempo o investimento é mantido",
+            "A alíquota de IR aumenta quanto mais tempo você mantém o investimento",
+            "O IR permanece sempre igual, não importa o prazo",
+            "Não existe IR em nenhum investimento de renda fixa"
+          ],
+          "correta": 0,
+          "explicacao": "Na tabela regressiva, a alíquota de IR diminui conforme o prazo de investimento aumenta, incentivando prazos mais longos."
+        },
+        {
+          "pergunta": "Investimentos de renda fixa costumam ter comportamento mais previsível do que ações, já que as regras de remuneração já são conhecidas no momento da aplicação.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Por isso são chamados de \"renda fixa\": as regras de rentabilidade (prefixada, pós-fixada ou híbrida) já são conhecidas na aplicação, tornando o comportamento mais previsível que o de ações."
+        }
+      ]
+    }
+  ]
+}

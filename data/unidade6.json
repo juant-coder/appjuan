@@ -1,0 +1,65 @@
+{
+  "id": "u6",
+  "titulo": "Cuidado com o Patrimônio",
+  "descricao": "Orçamento pessoal, como guardar mais, planejamento financeiro e erros comuns.",
+  "icone": "💰",
+  "cor": "#F59E0B",
+  "licoes": [
+    {
+      "id": "u6-l1",
+      "titulo": "Orçamento pessoal: a base de tudo",
+      "perguntas": [
+        {
+          "pergunta": "O que é um orçamento pessoal?",
+          "opcoes": [
+            "Um planejamento das receitas e despesas de uma pessoa em determinado período",
+            "Um tipo de investimento de renda fixa",
+            "Um imposto cobrado sobre o salário",
+            "Um relatório exigido apenas de empresas"
+          ],
+          "correta": 0,
+          "explicacao": "O orçamento pessoal organiza receitas e despesas, ajudando a entender para onde o dinheiro está indo e onde é possível economizar."
+        },
+        {
+          "pergunta": "Qual é um primeiro passo comum para conseguir guardar mais dinheiro?",
+          "opcoes": [
+            "Registrar e entender todos os seus gastos mensais",
+            "Ignorar completamente os gastos pequenos",
+            "Aumentar os gastos para \"compensar\" no futuro",
+            "Nunca revisar despesas fixas"
+          ],
+          "correta": 0,
+          "explicacao": "Entender para onde o dinheiro está indo é o primeiro passo para identificar onde é possível cortar ou reorganizar gastos."
+        },
+        {
+          "pergunta": "Por que planejamento financeiro de longo prazo é importante?",
+          "opcoes": [
+            "Porque ajuda a alinhar decisões financeiras do dia a dia com objetivos futuros (aposentadoria, imóvel, estudos etc.)",
+            "Porque é uma exigência legal para todo cidadão",
+            "Porque impede qualquer tipo de gasto com lazer",
+            "Porque garante que você nunca terá imprevistos financeiros"
+          ],
+          "correta": 0,
+          "explicacao": "O planejamento de longo prazo conecta as escolhas financeiras cotidianas a objetivos futuros, tornando mais provável alcançá-los."
+        },
+        {
+          "pergunta": "Qual destes é um erro financeiro comum?",
+          "opcoes": [
+            "Gastar mais do que se ganha de forma recorrente, sem controle do orçamento",
+            "Fazer uma reserva de emergência",
+            "Registrar receitas e despesas mensalmente",
+            "Definir metas financeiras de longo prazo"
+          ],
+          "correta": 0,
+          "explicacao": "Gastar sistematicamente mais do que se ganha, sem controle, é um dos erros mais comuns e mais prejudiciais às finanças pessoais."
+        },
+        {
+          "pergunta": "Pequenos ajustes recorrentes no orçamento (como reduzir gastos supérfluos) podem, ao longo do tempo, liberar recursos significativos para investir.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Pequenos ajustes constantes se acumulam ao longo do tempo, liberando mais recursos para investimentos e objetivos financeiros."
+        }
+      ]
+    }
+  ]
+}
