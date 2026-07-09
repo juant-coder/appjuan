@@ -2,6 +2,10 @@
 
 MVP de app gamificado para ensinar investimentos e finanças pessoais, no estilo Duolingo.
 
+## Demo
+
+https://juant-coder.github.io/appjuan/
+
 ## Stack
 
 - Next.js 14 (App Router) + TypeScript
