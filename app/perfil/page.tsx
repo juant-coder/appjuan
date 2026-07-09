@@ -1,45 +1,87 @@
 "use client";
 
 import Header from "@/components/layout/Header";
+import BottomNav from "@/components/layout/BottomNav";
 import BadgeGrid from "@/components/badges/BadgeGrid";
 import { useAppStore } from "@/store/useAppStore";
+
+const AVATARS = [
+  "🤑", "😎", "🦁", "🦊", "🐼", "🐸", "🤓", "👑",
+  "🚀", "💎", "🐺", "🤠", "🥷", "👻", "🐷", "🦅",
+];
 
 export default function PerfilPage() {
   const xp = useAppStore((s) => s.xp);
   const streak = useAppStore((s) => s.streak);
   const progress = useAppStore((s) => s.progress);
+  const avatar = useAppStore((s) => s.avatar);
+  const setAvatar = useAppStore((s) => s.setAvatar);
   const completedCount = Object.values(progress).filter((p) => p.completed).length;
+
+  const level = Math.floor(xp / 100) + 1;
+  const levelPct = xp % 100;
 
   return (
     <>
       <Header />
-      <main className="mx-auto flex max-w-2xl flex-col gap-6 p-4 pb-10">
-        <section className="flex flex-col items-center gap-2 rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-          <span className="text-5xl">🙂</span>
-          <h1 className="font-heading text-xl font-extrabold text-brand-dark">Seu progresso</h1>
-          <div className="mt-2 flex gap-6">
-            <div className="flex flex-col items-center">
-              <span className="font-heading text-2xl font-extrabold text-amber-600">{xp}</span>
-              <span className="text-xs text-slate-500">XP total</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="font-heading text-2xl font-extrabold text-orange-600">{streak}</span>
-              <span className="text-xs text-slate-500">dias seguidos</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="font-heading text-2xl font-extrabold text-brand-green">
-                {completedCount}
-              </span>
-              <span className="text-xs text-slate-500">lições concluídas</span>
-            </div>
+      <main className="mx-auto flex max-w-md flex-col gap-5 px-4 pb-28 pt-4">
+        <section className="flex flex-col items-center gap-3 rounded-3xl border border-black/5 bg-white p-6 text-center dark:border-white/5 dark:bg-slate-900">
+          <span className="flex h-24 w-24 animate-bounce-in items-center justify-center rounded-full bg-brand-green/15 text-6xl ring-4 ring-brand-green/40">
+            {avatar}
+          </span>
+          <div>
+            <h1 className="font-heading text-xl font-extrabold">Investidor Nível {level}</h1>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              {100 - levelPct} XP para o nível {level + 1}
+            </p>
+          </div>
+          <div className="h-3 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-brand-gold to-amber-400 transition-all duration-500"
+              style={{ width: `${levelPct}%` }}
+            />
+          </div>
+          <div className="mt-1 grid w-full grid-cols-3 gap-2">
+            {[
+              { valor: xp, rotulo: "XP total", cor: "text-amber-500" },
+              { valor: streak, rotulo: "dias seguidos", cor: "text-orange-500" },
+              { valor: completedCount, rotulo: "missões", cor: "text-brand-green" },
+            ].map((s) => (
+              <div key={s.rotulo} className="rounded-2xl bg-slate-100 p-3 dark:bg-slate-800">
+                <p className={`font-heading text-2xl font-extrabold ${s.cor}`}>{s.valor}</p>
+                <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">{s.rotulo}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-3xl border border-black/5 bg-white p-5 dark:border-white/5 dark:bg-slate-900">
+          <h2 className="mb-3 font-heading text-lg font-extrabold">Escolha seu avatar</h2>
+          <div className="grid grid-cols-8 gap-2">
+            {AVATARS.map((emoji) => (
+              <button
+                key={emoji}
+                type="button"
+                onClick={() => setAvatar(emoji)}
+                aria-label={`Avatar ${emoji}`}
+                className={`flex h-10 w-10 items-center justify-center rounded-xl text-2xl transition-transform active:scale-90 ${
+                  avatar === emoji
+                    ? "bg-brand-green/20 ring-2 ring-brand-green"
+                    : "bg-slate-100 dark:bg-slate-800"
+                }`}
+              >
+                {emoji}
+              </button>
+            ))}
           </div>
         </section>
 
         <section>
-          <h2 className="mb-3 font-heading text-lg font-extrabold text-brand-dark">Conquistas</h2>
+          <h2 className="mb-3 font-heading text-lg font-extrabold">Conquistas 🏆</h2>
           <BadgeGrid />
         </section>
       </main>
+      <BottomNav />
     </>
   );
 }

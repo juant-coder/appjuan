@@ -31,6 +31,8 @@ export interface CompleteLessonResult {
   newBadges: string[];
 }
 
+export type Theme = "dark" | "light";
+
 export interface AppState {
   xp: number;
   streak: number;
@@ -40,6 +42,8 @@ export interface AppState {
   progress: Record<string, LessonProgress>;
   badges: EarnedBadge[];
   currentSession: LessonSession | null;
+  theme: Theme;
+  avatar: string;
 }
 
 export interface AppActions {
@@ -52,6 +56,8 @@ export interface AppActions {
   regenerateHearts: () => void;
   resetSession: () => void;
   checkAndAwardBadges: () => string[];
+  setTheme: (theme: Theme) => void;
+  setAvatar: (avatar: string) => void;
 }
 
 export type AppStore = AppState & AppActions;

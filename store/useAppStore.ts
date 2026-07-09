@@ -20,6 +20,8 @@ const initialState: AppState = {
   progress: {},
   badges: [],
   currentSession: null,
+  theme: "dark",
+  avatar: "🤑",
 };
 
 export const useAppStore = create<AppStore>()(
@@ -173,6 +175,14 @@ export const useAppStore = create<AppStore>()(
 
       resetSession: () => {
         set({ currentSession: null });
+      },
+
+      setTheme: (theme) => {
+        set({ theme });
+      },
+
+      setAvatar: (avatar) => {
+        set({ avatar });
       },
 
       checkAndAwardBadges: () => {
