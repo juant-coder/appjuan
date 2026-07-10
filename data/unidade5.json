@@ -71,6 +71,118 @@
           "explicacao": "Dada a complexidade jurídica, tributária e regulatória, é essencial contar com orientação especializada antes de estruturar investimentos internacionais desse tipo."
         }
       ]
+    },
+    {
+      "id": "u5-l2",
+      "titulo": "Trusts e sucessão internacional",
+      "perguntas": [
+        {
+          "pergunta": "Em um trust, quem transfere os bens e quem os administra?",
+          "opcoes": [
+            "O instituidor (settlor) transfere os bens ao administrador (trustee), em favor dos beneficiários",
+            "O governo transfere ao banco central",
+            "O beneficiário administra tudo sozinho",
+            "O cartório administra os bens"
+          ],
+          "correta": 0,
+          "explicacao": "Essa é a estrutura clássica: settlor (quem institui), trustee (quem administra) e beneficiários (quem recebe os frutos)."
+        },
+        {
+          "pergunta": "Um dos usos mais comuns de um trust é...",
+          "opcoes": [
+            "O planejamento sucessório: organizar em vida como o patrimônio será transmitido",
+            "Evitar o pagamento de qualquer imposto para sempre",
+            "Esconder dinheiro da Receita",
+            "Operar day trade"
+          ],
+          "correta": 0,
+          "explicacao": "O trust define regras claras de transmissão do patrimônio (quando, quanto e para quem), reduzindo conflitos entre herdeiros."
+        },
+        {
+          "pergunta": "Uma vantagem sucessória de estruturas internacionais bem montadas é...",
+          "opcoes": [
+            "Evitar ou agilizar inventários, que podem ser lentos e caros — especialmente com bens em vários países",
+            "Eliminar a necessidade de testamento no mundo todo automaticamente",
+            "Dobrar o valor do patrimônio",
+            "Impedir que herdeiros recebam qualquer coisa"
+          ],
+          "correta": 0,
+          "explicacao": "Com bens em mais de um país, cada jurisdição pode exigir seu próprio inventário — estruturas adequadas simplificam essa transmissão."
+        },
+        {
+          "pergunta": "O trust é uma figura jurídica típica de países de...",
+          "opcoes": [
+            "Common law, como Estados Unidos e Reino Unido",
+            "Direito romano, como o Brasil",
+            "Apenas paraísos fiscais",
+            "Nenhum país reconhece trusts"
+          ],
+          "correta": 0,
+          "explicacao": "O trust nasceu na tradição da common law. O Brasil não tem figura idêntica, mas a lei brasileira já disciplina como declarar e tributar trusts no exterior."
+        },
+        {
+          "pergunta": "Trust serve para esconder patrimônio do fisco.",
+          "opcoes": ["Falso", "Verdadeiro"],
+          "correta": 0,
+          "explicacao": "Trusts legítimos são declarados às autoridades. Usar estruturas para ocultar patrimônio é crime — o objetivo correto é organização e sucessão."
+        }
+      ]
+    },
+    {
+      "id": "u5-l3",
+      "titulo": "Tributação internacional na prática",
+      "perguntas": [
+        {
+          "pergunta": "Quem é residente fiscal no Brasil deve declarar à Receita os bens que possui no exterior.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "A residência fiscal define onde você presta contas: residentes no Brasil declaram o patrimônio global, inclusive contas e empresas fora."
+        },
+        {
+          "pergunta": "Além da declaração de IR, quem tem patrimônio relevante fora precisa entregar ao Banco Central a...",
+          "opcoes": [
+            "CBE — Declaração de Capitais Brasileiros no Exterior, obrigatória a partir de US$1 milhão",
+            "Declaração de bagagem",
+            "Certidão negativa de débitos",
+            "Nada, o Banco Central não exige nada"
+          ],
+          "correta": 0,
+          "explicacao": "A CBE anual é obrigatória para quem tem US$1 milhão ou mais no exterior — o esquecimento gera multas pesadas."
+        },
+        {
+          "pergunta": "Sobre a tributação de offshores de pessoas físicas brasileiras, a legislação recente (Lei 14.754/2023) determinou que...",
+          "opcoes": [
+            "Os lucros dessas empresas passam a ser tributados anualmente no Brasil",
+            "Offshores ficaram proibidas",
+            "Os lucros nunca são tributados",
+            "Só há imposto se o dinheiro voltar ao Brasil em espécie"
+          ],
+          "correta": 0,
+          "explicacao": "A regra antiga permitia diferir o imposto até a distribuição; agora os lucros das offshores são tributados anualmente, mesmo sem distribuição."
+        },
+        {
+          "pergunta": "Como se evita pagar imposto duas vezes sobre a mesma renda (no exterior e no Brasil)?",
+          "opcoes": [
+            "Por acordos internacionais e regras de compensação do imposto pago fora",
+            "Simplesmente não declarando em um dos países",
+            "Não existe forma de evitar",
+            "Pagando em dobro por segurança"
+          ],
+          "correta": 0,
+          "explicacao": "Tratados contra dupla tributação e a compensação de imposto pago no exterior evitam a bitributação — por isso o suporte especializado importa."
+        },
+        {
+          "pergunta": "Antes de montar qualquer estrutura internacional, o passo essencial é...",
+          "opcoes": [
+            "Buscar assessoria especializada (advogados e contadores com experiência internacional)",
+            "Copiar o que um influencer fez",
+            "Abrir a empresa no país mais barato, sem análise",
+            "Não contar para ninguém"
+          ],
+          "correta": 0,
+          "explicacao": "Cada caso tem particularidades fiscais e sucessórias. Estrutura errada custa caro — o barato aqui sai muito caro."
+        }
+      ]
     }
   ]
 }

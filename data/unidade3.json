@@ -71,6 +71,169 @@
           "explicacao": "Por causa da volatilidade, é comum que investidores em renda variável tenham um horizonte de longo prazo, suportando melhor as oscilações de curto prazo."
         }
       ]
+    },
+    {
+      "id": "u3-l2",
+      "titulo": "Como funciona a Bolsa",
+      "perguntas": [
+        {
+          "pergunta": "Qual é a bolsa de valores oficial do Brasil?",
+          "opcoes": ["B3", "Nasdaq", "NYSE", "Bovespa Digital S.A."],
+          "correta": 0,
+          "explicacao": "A B3 (Brasil, Bolsa, Balcão) é onde são negociadas as ações, FIIs, ETFs e outros ativos no Brasil."
+        },
+        {
+          "pergunta": "Na prática, uma pessoa física compra e vende ações através de...",
+          "opcoes": [
+            "Uma corretora, usando o home broker ou aplicativo",
+            "Ligação direta para a B3",
+            "Cartório",
+            "Agência dos Correios"
+          ],
+          "correta": 0,
+          "explicacao": "A corretora é a intermediária: pelo home broker ou app você envia ordens de compra e venda para a bolsa."
+        },
+        {
+          "pergunta": "Códigos como PETR4 e VALE3 são chamados de...",
+          "opcoes": [
+            "Tickers, os códigos de negociação das ações",
+            "Senhas da corretora",
+            "Números de CNPJ",
+            "Índices de inflação"
+          ],
+          "correta": 0,
+          "explicacao": "Cada ativo tem seu ticker: as letras identificam a empresa e o número indica o tipo de ação (3 = ordinária, 4 = preferencial)."
+        },
+        {
+          "pergunta": "O que é o Ibovespa?",
+          "opcoes": [
+            "O principal índice da bolsa brasileira, que reúne as ações mais negociadas",
+            "Um imposto sobre ações",
+            "O nome do aplicativo da B3",
+            "Uma corretora"
+          ],
+          "correta": 0,
+          "explicacao": "O Ibovespa funciona como um termômetro do mercado: mede o desempenho médio das ações mais negociadas da B3."
+        },
+        {
+          "pergunta": "O preço de uma ação sobe e desce principalmente por causa de...",
+          "opcoes": [
+            "Oferta e demanda, influenciadas pelas expectativas sobre a empresa e a economia",
+            "Uma tabela fixa do governo",
+            "Decisão da corretora",
+            "Sorteio diário"
+          ],
+          "correta": 0,
+          "explicacao": "Preço é o encontro entre compradores e vendedores: expectativas de lucro, notícias e cenário econômico movem essa balança o dia todo."
+        }
+      ]
+    },
+    {
+      "id": "u3-l3",
+      "titulo": "Dividendos e proventos",
+      "perguntas": [
+        {
+          "pergunta": "O que são proventos?",
+          "opcoes": [
+            "Pagamentos que empresas e fundos distribuem aos investidores, como dividendos e JCP",
+            "Taxas cobradas pela corretora",
+            "Impostos sobre ações",
+            "Multas por vender ações"
+          ],
+          "correta": 0,
+          "explicacao": "Proventos são a parte do lucro que chega ao bolso do investidor: dividendos, juros sobre capital próprio (JCP) e bonificações."
+        },
+        {
+          "pergunta": "Quem compra a ação depois da data ex não recebe aquele provento anunciado.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "A data ex é o corte: só recebe o provento quem tinha a ação antes dela."
+        },
+        {
+          "pergunta": "O dividend yield de uma ação mede...",
+          "opcoes": [
+            "Quanto ela pagou de proventos em relação ao seu preço, em percentual",
+            "O lucro total da empresa",
+            "A variação do preço no ano",
+            "O número de acionistas"
+          ],
+          "correta": 0,
+          "explicacao": "Dividend yield = proventos pagos por ação dividido pelo preço da ação. Ajuda a comparar boas pagadoras de dividendos."
+        },
+        {
+          "pergunta": "Uma empresa que não paga dividendos pode, mesmo assim, ser um bom investimento.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Muitas empresas reinvestem o lucro para crescer mais rápido — o retorno vem pela valorização da ação."
+        },
+        {
+          "pergunta": "A sigla JCP significa...",
+          "opcoes": [
+            "Juros sobre Capital Próprio",
+            "Juros Compostos Progressivos",
+            "Justiça Contábil Patrimonial",
+            "Jornada de Capital Público"
+          ],
+          "correta": 0,
+          "explicacao": "O JCP é outra forma de a empresa distribuir resultado ao acionista, com tratamento tributário diferente do dividendo."
+        }
+      ]
+    },
+    {
+      "id": "u3-l4",
+      "titulo": "FIIs a fundo",
+      "perguntas": [
+        {
+          "pergunta": "FIIs de tijolo investem principalmente em...",
+          "opcoes": [
+            "Imóveis físicos, como shoppings, galpões e lajes corporativas",
+            "Títulos públicos",
+            "Ações de construtoras",
+            "Moedas estrangeiras"
+          ],
+          "correta": 0,
+          "explicacao": "Fundos de tijolo são donos de imóveis reais e ganham com aluguéis e valorização."
+        },
+        {
+          "pergunta": "FIIs de papel investem principalmente em...",
+          "opcoes": [
+            "Títulos ligados ao mercado imobiliário, como CRIs e LCIs",
+            "Prédios antigos para reforma",
+            "Ações americanas",
+            "Ouro"
+          ],
+          "correta": 0,
+          "explicacao": "Fundos de papel compram dívidas do setor imobiliário (como CRIs) e repassam os juros recebidos aos cotistas."
+        },
+        {
+          "pergunta": "Os rendimentos mensais que os FIIs distribuem à pessoa física são, em regra, isentos de IR.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Cumprindo as condições da regra (fundo negociado em bolsa, mais de 50 cotistas etc.), os rendimentos mensais chegam isentos — já o lucro na venda das cotas é tributado."
+        },
+        {
+          "pergunta": "O que é vacância em um FII?",
+          "opcoes": [
+            "A parcela dos imóveis do fundo que está vazia, sem gerar aluguel",
+            "O rendimento mensal do fundo",
+            "A taxa de administração",
+            "O número de cotistas"
+          ],
+          "correta": 0,
+          "explicacao": "Vacância alta = menos aluguel entrando = menos rendimento distribuído. É um dos principais indicadores a acompanhar."
+        },
+        {
+          "pergunta": "As cotas de FIIs são negociadas...",
+          "opcoes": [
+            "Na B3, pelo home broker, como se fossem ações",
+            "Apenas em cartórios",
+            "Somente na agência do banco",
+            "Direto com o síndico do prédio"
+          ],
+          "correta": 0,
+          "explicacao": "Comprar cota de FII é tão simples quanto comprar ação: basta enviar a ordem pelo home broker usando o ticker do fundo."
+        }
+      ]
     }
   ]
 }

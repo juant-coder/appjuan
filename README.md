@@ -23,8 +23,10 @@ Abra [http://localhost:3000](http://localhost:3000).
 
 ## Conteúdo
 
-As lições ficam em `/data/unidadeN.json`. A Unidade 1 (Fundamentos) tem 3 lições completas;
-as demais unidades têm 1 lição de exemplo cada, prontas para receber mais conteúdo.
+As lições ficam em `/data/unidadeN.json` — 26 missões distribuídas em 7 seções com
+dificuldade progressiva (Fundamentos → Renda Fixa → Renda Variável → Exterior →
+Offshore → Patrimônio → Psicologia). Para adicionar missões, basta acrescentar
+lições ao JSON da seção correspondente.
 
 ## Mecânica
 

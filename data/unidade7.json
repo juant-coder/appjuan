@@ -71,6 +71,123 @@
           "explicacao": "Manter o foco em objetivos de longo prazo ajuda a relativizar oscilações de curto prazo, favorecendo decisões mais racionais e disciplinadas."
         }
       ]
+    },
+    {
+      "id": "u7-l2",
+      "titulo": "Vieses que custam caro",
+      "perguntas": [
+        {
+          "pergunta": "O viés de ancoragem leva o investidor a...",
+          "opcoes": [
+            "Se prender a um valor de referência, como o preço que pagou, mesmo quando ele não faz mais sentido",
+            "Diversificar demais a carteira",
+            "Estudar demais antes de investir",
+            "Sempre vender no melhor momento"
+          ],
+          "correta": 0,
+          "explicacao": "Esperar a ação voltar ao preço que paguei é ancoragem pura — o mercado não deve nada a ninguém."
+        },
+        {
+          "pergunta": "O viés de confirmação faz a pessoa...",
+          "opcoes": [
+            "Buscar apenas informações que confirmam o que ela já acredita, ignorando sinais contrários",
+            "Ouvir todas as opiniões com atenção",
+            "Mudar de ideia com facilidade",
+            "Evitar redes sociais"
+          ],
+          "correta": 0,
+          "explicacao": "Quem só consome análises que concordam consigo fica cego aos riscos — procure ativamente a tese contrária à sua."
+        },
+        {
+          "pergunta": "O excesso de confiança costuma levar o investidor a...",
+          "opcoes": [
+            "Operar demais e assumir riscos exagerados, achando que sabe mais que o mercado",
+            "Investir menos do que deveria",
+            "Guardar tudo na poupança",
+            "Nunca abrir o home broker"
+          ],
+          "correta": 0,
+          "explicacao": "Estudos mostram que quanto mais as pessoas operam confiando no próprio faro, pior tende a ser o resultado líquido."
+        },
+        {
+          "pergunta": "O que é FOMO no contexto de investimentos?",
+          "opcoes": [
+            "O medo de ficar de fora, que leva a comprar ativos em plena euforia, no topo do preço",
+            "Uma taxa da corretora",
+            "Um tipo de fundo imobiliário",
+            "Um indicador de inflação"
+          ],
+          "correta": 0,
+          "explicacao": "FOMO (fear of missing out) é o combustível das bolhas: todo mundo está ganhando, vou entrar também — geralmente perto do topo."
+        },
+        {
+          "pergunta": "O melhor antídoto contra os vieses comportamentais é...",
+          "opcoes": [
+            "Ter um plano de investimentos com critérios claros e segui-lo com disciplina",
+            "Confiar na intuição do momento",
+            "Seguir dicas quentes de grupos de mensagens",
+            "Olhar a carteira de hora em hora"
+          ],
+          "correta": 0,
+          "explicacao": "Critérios definidos com calma protegem você das decisões tomadas no calor da emoção."
+        }
+      ]
+    },
+    {
+      "id": "u7-l3",
+      "titulo": "Mentalidade de longo prazo",
+      "perguntas": [
+        {
+          "pergunta": "Tentar acertar consistentemente o melhor momento de comprar e vender (timing do mercado) é...",
+          "opcoes": [
+            "Praticamente impossível até para profissionais — a constância dos aportes costuma vencer",
+            "Fácil para quem acompanha notícias",
+            "Garantido com os aplicativos certos",
+            "A única forma de ganhar dinheiro"
+          ],
+          "correta": 0,
+          "explicacao": "Perder apenas os poucos melhores dias do mercado destrói boa parte do retorno de décadas — tempo NO mercado bate timing DE mercado."
+        },
+        {
+          "pergunta": "Aportes automáticos todo mês ajudam principalmente porque...",
+          "opcoes": [
+            "Tiram a emoção da decisão: você investe em qualquer cenário, sem depender de disciplina heroica",
+            "Rendem mais por serem automáticos",
+            "São isentos de impostos",
+            "Impedem qualquer perda"
+          ],
+          "correta": 0,
+          "explicacao": "Automatizar transforma o investimento em hábito — a decisão difícil é tomada uma única vez."
+        },
+        {
+          "pergunta": "Para quem investe pensando em décadas, as quedas de curto prazo são...",
+          "opcoes": [
+            "Normais e esperadas — e podem até ser oportunidades de comprar mais barato",
+            "Motivo para vender tudo imediatamente",
+            "Sinal de que investir não funciona",
+            "Culpa da corretora"
+          ],
+          "correta": 0,
+          "explicacao": "Volatilidade é o preço de entrada dos bons retornos de longo prazo. Quem entende isso dorme tranquilo nas crises."
+        },
+        {
+          "pergunta": "Checar a carteira de investimentos várias vezes por dia tende a aumentar a ansiedade e as decisões impulsivas.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Quanto mais você olha, mais quedas normais parecem emergências. Para o longo prazo, conferir de tempos em tempos basta."
+        },
+        {
+          "pergunta": "Qual é o maior ativo de um investidor jovem?",
+          "opcoes": [
+            "O tempo: décadas de juros compostos pela frente",
+            "Dicas de influenciadores",
+            "Sorte",
+            "Um salário alto desde o início"
+          ],
+          "correta": 0,
+          "explicacao": "Começar cedo, mesmo com pouco, vale mais do que começar tarde com muito — o tempo faz o trabalho pesado."
+        }
+      ]
     }
   ]
 }
