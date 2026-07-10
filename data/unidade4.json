@@ -58,6 +58,28 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "Diversificar internacionalmente reduz a concentração de risco em um único país, moeda ou ciclo econômico."
+        },
+        {
+          "pergunta": "Os BDRs são negociados em qual moeda?",
+          "opcoes": [
+            "Em reais, na própria B3",
+            "Em dólares, direto nos EUA",
+            "Em euros",
+            "Em criptomoedas"
+          ],
+          "correta": 0,
+          "explicacao": "Essa é a praticidade do BDR: você investe em empresas estrangeiras negociando em reais, sem abrir conta lá fora."
+        },
+        {
+          "pergunta": "Investir no exterior elimina todos os riscos da carteira?",
+          "opcoes": [
+            "Não — troca e dilui riscos, mas mercados internacionais também oscilam",
+            "Sim, o exterior não tem risco",
+            "Sim, se for nos EUA",
+            "Investir fora é sempre mais arriscado que no Brasil"
+          ],
+          "correta": 0,
+          "explicacao": "Diversificar reduz a concentração de risco, mas bolsas estrangeiras também caem — o objetivo é equilíbrio, não imunidade."
         }
       ]
     },
@@ -114,6 +136,23 @@
           ],
           "correta": 0,
           "explicacao": "A dose certa varia por pessoa. O consenso é apenas que ter alguma exposição internacional ajuda a diluir riscos."
+        },
+        {
+          "pergunta": "Quem tem gastos futuros em dólar (ex: viagem ou intercâmbio) tem um bom motivo para poupar em dólar.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Poupar na moeda do gasto futuro elimina o risco de o câmbio disparar justo antes do compromisso."
+        },
+        {
+          "pergunta": "Se o real se VALORIZA frente ao dólar, os investimentos dolarizados medidos em reais tendem a...",
+          "opcoes": [
+            "Cair — a proteção cambial funciona nos dois sentidos",
+            "Subir sempre",
+            "Ficar iguais",
+            "Ser confiscados"
+          ],
+          "correta": 0,
+          "explicacao": "O câmbio é uma via de mão dupla: quando o real ganha força, a parcela dolarizada perde valor em reais. Por isso é proteção, não aposta."
         }
       ]
     },
@@ -170,6 +209,23 @@
           ],
           "correta": 0,
           "explicacao": "REITs (Real Estate Investment Trusts) permitem investir no mercado imobiliário dos EUA, de forma parecida com os nossos FIIs."
+        },
+        {
+          "pergunta": "Ao converter reais em dólares para investir, existe custo tributário (IOF) na operação de câmbio.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "O IOF incide sobre operações de câmbio — some-o ao spread para conhecer o custo real de enviar dinheiro para fora."
+        },
+        {
+          "pergunta": "O formulário W-8BEN, comum ao abrir conta em corretora americana, serve para...",
+          "opcoes": [
+            "Declarar que você não é residente fiscal nos EUA, garantindo a tributação correta",
+            "Pedir cidadania americana",
+            "Isentar você de qualquer imposto no mundo",
+            "Cadastrar cartão de crédito"
+          ],
+          "correta": 0,
+          "explicacao": "O W-8BEN evita que você seja tributado como americano — com ele, dividendos de ações dos EUA sofrem a retenção padrão para estrangeiros."
         }
       ]
     }

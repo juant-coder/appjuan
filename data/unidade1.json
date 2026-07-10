@@ -304,6 +304,23 @@
           ],
           "correta": 0,
           "explicacao": "Títulos atrelados ao IPCA pagam a inflação mais uma taxa fixa, garantindo ganho real se levados até o vencimento."
+        },
+        {
+          "pergunta": "Qual órgão calcula o IPCA?",
+          "opcoes": ["IBGE", "Banco do Brasil", "B3", "Receita Federal"],
+          "correta": 0,
+          "explicacao": "O IPCA é calculado mensalmente pelo IBGE, o instituto oficial de estatística do Brasil."
+        },
+        {
+          "pergunta": "A inflação alta prejudica principalmente quem...",
+          "opcoes": [
+            "Deixa o dinheiro parado sem render",
+            "Investe em títulos atrelados ao IPCA",
+            "Tem dívidas prefixadas",
+            "Recebe salário em dólar"
+          ],
+          "correta": 0,
+          "explicacao": "Quem não investe vê o poder de compra derreter — a inflação é um imposto invisível sobre o dinheiro parado."
         }
       ]
     },
@@ -360,6 +377,28 @@
           ],
           "correta": 0,
           "explicacao": "Quanto mais perto o objetivo, menos tempo há para recuperar perdas — prazo curto pede segurança e liquidez."
+        },
+        {
+          "pergunta": "Liquidez diária (D+0 ou D+1) significa que...",
+          "opcoes": [
+            "O resgate cai na conta no mesmo dia ou no dia útil seguinte",
+            "O investimento rende todo dia em dobro",
+            "Só é possível resgatar uma vez por ano",
+            "O dinheiro fica preso por 30 dias"
+          ],
+          "correta": 0,
+          "explicacao": "D+0 e D+1 indicam em quantos dias úteis o dinheiro fica disponível após o pedido de resgate."
+        },
+        {
+          "pergunta": "Um investimento com carência é aquele em que...",
+          "opcoes": [
+            "O dinheiro fica travado até uma data mínima, reduzindo a liquidez",
+            "Não há nenhum rendimento",
+            "O resgate é sempre imediato",
+            "O banco pode ficar com o dinheiro"
+          ],
+          "correta": 0,
+          "explicacao": "Carência é o período em que o resgate não é permitido — em troca, esses produtos costumam pagar taxas melhores."
         }
       ]
     },
@@ -416,6 +455,28 @@
           ],
           "correta": 0,
           "explicacao": "Diversificar é não depender de um único ativo ou setor — se um vai mal, os outros equilibram a carteira."
+        },
+        {
+          "pergunta": "Corretagem zero significa que investir não tem nenhum custo?",
+          "opcoes": [
+            "Não — ainda podem existir spreads, taxas dos produtos e impostos",
+            "Sim, é tudo 100% gratuito",
+            "Sim, inclusive sem impostos",
+            "Corretagem zero é proibida no Brasil"
+          ],
+          "correta": 0,
+          "explicacao": "Mesmo sem corretagem, observe a taxa de administração de fundos, spreads de câmbio e o IR — o custo total é o que importa."
+        },
+        {
+          "pergunta": "O questionário de perfil do investidor (suitability) que a corretora aplica serve para...",
+          "opcoes": [
+            "Alinhar os produtos oferecidos ao seu perfil de risco e objetivos",
+            "Cobrar uma taxa extra",
+            "Liberar empréstimos",
+            "Nada, é só burocracia sem efeito"
+          ],
+          "correta": 0,
+          "explicacao": "O suitability é uma proteção: evita que produtos arriscados demais sejam recomendados para quem não tem perfil para eles."
         }
       ]
     }

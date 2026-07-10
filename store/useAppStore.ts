@@ -22,7 +22,12 @@ const initialState: AppState = {
   currentSession: null,
   theme: "dark",
   avatar: "🤑",
+  history: [],
+  reviewSuggested: false,
 };
+
+const XP_PER_REVIEW_CORRECT = 5;
+const REVIEW_AFTER_DAYS = 3;
 
 export const useAppStore = create<AppStore>()(
   persist(
@@ -38,10 +43,15 @@ export const useAppStore = create<AppStore>()(
             return {};
           }
           const gap = daysBetween(state.lastActiveDate, today);
+          const hasCompleted = Object.values(state.progress).some((p) => p.completed);
+          const changes: Partial<AppState> = {};
           if (gap > 1) {
-            return { streak: 0 };
+            changes.streak = 0;
           }
-          return {};
+          if (gap > REVIEW_AFTER_DAYS && hasCompleted) {
+            changes.reviewSuggested = true;
+          }
+          return changes;
         });
       },
 
@@ -138,6 +148,10 @@ export const useAppStore = create<AppStore>()(
                 perfect: existing?.perfect || perfect,
               },
             },
+            history: [
+              ...s.history,
+              { date: new Date().toISOString(), lessonId: session.lessonId, xpEarned },
+            ],
             currentSession: null,
           };
         });
@@ -183,6 +197,35 @@ export const useAppStore = create<AppStore>()(
 
       setAvatar: (avatar) => {
         set({ avatar });
+      },
+
+      completeReview: (correctCount) => {
+        const xpEarned = correctCount * XP_PER_REVIEW_CORRECT;
+        const today = todayStr();
+        set((s) => {
+          let newStreak = s.streak;
+          if (s.lastActiveDate !== today) {
+            newStreak =
+              s.lastActiveDate === null || daysBetween(s.lastActiveDate, today) === 1
+                ? s.streak + 1
+                : 1;
+          }
+          return {
+            xp: s.xp + xpEarned,
+            streak: newStreak,
+            lastActiveDate: today,
+            reviewSuggested: false,
+            history: [
+              ...s.history,
+              { date: new Date().toISOString(), lessonId: "revisao", xpEarned },
+            ],
+          };
+        });
+        return xpEarned;
+      },
+
+      dismissReview: () => {
+        set({ reviewSuggested: false });
       },
 
       checkAndAwardBadges: () => {

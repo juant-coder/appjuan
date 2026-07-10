@@ -125,6 +125,28 @@
           ],
           "correta": 0,
           "explicacao": "O Tesouro Selic quase não oscila e tem liquidez diária — perfeito para o dinheiro que pode ser necessário a qualquer momento."
+        },
+        {
+          "pergunta": "Quem garante os títulos do Tesouro Direto?",
+          "opcoes": [
+            "O Tesouro Nacional (governo federal), considerado o menor risco de crédito do país",
+            "O FGC",
+            "As corretoras",
+            "Ninguém"
+          ],
+          "correta": 0,
+          "explicacao": "Títulos públicos são garantidos pelo próprio governo federal — por isso são a referência de menor risco no Brasil."
+        },
+        {
+          "pergunta": "Sobre custos no Tesouro Direto, é correto dizer que...",
+          "opcoes": [
+            "Há uma pequena taxa de custódia anual da B3, com isenção no Tesouro Selic até R$10 mil",
+            "Não existe custo nenhum em nenhuma hipótese",
+            "A taxa é de 10% ao ano",
+            "Paga-se mensalidade fixa de R$100"
+          ],
+          "correta": 0,
+          "explicacao": "A B3 cobra uma taxa de custódia pequena ao ano (o Tesouro Selic é isento até R$10 mil investidos) — vale conhecer os custos antes de investir."
         }
       ]
     },
@@ -181,6 +203,18 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "Sim: LCI e LCA têm a mesma proteção do FGC dos CDBs, com a vantagem da isenção de IR para pessoa física."
+        },
+        {
+          "pergunta": "Entre um CDB de 110% do CDI e outro de 100% do CDI, de mesmo prazo e risco, qual rende mais?",
+          "opcoes": ["O de 110% do CDI", "O de 100% do CDI", "Rendem igual", "Nenhum rende"],
+          "correta": 0,
+          "explicacao": "110% do CDI rende 10% a mais que a taxa de referência — comparar percentuais do CDI é a forma padrão de escolher entre CDBs."
+        },
+        {
+          "pergunta": "A poupança costuma render menos que um CDB de 100% do CDI.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Na maioria dos cenários de juros, a poupança perde para CDBs de 100% do CDI mesmo depois de descontado o IR do CDB."
         }
       ]
     },
@@ -222,6 +256,28 @@
           ],
           "correta": 0,
           "explicacao": "O imposto morde só o lucro. Se você aplicou R$1.000 e resgatou R$1.100, o IR incide apenas sobre os R$100 de rendimento."
+        },
+        {
+          "pergunta": "Quem recolhe o IR dos seus CDBs e títulos do Tesouro?",
+          "opcoes": [
+            "A própria instituição, retido na fonte no resgate — você não precisa emitir guia",
+            "Você, todo mês, via boleto",
+            "O IR da renda fixa não existe",
+            "A prefeitura da sua cidade"
+          ],
+          "correta": 0,
+          "explicacao": "Na renda fixa o IR é retido na fonte automaticamente no resgate ou vencimento — sem trabalho extra para o investidor."
+        },
+        {
+          "pergunta": "O que é o come-cotas?",
+          "opcoes": [
+            "Uma antecipação semestral do IR que ocorre em certos fundos de investimento (maio e novembro)",
+            "Uma taxa da corretora",
+            "Um tipo de CDB",
+            "Um imposto sobre ações"
+          ],
+          "correta": 0,
+          "explicacao": "Em fundos de renda fixa e multimercado, o fisco antecipa parte do IR duas vezes por ano reduzindo o número de cotas — o famoso come-cotas."
         }
       ]
     }

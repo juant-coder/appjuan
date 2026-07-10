@@ -58,6 +58,23 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "Pequenos ajustes constantes se acumulam ao longo do tempo, liberando mais recursos para investimentos e objetivos financeiros."
+        },
+        {
+          "pergunta": "A regra 50-30-20 sugere dividir a renda em...",
+          "opcoes": [
+            "50% necessidades, 30% desejos e 20% poupança/investimentos",
+            "50% lazer, 30% comida e 20% aluguel",
+            "50% investimentos de risco e 50% apostas",
+            "Gastar tudo e poupar o que sobrar"
+          ],
+          "correta": 0,
+          "explicacao": "É um ponto de partida simples para organizar o orçamento — os percentuais podem ser adaptados à sua realidade."
+        },
+        {
+          "pergunta": "Gastos pequenos e frequentes (o cafezinho diário, apps de entrega) não fazem diferença no orçamento.",
+          "opcoes": ["Falso", "Verdadeiro"],
+          "correta": 0,
+          "explicacao": "Somados ao longo do mês e do ano, os pequenos gastos recorrentes podem consumir uma fatia enorme da renda — vale mapeá-los."
         }
       ]
     },
@@ -114,6 +131,28 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "O restante da fatura entra no rotativo, com juros altíssimos — o mínimo deve ser exceção absoluta, nunca hábito."
+        },
+        {
+          "pergunta": "O cheque especial é...",
+          "opcoes": [
+            "Um crédito automático da conta corrente com juros muito altos — para emergências extremas, não para o dia a dia",
+            "Um investimento que rende bem",
+            "Um presente do banco",
+            "Um tipo de poupança"
+          ],
+          "correta": 0,
+          "explicacao": "Entrar no cheque especial com frequência é sinal de orçamento apertado — os juros estão entre os mais caros do mercado."
+        },
+        {
+          "pergunta": "O que melhora o seu score de crédito ao longo do tempo?",
+          "opcoes": [
+            "Pagar contas e dívidas em dia, mantendo o nome limpo",
+            "Atrasar pagamentos pequenos",
+            "Nunca ter tido nenhuma conta",
+            "Trocar de banco toda semana"
+          ],
+          "correta": 0,
+          "explicacao": "Histórico de pagamento em dia é o principal fator — um bom score barateia crédito quando você realmente precisar."
         }
       ]
     },
@@ -175,6 +214,23 @@
           ],
           "correta": 0,
           "explicacao": "Casamento, filhos, mudança de emprego... o plano precisa acompanhar a vida real. Revisar ao menos uma vez por ano é uma boa prática."
+        },
+        {
+          "pergunta": "Em metas de longo prazo (ex: 20 anos), a inflação deve entrar na conta.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "R$1 milhão daqui a 20 anos compra bem menos que hoje — metas longas devem ser pensadas em valores reais, corrigidos pela inflação."
+        },
+        {
+          "pergunta": "Contar apenas com o INSS costuma ser suficiente para manter o padrão de vida na aposentadoria?",
+          "opcoes": [
+            "Geralmente não — o teto do INSS é limitado, e complementar com investimentos próprios é prudente",
+            "Sim, sempre",
+            "Sim, para qualquer salário",
+            "O INSS não existe mais"
+          ],
+          "correta": 0,
+          "explicacao": "Quem ganha acima do teto do INSS sente uma queda grande de renda ao se aposentar — a previdência própria cobre essa diferença."
         }
       ]
     }

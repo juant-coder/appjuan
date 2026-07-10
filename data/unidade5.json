@@ -125,6 +125,23 @@
           "opcoes": ["Falso", "Verdadeiro"],
           "correta": 0,
           "explicacao": "Trusts legítimos são declarados às autoridades. Usar estruturas para ocultar patrimônio é crime — o objetivo correto é organização e sucessão."
+        },
+        {
+          "pergunta": "Sem estrutura sucessória, herdar bens localizados no exterior pode exigir inventário no país onde os bens estão.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Cada país aplica suas próprias regras de sucessão aos bens em seu território — o que pode significar processos longos e caros em cada jurisdição."
+        },
+        {
+          "pergunta": "No trust, o beneficiário é...",
+          "opcoes": [
+            "Quem recebe os frutos ou o patrimônio, conforme as regras definidas pelo instituidor",
+            "Quem administra os bens",
+            "O governo do país onde o trust foi criado",
+            "O banco custodiante"
+          ],
+          "correta": 0,
+          "explicacao": "O beneficiário é o destinatário final: recebe rendimentos ou os próprios bens nas condições que o settlor estabeleceu."
         }
       ]
     },
@@ -181,6 +198,28 @@
           ],
           "correta": 0,
           "explicacao": "Cada caso tem particularidades fiscais e sucessórias. Estrutura errada custa caro — o barato aqui sai muito caro."
+        },
+        {
+          "pergunta": "Manter contas ou investimentos no exterior sem declarar pode gerar...",
+          "opcoes": [
+            "Multas pesadas e até responsabilização criminal",
+            "Nenhuma consequência",
+            "Apenas um aviso por e-mail",
+            "Desconto no IR"
+          ],
+          "correta": 0,
+          "explicacao": "Com a troca automática de informações entre países (CRS), esconder patrimônio ficou praticamente impossível — e as penalidades são severas."
+        },
+        {
+          "pergunta": "A residência fiscal de uma pessoa muda automaticamente quando ela viaja de férias para outro país?",
+          "opcoes": [
+            "Não — depende de critérios como saída definitiva declarada e tempo de permanência",
+            "Sim, a cada viagem",
+            "Sim, se ficar mais de uma semana",
+            "Residência fiscal não existe"
+          ],
+          "correta": 0,
+          "explicacao": "Turismo não muda residência fiscal. A mudança envolve declaração de saída definitiva e regras de permanência — com efeitos tributários importantes."
         }
       ]
     }

@@ -125,6 +125,23 @@
           ],
           "correta": 0,
           "explicacao": "Preço é o encontro entre compradores e vendedores: expectativas de lucro, notícias e cenário econômico movem essa balança o dia todo."
+        },
+        {
+          "pergunta": "O período do dia em que a bolsa está aberta para negociações chama-se pregão.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "O pregão da B3 funciona nos dias úteis, em horário definido — é quando as ordens de compra e venda são executadas."
+        },
+        {
+          "pergunta": "O lote padrão de negociação de ações na B3 é de...",
+          "opcoes": [
+            "100 ações — mas o mercado fracionário permite comprar a partir de 1",
+            "1.000 ações obrigatoriamente",
+            "10 ações no máximo",
+            "Não existe lote padrão"
+          ],
+          "correta": 0,
+          "explicacao": "No mercado fracionário (ticker com F no final, ex: PETR4F) dá para começar comprando uma única ação."
         }
       ]
     },
@@ -176,6 +193,28 @@
           ],
           "correta": 0,
           "explicacao": "O JCP é outra forma de a empresa distribuir resultado ao acionista, com tratamento tributário diferente do dividendo."
+        },
+        {
+          "pergunta": "O payout de uma empresa indica...",
+          "opcoes": [
+            "O percentual do lucro que ela distribui aos acionistas",
+            "O preço máximo da ação",
+            "O número de funcionários",
+            "A dívida total"
+          ],
+          "correta": 0,
+          "explicacao": "Payout de 50% significa que metade do lucro vai para os acionistas e a outra metade é reinvestida no negócio."
+        },
+        {
+          "pergunta": "Para receber os dividendos, é preciso vender a ação?",
+          "opcoes": [
+            "Não — o valor cai automaticamente na sua conta da corretora",
+            "Sim, sempre",
+            "Só se a corretora autorizar",
+            "Depende do valor"
+          ],
+          "correta": 0,
+          "explicacao": "Dividendos são creditados automaticamente a quem tinha a ação na data de corte — a ação continua sua."
         }
       ]
     },
@@ -232,6 +271,23 @@
           ],
           "correta": 0,
           "explicacao": "Comprar cota de FII é tão simples quanto comprar ação: basta enviar a ordem pelo home broker usando o ticker do fundo."
+        },
+        {
+          "pergunta": "O indicador P/VP de um FII compara...",
+          "opcoes": [
+            "O preço da cota com o valor patrimonial do fundo",
+            "O preço da cota com o preço do dólar",
+            "A vacância com o aluguel",
+            "O fundo com o Ibovespa"
+          ],
+          "correta": 0,
+          "explicacao": "P/VP abaixo de 1 sugere cota negociada abaixo do patrimônio; acima de 1, com ágio — sempre analise o motivo."
+        },
+        {
+          "pergunta": "Com que frequência os FIIs costumam pagar rendimentos?",
+          "opcoes": ["Mensalmente", "A cada 10 anos", "Somente na venda da cota", "Nunca"],
+          "correta": 0,
+          "explicacao": "A maioria dos FIIs distribui rendimentos todo mês — por isso são populares entre quem busca renda recorrente."
         }
       ]
     }

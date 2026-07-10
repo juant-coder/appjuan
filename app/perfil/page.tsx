@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import BottomNav from "@/components/layout/BottomNav";
 import BadgeGrid from "@/components/badges/BadgeGrid";
@@ -75,6 +76,15 @@ export default function PerfilPage() {
             ))}
           </div>
         </section>
+
+        {completedCount > 0 && (
+          <Link
+            href="/revisao"
+            className="block rounded-2xl border-b-4 border-black/25 bg-brand-green py-3 text-center font-extrabold text-white active:translate-y-0.5"
+          >
+            REVISAR O QUE JÁ APRENDI 🧠
+          </Link>
+        )}
 
         <section>
           <h2 className="mb-3 font-heading text-lg font-extrabold">Conquistas 🏆</h2>

@@ -78,7 +78,7 @@ export default function UnitSection({
         <p className="text-sm text-slate-500 dark:text-slate-400">{unit.descricao}</p>
       </header>
 
-      <div className="relative flex flex-col items-center gap-10">
+      <div className="relative flex flex-col items-center gap-10 pt-8">
         <span
           aria-hidden
           className="absolute inset-y-2 left-1/2 -ml-px border-l-2 border-dashed border-slate-300/70 dark:border-white/10"

@@ -130,6 +130,28 @@
           ],
           "correta": 0,
           "explicacao": "Critérios definidos com calma protegem você das decisões tomadas no calor da emoção."
+        },
+        {
+          "pergunta": "O efeito disposição leva o investidor a...",
+          "opcoes": [
+            "Vender rápido demais o que subiu e segurar tempo demais o que caiu",
+            "Comprar só na baixa",
+            "Nunca vender nada",
+            "Investir apenas em renda fixa"
+          ],
+          "correta": 0,
+          "explicacao": "Realizar lucros cedo dá prazer e assumir prejuízos dói — esse viés faz muita gente carregar abacaxi por anos."
+        },
+        {
+          "pergunta": "O home bias é a tendência de...",
+          "opcoes": [
+            "Concentrar os investimentos no próprio país só por familiaridade",
+            "Investir apenas em imóveis residenciais",
+            "Trabalhar de casa",
+            "Comprar ações de empresas de tecnologia"
+          ],
+          "correta": 0,
+          "explicacao": "O conforto do conhecido faz investidores ignorarem 95% do mercado global — diversificação internacional combate esse viés."
         }
       ]
     },
@@ -186,6 +208,28 @@
           ],
           "correta": 0,
           "explicacao": "Começar cedo, mesmo com pouco, vale mais do que começar tarde com muito — o tempo faz o trabalho pesado."
+        },
+        {
+          "pergunta": "Rebalancear a carteira significa...",
+          "opcoes": [
+            "Ajustar periodicamente os investimentos de volta às proporções planejadas",
+            "Vender tudo e recomeçar do zero",
+            "Trocar de corretora",
+            "Investir apenas no ativo que mais subiu"
+          ],
+          "correta": 0,
+          "explicacao": "Rebalancear força você a vender um pouco do que subiu e comprar o que ficou para trás — disciplina embutida na estratégia."
+        },
+        {
+          "pergunta": "As notícias e o noticiário diário devem ditar sua estratégia de investimentos?",
+          "opcoes": [
+            "Não — o plano de longo prazo deve prevalecer sobre o ruído do dia a dia",
+            "Sim, mudar de estratégia toda manhã",
+            "Sim, principalmente em época de eleição",
+            "Só as notícias de redes sociais"
+          ],
+          "correta": 0,
+          "explicacao": "Manchete existe para chamar atenção, não para orientar carteira. Estratégia se muda com fundamentos e objetivos, não com pânico do dia."
         }
       ]
     }
