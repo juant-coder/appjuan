@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - claude/investment-duolingo-mvp-n4ugxh
   workflow_dispatch:
 
 permissions:

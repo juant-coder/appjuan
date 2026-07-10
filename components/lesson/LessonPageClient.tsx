@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getLesson } from "@/lib/units";
 import { useAppStore } from "@/store/useAppStore";
@@ -121,11 +122,14 @@ export default function LessonPageClient({
 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="flex items-center gap-4 p-4">
+      <div className="mx-auto flex w-full max-w-md items-center gap-3 p-4">
+        <Link href="/" aria-label="Sair da missão" className="text-xl font-extrabold text-slate-400">
+          ✕
+        </Link>
         <LessonProgressBar current={currentSession.questionIndex + 1} total={totalQuestions} />
-        <HeartsDisplay />
+        <HeartsDisplay compact />
       </div>
-      <div className="mx-auto w-full max-w-2xl flex-1 p-4 pb-28">
+      <div className="mx-auto w-full max-w-md flex-1 p-4 pb-40">
         <QuestionCard
           question={question}
           selectedIndex={selectedIndex}

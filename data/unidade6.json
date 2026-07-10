@@ -58,6 +58,179 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "Pequenos ajustes constantes se acumulam ao longo do tempo, liberando mais recursos para investimentos e objetivos financeiros."
+        },
+        {
+          "pergunta": "A regra 50-30-20 sugere dividir a renda em...",
+          "opcoes": [
+            "50% necessidades, 30% desejos e 20% poupança/investimentos",
+            "50% lazer, 30% comida e 20% aluguel",
+            "50% investimentos de risco e 50% apostas",
+            "Gastar tudo e poupar o que sobrar"
+          ],
+          "correta": 0,
+          "explicacao": "É um ponto de partida simples para organizar o orçamento — os percentuais podem ser adaptados à sua realidade."
+        },
+        {
+          "pergunta": "Gastos pequenos e frequentes (o cafezinho diário, apps de entrega) não fazem diferença no orçamento.",
+          "opcoes": ["Falso", "Verdadeiro"],
+          "correta": 0,
+          "explicacao": "Somados ao longo do mês e do ano, os pequenos gastos recorrentes podem consumir uma fatia enorme da renda — vale mapeá-los."
+        }
+      ]
+    },
+    {
+      "id": "u6-l2",
+      "titulo": "Dívidas: os juros contra você",
+      "perguntas": [
+        {
+          "pergunta": "O rotativo do cartão de crédito tem juros...",
+          "opcoes": [
+            "Entre os mais altos do mercado, podendo passar de 400% ao ano",
+            "Baixíssimos, menores que a poupança",
+            "Iguais aos do Tesouro Selic",
+            "Fixos em 10% ao ano"
+          ],
+          "correta": 0,
+          "explicacao": "O rotativo é uma das dívidas mais caras que existem — deve ser evitado (ou quitado) a qualquer custo."
+        },
+        {
+          "pergunta": "Os juros compostos em uma dívida funcionam...",
+          "opcoes": [
+            "Contra você: a dívida cresce em cima de juros já acumulados, como uma bola de neve",
+            "A seu favor, reduzindo a dívida",
+            "Somente em dívidas pequenas",
+            "Apenas no primeiro mês"
+          ],
+          "correta": 0,
+          "explicacao": "O mesmo efeito que multiplica investimentos multiplica dívidas — só que no sentido inverso."
+        },
+        {
+          "pergunta": "Antes de começar a investir, o mais racional é...",
+          "opcoes": [
+            "Quitar as dívidas caras, como cartão e cheque especial",
+            "Manter as dívidas e investir em ações",
+            "Pegar mais empréstimos para investir",
+            "Ignorar as dívidas"
+          ],
+          "correta": 0,
+          "explicacao": "Nenhum investimento seguro rende mais do que custam as dívidas de cartão — quitá-las é o melhor investimento disponível."
+        },
+        {
+          "pergunta": "Trocar uma dívida cara por outra mais barata (ex: empréstimo consignado para quitar o cartão) chama-se...",
+          "opcoes": [
+            "Renegociação ou portabilidade de dívida",
+            "Alavancagem",
+            "Day trade",
+            "Aporte mensal"
+          ],
+          "correta": 0,
+          "explicacao": "Substituir juros altos por juros menores reduz o custo total e ajuda a sair do buraco mais rápido."
+        },
+        {
+          "pergunta": "Pagar apenas o valor mínimo da fatura do cartão faz a dívida crescer rapidamente no rotativo.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "O restante da fatura entra no rotativo, com juros altíssimos — o mínimo deve ser exceção absoluta, nunca hábito."
+        },
+        {
+          "pergunta": "O cheque especial é...",
+          "opcoes": [
+            "Um crédito automático da conta corrente com juros muito altos — para emergências extremas, não para o dia a dia",
+            "Um investimento que rende bem",
+            "Um presente do banco",
+            "Um tipo de poupança"
+          ],
+          "correta": 0,
+          "explicacao": "Entrar no cheque especial com frequência é sinal de orçamento apertado — os juros estão entre os mais caros do mercado."
+        },
+        {
+          "pergunta": "O que melhora o seu score de crédito ao longo do tempo?",
+          "opcoes": [
+            "Pagar contas e dívidas em dia, mantendo o nome limpo",
+            "Atrasar pagamentos pequenos",
+            "Nunca ter tido nenhuma conta",
+            "Trocar de banco toda semana"
+          ],
+          "correta": 0,
+          "explicacao": "Histórico de pagamento em dia é o principal fator — um bom score barateia crédito quando você realmente precisar."
+        }
+      ]
+    },
+    {
+      "id": "u6-l3",
+      "titulo": "Metas e planejamento de futuro",
+      "perguntas": [
+        {
+          "pergunta": "Uma boa meta financeira é...",
+          "opcoes": [
+            "Específica, com valor e prazo definidos — ex: juntar R$20 mil até dezembro de 2027",
+            "Vaga, tipo: ficar rico um dia",
+            "Impossível de medir",
+            "Secreta até para você mesmo"
+          ],
+          "correta": 0,
+          "explicacao": "Meta com valor e prazo vira plano: dá para calcular quanto aportar por mês e acompanhar o progresso."
+        },
+        {
+          "pergunta": "Na preparação para a aposentadoria, o maior aliado de quem começa cedo é...",
+          "opcoes": [
+            "O tempo, que potencializa os juros compostos",
+            "A sorte em apostas",
+            "Herança garantida",
+            "A loteria"
+          ],
+          "correta": 0,
+          "explicacao": "Décadas de juros compostos transformam aportes modestos em patrimônios enormes — cada ano adiantado vale muito."
+        },
+        {
+          "pergunta": "O que significa a regra pague-se primeiro?",
+          "opcoes": [
+            "Separar o valor do investimento assim que o salário cai, antes de qualquer gasto",
+            "Pagar todas as contas atrasadas primeiro",
+            "Gastar com lazer antes de tudo",
+            "Investir apenas o que sobrar no fim do mês"
+          ],
+          "correta": 0,
+          "explicacao": "Se você espera sobrar, raramente sobra. Automatizar o aporte logo que o dinheiro entra garante a constância."
+        },
+        {
+          "pergunta": "PGBL e VGBL são...",
+          "opcoes": [
+            "Planos de previdência privada, veículos de longo prazo com regras tributárias próprias",
+            "Tipos de conta corrente",
+            "Índices da bolsa",
+            "Moedas digitais"
+          ],
+          "correta": 0,
+          "explicacao": "São instrumentos de previdência complementar — a escolha entre PGBL e VGBL depende de como você declara o IR."
+        },
+        {
+          "pergunta": "Um plano financeiro deve ser revisado...",
+          "opcoes": [
+            "Periodicamente, pois renda, objetivos e a vida mudam",
+            "Nunca, depois de pronto é definitivo",
+            "Somente em crises",
+            "A cada 20 anos"
+          ],
+          "correta": 0,
+          "explicacao": "Casamento, filhos, mudança de emprego... o plano precisa acompanhar a vida real. Revisar ao menos uma vez por ano é uma boa prática."
+        },
+        {
+          "pergunta": "Em metas de longo prazo (ex: 20 anos), a inflação deve entrar na conta.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "R$1 milhão daqui a 20 anos compra bem menos que hoje — metas longas devem ser pensadas em valores reais, corrigidos pela inflação."
+        },
+        {
+          "pergunta": "Contar apenas com o INSS costuma ser suficiente para manter o padrão de vida na aposentadoria?",
+          "opcoes": [
+            "Geralmente não — o teto do INSS é limitado, e complementar com investimentos próprios é prudente",
+            "Sim, sempre",
+            "Sim, para qualquer salário",
+            "O INSS não existe mais"
+          ],
+          "correta": 0,
+          "explicacao": "Quem ganha acima do teto do INSS sente uma queda grande de renda ao se aposentar — a previdência própria cobre essa diferença."
         }
       ]
     }

@@ -71,6 +71,215 @@
           "explicacao": "Por isso são chamados de \"renda fixa\": as regras de rentabilidade (prefixada, pós-fixada ou híbrida) já são conhecidas na aplicação, tornando o comportamento mais previsível que o de ações."
         }
       ]
+    },
+    {
+      "id": "u2-l2",
+      "titulo": "Tesouro Direto na prática",
+      "perguntas": [
+        {
+          "pergunta": "O Tesouro Selic rende de acordo com...",
+          "opcoes": [
+            "A taxa Selic, a taxa básica de juros da economia",
+            "A inflação medida pelo IPCA",
+            "O preço do dólar",
+            "O desempenho da bolsa"
+          ],
+          "correta": 0,
+          "explicacao": "O Tesouro Selic acompanha a taxa básica de juros, rendendo um pouco todos os dias úteis, sem sustos."
+        },
+        {
+          "pergunta": "No Tesouro Prefixado, o investidor...",
+          "opcoes": [
+            "Conhece exatamente a taxa que vai receber se levar o título até o vencimento",
+            "Recebe sempre a inflação do período",
+            "Não sabe quanto vai receber",
+            "Recebe dividendos mensais"
+          ],
+          "correta": 0,
+          "explicacao": "No prefixado a taxa é travada na compra — você sabe no ato quanto terá no vencimento."
+        },
+        {
+          "pergunta": "O Tesouro IPCA+ paga...",
+          "opcoes": [
+            "A inflação (IPCA) mais uma taxa fixa, garantindo ganho real no vencimento",
+            "Somente a inflação",
+            "Somente uma taxa fixa",
+            "O rendimento da poupança"
+          ],
+          "correta": 0,
+          "explicacao": "Por pagar IPCA + taxa fixa, ele protege o poder de compra — ótimo para objetivos de longo prazo, como aposentadoria."
+        },
+        {
+          "pergunta": "Se você vender um título do Tesouro antes do vencimento, pode receber mais ou menos do que esperava.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Os preços dos títulos oscilam todos os dias (marcação a mercado). A taxa combinada só é garantida se você levar até o vencimento."
+        },
+        {
+          "pergunta": "Qual título público é o mais indicado para a reserva de emergência?",
+          "opcoes": [
+            "Tesouro Selic",
+            "Tesouro Prefixado de 10 anos",
+            "Tesouro IPCA+ 2045",
+            "Nenhum, reserva deve ficar em ações"
+          ],
+          "correta": 0,
+          "explicacao": "O Tesouro Selic quase não oscila e tem liquidez diária — perfeito para o dinheiro que pode ser necessário a qualquer momento."
+        },
+        {
+          "pergunta": "Quem garante os títulos do Tesouro Direto?",
+          "opcoes": [
+            "O Tesouro Nacional (governo federal), considerado o menor risco de crédito do país",
+            "O FGC",
+            "As corretoras",
+            "Ninguém"
+          ],
+          "correta": 0,
+          "explicacao": "Títulos públicos são garantidos pelo próprio governo federal — por isso são a referência de menor risco no Brasil."
+        },
+        {
+          "pergunta": "Sobre custos no Tesouro Direto, é correto dizer que...",
+          "opcoes": [
+            "Há uma pequena taxa de custódia anual da B3, com isenção no Tesouro Selic até R$10 mil",
+            "Não existe custo nenhum em nenhuma hipótese",
+            "A taxa é de 10% ao ano",
+            "Paga-se mensalidade fixa de R$100"
+          ],
+          "correta": 0,
+          "explicacao": "A B3 cobra uma taxa de custódia pequena ao ano (o Tesouro Selic é isento até R$10 mil investidos) — vale conhecer os custos antes de investir."
+        }
+      ]
+    },
+    {
+      "id": "u2-l3",
+      "titulo": "CDB, CDI e a proteção do FGC",
+      "perguntas": [
+        {
+          "pergunta": "O que é o CDI?",
+          "opcoes": [
+            "Uma taxa de referência dos empréstimos entre bancos, que anda colada na Selic",
+            "Um tipo de conta corrente",
+            "Um imposto sobre investimentos",
+            "O índice oficial de inflação"
+          ],
+          "correta": 0,
+          "explicacao": "O CDI é a taxa dos empréstimos de um dia entre bancos e serve de referência para a maioria dos investimentos de renda fixa."
+        },
+        {
+          "pergunta": "Um CDB que paga 100% do CDI significa que ele...",
+          "opcoes": [
+            "Rende o equivalente à taxa do CDI no período",
+            "Rende 100% ao ano",
+            "Dobra seu dinheiro",
+            "Não tem rendimento"
+          ],
+          "correta": 0,
+          "explicacao": "100% do CDI = seu dinheiro rende a variação integral da taxa CDI. 110% do CDI renderia 10% a mais que isso, e assim por diante."
+        },
+        {
+          "pergunta": "O FGC (Fundo Garantidor de Créditos) protege depósitos e CDBs até...",
+          "opcoes": [
+            "R$250 mil por CPF por instituição financeira",
+            "R$10 mil no total",
+            "R$1 milhão sem limites",
+            "Não existe proteção"
+          ],
+          "correta": 0,
+          "explicacao": "Se o banco quebrar, o FGC devolve até R$250 mil por CPF por instituição (com teto global de R$1 milhão a cada 4 anos)."
+        },
+        {
+          "pergunta": "Por que CDBs de bancos menores costumam pagar percentuais maiores do CDI?",
+          "opcoes": [
+            "Porque precisam oferecer mais retorno para atrair investidores, já que têm risco maior",
+            "Porque são obrigados por lei",
+            "Porque rendem menos na prática",
+            "Porque não têm garantia nenhuma"
+          ],
+          "correta": 0,
+          "explicacao": "É a relação risco x retorno: bancos menores compensam o risco maior com taxas melhores — e o FGC ajuda a mitigar esse risco dentro do limite."
+        },
+        {
+          "pergunta": "LCI e LCA também contam com a proteção do FGC.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Sim: LCI e LCA têm a mesma proteção do FGC dos CDBs, com a vantagem da isenção de IR para pessoa física."
+        },
+        {
+          "pergunta": "Entre um CDB de 110% do CDI e outro de 100% do CDI, de mesmo prazo e risco, qual rende mais?",
+          "opcoes": ["O de 110% do CDI", "O de 100% do CDI", "Rendem igual", "Nenhum rende"],
+          "correta": 0,
+          "explicacao": "110% do CDI rende 10% a mais que a taxa de referência — comparar percentuais do CDI é a forma padrão de escolher entre CDBs."
+        },
+        {
+          "pergunta": "A poupança costuma render menos que um CDB de 100% do CDI.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Na maioria dos cenários de juros, a poupança perde para CDBs de 100% do CDI mesmo depois de descontado o IR do CDB."
+        }
+      ]
+    },
+    {
+      "id": "u2-l4",
+      "titulo": "Impostos na renda fixa",
+      "perguntas": [
+        {
+          "pergunta": "Na tabela regressiva do IR, aplicações de até 180 dias pagam qual alíquota sobre o rendimento?",
+          "opcoes": ["22,5%", "15%", "10%", "27,5%"],
+          "correta": 0,
+          "explicacao": "A tabela começa em 22,5% (até 180 dias) e vai caindo: 20% (181 a 360), 17,5% (361 a 720) e 15% (acima de 720 dias)."
+        },
+        {
+          "pergunta": "Após 2 anos aplicado (mais de 720 dias), o IR sobre o rendimento cai para...",
+          "opcoes": ["15%", "22,5%", "20%", "Zero"],
+          "correta": 0,
+          "explicacao": "15% é a menor alíquota da tabela regressiva — mais um incentivo para investir com horizonte longo."
+        },
+        {
+          "pergunta": "O IOF incide sobre resgates feitos em menos de...",
+          "opcoes": ["30 dias", "1 ano", "6 meses", "Nunca incide"],
+          "correta": 0,
+          "explicacao": "Resgates em menos de 30 dias pagam IOF regressivo sobre o rendimento (96% no 1º dia, zerando no 30º)."
+        },
+        {
+          "pergunta": "LCI e LCA são isentas de Imposto de Renda para pessoa física.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Essa isenção é o grande atrativo delas — para comparar com um CDB, calcule o rendimento líquido de imposto."
+        },
+        {
+          "pergunta": "O Imposto de Renda na renda fixa incide sobre...",
+          "opcoes": [
+            "Apenas o rendimento (lucro), nunca sobre o valor total aplicado",
+            "O valor total aplicado",
+            "O dobro do rendimento",
+            "O saldo da conta corrente"
+          ],
+          "correta": 0,
+          "explicacao": "O imposto morde só o lucro. Se você aplicou R$1.000 e resgatou R$1.100, o IR incide apenas sobre os R$100 de rendimento."
+        },
+        {
+          "pergunta": "Quem recolhe o IR dos seus CDBs e títulos do Tesouro?",
+          "opcoes": [
+            "A própria instituição, retido na fonte no resgate — você não precisa emitir guia",
+            "Você, todo mês, via boleto",
+            "O IR da renda fixa não existe",
+            "A prefeitura da sua cidade"
+          ],
+          "correta": 0,
+          "explicacao": "Na renda fixa o IR é retido na fonte automaticamente no resgate ou vencimento — sem trabalho extra para o investidor."
+        },
+        {
+          "pergunta": "O que é o come-cotas?",
+          "opcoes": [
+            "Uma antecipação semestral do IR que ocorre em certos fundos de investimento (maio e novembro)",
+            "Uma taxa da corretora",
+            "Um tipo de CDB",
+            "Um imposto sobre ações"
+          ],
+          "correta": 0,
+          "explicacao": "Em fundos de renda fixa e multimercado, o fisco antecipa parte do IR duas vezes por ano reduzindo o número de cotas — o famoso come-cotas."
+        }
+      ]
     }
   ]
 }

@@ -16,7 +16,9 @@ export default function QuestionCard({
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="font-heading text-xl font-extrabold text-brand-dark">{question.pergunta}</h1>
+      <h1 className="font-heading text-xl font-extrabold text-slate-900 dark:text-white">
+        {question.pergunta}
+      </h1>
       <div className="flex flex-col gap-3">
         {question.opcoes.map((opcao, index) => {
           let state: "default" | "selected-correct" | "selected-incorrect" | "correct-reveal" =

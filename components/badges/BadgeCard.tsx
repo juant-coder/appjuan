@@ -11,17 +11,17 @@ export default function BadgeCard({
 }) {
   return (
     <div
-      className={`flex flex-col items-center gap-1 rounded-2xl border p-4 text-center ${
+      className={`flex flex-col items-center gap-1 rounded-2xl border-2 p-4 text-center ${
         earned
-          ? "border-brand-gold bg-amber-50"
-          : "border-slate-200 bg-slate-50 grayscale opacity-60"
+          ? "border-brand-gold bg-amber-50 dark:bg-amber-400/10"
+          : "border-slate-200 bg-slate-50 opacity-60 grayscale dark:border-slate-700 dark:bg-slate-800/50"
       }`}
     >
       <span className="text-3xl">{badge.icone}</span>
-      <span className="text-sm font-bold">{badge.titulo}</span>
-      <span className="text-xs text-slate-500">{badge.descricao}</span>
+      <span className="text-sm font-extrabold">{badge.titulo}</span>
+      <span className="text-xs text-slate-500 dark:text-slate-400">{badge.descricao}</span>
       {earned && earnedAt && (
-        <span className="text-[10px] text-slate-400">
+        <span className="text-[10px] text-slate-400 dark:text-slate-500">
           {new Date(earnedAt).toLocaleDateString("pt-BR")}
         </span>
       )}

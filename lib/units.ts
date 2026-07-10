@@ -10,12 +10,12 @@ import unidade7 from "@/data/unidade7.json";
 
 export const ALL_UNITS: Unit[] = [
   unidade1,
+  unidade6,
+  unidade7,
   unidade2,
   unidade3,
   unidade4,
   unidade5,
-  unidade6,
-  unidade7,
 ] as Unit[];
 
 export function getUnit(unitId: string): Unit | undefined {

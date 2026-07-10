@@ -12,7 +12,7 @@ function formatRemaining(ms: number): string {
   return `${minutes}min`;
 }
 
-export default function HeartsDisplay() {
+export default function HeartsDisplay({ compact = false }: { compact?: boolean }) {
   const hearts = useAppStore((s) => s.hearts);
   const heartsUpdatedAt = useAppStore((s) => s.heartsUpdatedAt);
   const regenerateHearts = useAppStore((s) => s.regenerateHearts);
@@ -32,6 +32,17 @@ export default function HeartsDisplay() {
       ? new Date(heartsUpdatedAt).getTime() + intervalMs - Date.now()
       : 0;
 
+  if (compact) {
+    return (
+      <span
+        className="font-extrabold text-red-500"
+        title={hearts < MAX_HEARTS_COUNT ? `+1 em ${formatRemaining(remainingMs)}` : `${hearts}/${MAX_HEARTS_COUNT} vidas`}
+      >
+        ❤️ {hearts}
+      </span>
+    );
+  }
+
   return (
     <div className="flex items-center gap-1" title={`${hearts}/${MAX_HEARTS_COUNT} vidas`}>
       <div className="flex gap-0.5 text-lg leading-none">
@@ -42,7 +53,9 @@ export default function HeartsDisplay() {
         ))}
       </div>
       {hearts < MAX_HEARTS_COUNT && (
-        <span className="text-xs text-slate-500 ml-1">+1 em {formatRemaining(remainingMs)}</span>
+        <span className="ml-1 text-xs text-slate-500 dark:text-slate-400">
+          +1 em {formatRemaining(remainingMs)}
+        </span>
       )}
     </div>
   );

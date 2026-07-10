@@ -58,6 +58,174 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "Diversificar internacionalmente reduz a concentração de risco em um único país, moeda ou ciclo econômico."
+        },
+        {
+          "pergunta": "Os BDRs são negociados em qual moeda?",
+          "opcoes": [
+            "Em reais, na própria B3",
+            "Em dólares, direto nos EUA",
+            "Em euros",
+            "Em criptomoedas"
+          ],
+          "correta": 0,
+          "explicacao": "Essa é a praticidade do BDR: você investe em empresas estrangeiras negociando em reais, sem abrir conta lá fora."
+        },
+        {
+          "pergunta": "Investir no exterior elimina todos os riscos da carteira?",
+          "opcoes": [
+            "Não — troca e dilui riscos, mas mercados internacionais também oscilam",
+            "Sim, o exterior não tem risco",
+            "Sim, se for nos EUA",
+            "Investir fora é sempre mais arriscado que no Brasil"
+          ],
+          "correta": 0,
+          "explicacao": "Diversificar reduz a concentração de risco, mas bolsas estrangeiras também caem — o objetivo é equilíbrio, não imunidade."
+        }
+      ]
+    },
+    {
+      "id": "u4-l2",
+      "titulo": "Dólar e proteção cambial",
+      "perguntas": [
+        {
+          "pergunta": "Quando o real se desvaloriza frente ao dólar, os investimentos dolarizados, medidos em reais...",
+          "opcoes": [
+            "Tendem a se valorizar",
+            "Tendem a cair na mesma proporção",
+            "Não mudam nunca",
+            "São confiscados"
+          ],
+          "correta": 0,
+          "explicacao": "Se o dólar sobe de R$5 para R$6, os mesmos US$100 investidos passam a valer mais em reais — é o efeito da proteção cambial."
+        },
+        {
+          "pergunta": "A diversificação cambial protege o investidor principalmente contra...",
+          "opcoes": [
+            "Crises locais e desvalorização da moeda do próprio país",
+            "Qualquer queda da bolsa americana",
+            "Inflação dos Estados Unidos",
+            "Taxas de corretagem"
+          ],
+          "correta": 0,
+          "explicacao": "Com parte do patrimônio em outras moedas, uma crise doméstica que derrube o real não atinge todo o seu patrimônio."
+        },
+        {
+          "pergunta": "No mundo dos investimentos, o que significa hedge?",
+          "opcoes": [
+            "Uma proteção contra oscilações indesejadas, como a variação do câmbio",
+            "Um tipo de fundo imobiliário",
+            "Um imposto internacional",
+            "Uma ordem de compra automática"
+          ],
+          "correta": 0,
+          "explicacao": "Hedge é qualquer estratégia usada para reduzir ou neutralizar um risco — o dólar costuma funcionar como hedge para brasileiros."
+        },
+        {
+          "pergunta": "Em momentos de turbulência global, o dólar historicamente tende a se fortalecer, por ser visto como moeda de refúgio.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Em crises, investidores do mundo todo correm para ativos considerados seguros — e o dólar é o principal deles."
+        },
+        {
+          "pergunta": "Qual é o percentual ideal do patrimônio para se ter no exterior?",
+          "opcoes": [
+            "Não existe número único: depende do perfil, dos objetivos e do momento de vida de cada um",
+            "Exatamente 50% para todo mundo",
+            "100%, sempre",
+            "0%, nunca vale a pena"
+          ],
+          "correta": 0,
+          "explicacao": "A dose certa varia por pessoa. O consenso é apenas que ter alguma exposição internacional ajuda a diluir riscos."
+        },
+        {
+          "pergunta": "Quem tem gastos futuros em dólar (ex: viagem ou intercâmbio) tem um bom motivo para poupar em dólar.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Poupar na moeda do gasto futuro elimina o risco de o câmbio disparar justo antes do compromisso."
+        },
+        {
+          "pergunta": "Se o real se VALORIZA frente ao dólar, os investimentos dolarizados medidos em reais tendem a...",
+          "opcoes": [
+            "Cair — a proteção cambial funciona nos dois sentidos",
+            "Subir sempre",
+            "Ficar iguais",
+            "Ser confiscados"
+          ],
+          "correta": 0,
+          "explicacao": "O câmbio é uma via de mão dupla: quando o real ganha força, a parcela dolarizada perde valor em reais. Por isso é proteção, não aposta."
+        }
+      ]
+    },
+    {
+      "id": "u4-l3",
+      "titulo": "Investindo lá fora na prática",
+      "perguntas": [
+        {
+          "pergunta": "Quais são caminhos comuns para investir no exterior?",
+          "opcoes": [
+            "BDRs e ETFs internacionais na B3, ou conta em corretora estrangeira",
+            "Somente comprando imóveis em outro país",
+            "Apenas levando dinheiro vivo na viagem",
+            "Não é permitido a brasileiros"
+          ],
+          "correta": 0,
+          "explicacao": "Dá para começar sem sair da B3 (BDRs, ETFs internacionais) ou abrir conta em corretora no exterior para comprar os ativos diretamente."
+        },
+        {
+          "pergunta": "Um ETF que replica o índice S&P 500 investe em...",
+          "opcoes": [
+            "As cerca de 500 maiores empresas listadas nos Estados Unidos",
+            "Apenas 5 empresas de tecnologia",
+            "Títulos do governo brasileiro",
+            "Imóveis americanos"
+          ],
+          "correta": 0,
+          "explicacao": "Com uma única cota, você vira sócio de centenas das maiores empresas do mundo — diversificação instantânea."
+        },
+        {
+          "pergunta": "Ao investir direto por uma corretora estrangeira, quais custos merecem atenção?",
+          "opcoes": [
+            "O câmbio (spread) na conversão de reais para dólares e eventuais tarifas de remessa",
+            "Nenhum, é tudo gratuito",
+            "Apenas o estacionamento da corretora",
+            "Uma taxa fixa de 50% do valor"
+          ],
+          "correta": 0,
+          "explicacao": "O maior custo costuma estar na conversão da moeda — compare o spread cambial e as tarifas antes de enviar dinheiro."
+        },
+        {
+          "pergunta": "Ganhos obtidos no exterior precisam ser declarados à Receita Federal do Brasil.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Residentes fiscais no Brasil declaram seus bens e rendimentos globais — manter tudo em dia evita multas."
+        },
+        {
+          "pergunta": "O que são REITs?",
+          "opcoes": [
+            "Os primos americanos dos FIIs: veículos que investem em imóveis e distribuem renda",
+            "Títulos do tesouro americano",
+            "Criptomoedas",
+            "Ações de bancos europeus"
+          ],
+          "correta": 0,
+          "explicacao": "REITs (Real Estate Investment Trusts) permitem investir no mercado imobiliário dos EUA, de forma parecida com os nossos FIIs."
+        },
+        {
+          "pergunta": "Ao converter reais em dólares para investir, existe custo tributário (IOF) na operação de câmbio.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "O IOF incide sobre operações de câmbio — some-o ao spread para conhecer o custo real de enviar dinheiro para fora."
+        },
+        {
+          "pergunta": "O formulário W-8BEN, comum ao abrir conta em corretora americana, serve para...",
+          "opcoes": [
+            "Declarar que você não é residente fiscal nos EUA, garantindo a tributação correta",
+            "Pedir cidadania americana",
+            "Isentar você de qualquer imposto no mundo",
+            "Cadastrar cartão de crédito"
+          ],
+          "correta": 0,
+          "explicacao": "O W-8BEN evita que você seja tributado como americano — com ele, dividendos de ações dos EUA sofrem a retenção padrão para estrangeiros."
         }
       ]
     }

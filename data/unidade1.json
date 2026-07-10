@@ -255,6 +255,230 @@
           "explicacao": "O perfil de risco não é fixo — pode evoluir conforme mudam a idade, a renda, os objetivos e a tolerância pessoal a oscilações."
         }
       ]
+    },
+    {
+      "id": "u1-l4",
+      "titulo": "Inflação e poder de compra",
+      "perguntas": [
+        {
+          "pergunta": "O que o IPCA mede?",
+          "opcoes": [
+            "A inflação oficial do Brasil, ou seja, a variação média dos preços ao consumidor",
+            "A taxa de juros dos bancos",
+            "O lucro das empresas da bolsa",
+            "O valor do dólar"
+          ],
+          "correta": 0,
+          "explicacao": "O IPCA é o índice oficial de inflação do Brasil, calculado pelo IBGE a partir da variação dos preços de produtos e serviços."
+        },
+        {
+          "pergunta": "Se a inflação do ano foi 5% e seu investimento rendeu 5%, seu poder de compra praticamente não mudou.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Nesse caso o ganho real foi próximo de zero: o rendimento apenas compensou o aumento dos preços."
+        },
+        {
+          "pergunta": "O que é rentabilidade real?",
+          "opcoes": [
+            "O rendimento do investimento descontada a inflação do período",
+            "O rendimento antes de impostos",
+            "O rendimento prometido pelo banco",
+            "Qualquer rendimento acima de 1% ao mês"
+          ],
+          "correta": 0,
+          "explicacao": "Rentabilidade real é o que sobra do rendimento depois de descontar a inflação — é ela que mostra se você ficou mais rico de verdade."
+        },
+        {
+          "pergunta": "Deixar dinheiro parado por 10 anos, sem render nada, faz ele comprar menos coisas no futuro.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Com a inflação acumulada ao longo dos anos, o mesmo valor passa a comprar cada vez menos."
+        },
+        {
+          "pergunta": "Qual investimento protege mais diretamente o poder de compra contra a inflação?",
+          "opcoes": [
+            "Títulos atrelados ao IPCA, como o Tesouro IPCA+",
+            "Dinheiro guardado em casa",
+            "Conta corrente sem rendimento",
+            "Qualquer ação da bolsa"
+          ],
+          "correta": 0,
+          "explicacao": "Títulos atrelados ao IPCA pagam a inflação mais uma taxa fixa, garantindo ganho real se levados até o vencimento."
+        },
+        {
+          "pergunta": "Qual órgão calcula o IPCA?",
+          "opcoes": ["IBGE", "Banco do Brasil", "B3", "Receita Federal"],
+          "correta": 0,
+          "explicacao": "O IPCA é calculado mensalmente pelo IBGE, o instituto oficial de estatística do Brasil."
+        },
+        {
+          "pergunta": "A inflação alta prejudica principalmente quem...",
+          "opcoes": [
+            "Deixa o dinheiro parado sem render",
+            "Investe em títulos atrelados ao IPCA",
+            "Tem dívidas prefixadas",
+            "Recebe salário em dólar"
+          ],
+          "correta": 0,
+          "explicacao": "Quem não investe vê o poder de compra derreter — a inflação é um imposto invisível sobre o dinheiro parado."
+        }
+      ]
+    },
+    {
+      "id": "u1-l5",
+      "titulo": "Liquidez, risco e retorno",
+      "perguntas": [
+        {
+          "pergunta": "O que é liquidez?",
+          "opcoes": [
+            "A facilidade e a rapidez de transformar um investimento em dinheiro disponível",
+            "O rendimento anual de um investimento",
+            "A taxa cobrada pela corretora",
+            "O risco de perder dinheiro"
+          ],
+          "correta": 0,
+          "explicacao": "Liquidez é a rapidez com que você consegue resgatar seu dinheiro sem perder valor no processo."
+        },
+        {
+          "pergunta": "Não existe investimento que tenha, ao mesmo tempo, máxima segurança, máxima liquidez e máximo retorno.",
+          "opcoes": ["Verdadeiro", "Falso"],
+          "correta": 0,
+          "explicacao": "Esse é o tripé dos investimentos: sempre há uma troca entre segurança, liquidez e retorno — desconfie de promessas com os três."
+        },
+        {
+          "pergunta": "Qual destes é um exemplo de investimento com alta liquidez?",
+          "opcoes": [
+            "Tesouro Selic, com resgate em um dia útil",
+            "Um imóvel",
+            "Uma obra de arte",
+            "Participação em uma empresa fechada"
+          ],
+          "correta": 0,
+          "explicacao": "O Tesouro Selic permite resgate rápido e sem grandes oscilações, por isso é referência de liquidez."
+        },
+        {
+          "pergunta": "Um imóvel é um exemplo clássico de investimento com...",
+          "opcoes": [
+            "Baixa liquidez, pois vender pode levar meses",
+            "Alta liquidez, pois vende em minutos",
+            "Nenhum risco",
+            "Rendimento garantido"
+          ],
+          "correta": 0,
+          "explicacao": "Imóveis podem levar meses (ou anos) para serem vendidos pelo preço justo — baixa liquidez."
+        },
+        {
+          "pergunta": "Para um objetivo de curto prazo (ex: viagem em 6 meses), o ideal é priorizar...",
+          "opcoes": [
+            "Liquidez e segurança, mesmo que renda menos",
+            "O maior retorno possível, aceitando alto risco",
+            "Ações de empresas pequenas",
+            "Imóveis"
+          ],
+          "correta": 0,
+          "explicacao": "Quanto mais perto o objetivo, menos tempo há para recuperar perdas — prazo curto pede segurança e liquidez."
+        },
+        {
+          "pergunta": "Liquidez diária (D+0 ou D+1) significa que...",
+          "opcoes": [
+            "O resgate cai na conta no mesmo dia ou no dia útil seguinte",
+            "O investimento rende todo dia em dobro",
+            "Só é possível resgatar uma vez por ano",
+            "O dinheiro fica preso por 30 dias"
+          ],
+          "correta": 0,
+          "explicacao": "D+0 e D+1 indicam em quantos dias úteis o dinheiro fica disponível após o pedido de resgate."
+        },
+        {
+          "pergunta": "Um investimento com carência é aquele em que...",
+          "opcoes": [
+            "O dinheiro fica travado até uma data mínima, reduzindo a liquidez",
+            "Não há nenhum rendimento",
+            "O resgate é sempre imediato",
+            "O banco pode ficar com o dinheiro"
+          ],
+          "correta": 0,
+          "explicacao": "Carência é o período em que o resgate não é permitido — em troca, esses produtos costumam pagar taxas melhores."
+        }
+      ]
+    },
+    {
+      "id": "u1-l6",
+      "titulo": "Começando na prática",
+      "perguntas": [
+        {
+          "pergunta": "Onde uma pessoa física normalmente compra investimentos como Tesouro Direto, CDBs e ações?",
+          "opcoes": [
+            "Em uma corretora de valores ou banco de investimentos",
+            "Direto na sede das empresas",
+            "Apenas em agências físicas de banco",
+            "Em casas de câmbio"
+          ],
+          "correta": 0,
+          "explicacao": "Corretoras (e bancos com plataforma de investimentos) são a porta de entrada — a abertura de conta costuma ser gratuita e online."
+        },
+        {
+          "pergunta": "É preciso ser rico para começar a investir.",
+          "opcoes": ["Falso", "Verdadeiro"],
+          "correta": 0,
+          "explicacao": "Dá para começar com pouco: há títulos do Tesouro a partir de cerca de R$30 e fundos com aplicação mínima baixa."
+        },
+        {
+          "pergunta": "O que costuma pesar mais na construção de patrimônio no longo prazo?",
+          "opcoes": [
+            "A constância dos aportes mensais, mesmo que pequenos",
+            "Acertar um único grande investimento",
+            "Esperar o momento perfeito para investir tudo de uma vez",
+            "Trocar de investimento toda semana"
+          ],
+          "correta": 0,
+          "explicacao": "Aportes regulares somados aos juros compostos constroem mais patrimônio do que tentativas de tacada única."
+        },
+        {
+          "pergunta": "Qual passo deve vir antes de investir em ativos de risco?",
+          "opcoes": [
+            "Montar a reserva de emergência",
+            "Comprar ações de empresas pequenas",
+            "Pegar um empréstimo para investir",
+            "Investir tudo em criptomoedas"
+          ],
+          "correta": 0,
+          "explicacao": "A reserva de emergência vem primeiro: ela evita que você precise vender investimentos de risco na hora errada."
+        },
+        {
+          "pergunta": "O que significa diversificar?",
+          "opcoes": [
+            "Distribuir o dinheiro entre diferentes tipos de investimento para reduzir riscos",
+            "Concentrar tudo no investimento que mais rendeu no passado",
+            "Ter contas em vários bancos",
+            "Comprar apenas ações de um mesmo setor"
+          ],
+          "correta": 0,
+          "explicacao": "Diversificar é não depender de um único ativo ou setor — se um vai mal, os outros equilibram a carteira."
+        },
+        {
+          "pergunta": "Corretagem zero significa que investir não tem nenhum custo?",
+          "opcoes": [
+            "Não — ainda podem existir spreads, taxas dos produtos e impostos",
+            "Sim, é tudo 100% gratuito",
+            "Sim, inclusive sem impostos",
+            "Corretagem zero é proibida no Brasil"
+          ],
+          "correta": 0,
+          "explicacao": "Mesmo sem corretagem, observe a taxa de administração de fundos, spreads de câmbio e o IR — o custo total é o que importa."
+        },
+        {
+          "pergunta": "O questionário de perfil do investidor (suitability) que a corretora aplica serve para...",
+          "opcoes": [
+            "Alinhar os produtos oferecidos ao seu perfil de risco e objetivos",
+            "Cobrar uma taxa extra",
+            "Liberar empréstimos",
+            "Nada, é só burocracia sem efeito"
+          ],
+          "correta": 0,
+          "explicacao": "O suitability é uma proteção: evita que produtos arriscados demais sejam recomendados para quem não tem perfil para eles."
+        }
+      ]
     }
   ]
 }
