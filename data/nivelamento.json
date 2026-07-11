@@ -1,0 +1,59 @@
+{
+  "perguntas": [
+    {
+      "pergunta": "Para que serve a reserva de emergência?",
+      "opcoes": [
+        "Cobrir imprevistos sem precisar vender investimentos na hora errada",
+        "Apostar em ações de risco",
+        "Pagar menos imposto",
+        "Nada, é dinheiro perdido"
+      ],
+      "correta": 0,
+      "explicacao": "A reserva de emergência é a base de tudo: dinheiro líquido e seguro para imprevistos."
+    },
+    {
+      "pergunta": "Juros compostos são...",
+      "opcoes": [
+        "Juros que incidem sobre o valor inicial mais os juros já acumulados",
+        "Juros calculados só sobre o valor inicial",
+        "Um imposto do governo",
+        "Uma taxa fixa da corretora"
+      ],
+      "correta": 0,
+      "explicacao": "Juros sobre juros — o motor do crescimento (ou das dívidas) no longo prazo."
+    },
+    {
+      "pergunta": "Um CDB que paga 100% do CDI...",
+      "opcoes": [
+        "Rende o equivalente à taxa CDI, que anda colada na Selic",
+        "Rende 100% ao ano garantidos",
+        "Não tem rendimento",
+        "É a mesma coisa que poupança"
+      ],
+      "correta": 0,
+      "explicacao": "O CDI é a referência da renda fixa — CDBs são comparados por percentual dele."
+    },
+    {
+      "pergunta": "Vender um Tesouro Prefixado antes do vencimento pode dar prejuízo mesmo sendo renda fixa. Por quê?",
+      "opcoes": [
+        "Pela marcação a mercado: o preço do título oscila diariamente com os juros",
+        "Porque o governo aplica multa",
+        "Impossível, renda fixa nunca oscila",
+        "Porque o banco fica com metade"
+      ],
+      "correta": 0,
+      "explicacao": "A taxa combinada só é garantida no vencimento — antes disso, o preço flutua com o mercado de juros."
+    },
+    {
+      "pergunta": "Na tabela regressiva do IR da renda fixa, a menor alíquota (15%) vale para aplicações mantidas por...",
+      "opcoes": [
+        "Mais de 720 dias",
+        "Até 30 dias",
+        "Exatos 6 meses",
+        "Qualquer prazo"
+      ],
+      "correta": 0,
+      "explicacao": "Quanto mais tempo investido, menor o imposto — 15% é o piso, acima de 2 anos."
+    }
+  ]
+}

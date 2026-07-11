@@ -13,8 +13,9 @@ import LessonResult from "@/components/lesson/LessonResult";
 import HeartsDisplay from "@/components/hearts/HeartsDisplay";
 
 const BADGE_DEFINITIONS = badgesData as BadgeDefinition[];
+const MASTERY_THRESHOLD = 0.7;
 
-type Phase = "playing" | "feedback" | "result" | "failed";
+type Phase = "playing" | "feedback" | "result" | "failed" | "retry";
 
 export default function LessonPageClient({
   unitId,
@@ -35,7 +36,11 @@ export default function LessonPageClient({
 
   const [phase, setPhase] = useState<Phase>("playing");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [feedback, setFeedback] = useState<{ correct: boolean; explicacao: string } | null>(null);
+  const [feedback, setFeedback] = useState<{
+    correct: boolean;
+    explicacao: string;
+    respostaCerta?: string;
+  } | null>(null);
   const [result, setResult] = useState<{
     xpEarned: number;
     perfect: boolean;
@@ -55,11 +60,15 @@ export default function LessonPageClient({
   }, [unitId, lessonId]);
 
   if (!lesson) {
-    return <div className="p-8 text-center">Lição não encontrada.</div>;
+    return <div className="p-8 text-center">Missão não encontrada.</div>;
   }
 
-  if (phase === "failed" || (hearts <= 0 && !currentSession && phase !== "result")) {
+  if (phase === "failed" || (hearts <= 0 && !currentSession && phase !== "result" && phase !== "retry")) {
     return <LessonResult mode="failed" />;
+  }
+
+  if (phase === "retry") {
+    return <LessonResult mode="retry" />;
   }
 
   if (phase === "result" && result) {
@@ -79,18 +88,22 @@ export default function LessonPageClient({
   }
 
   if (!currentSession) {
-    return <div className="p-8 text-center">Carregando lição...</div>;
+    return <div className="p-8 text-center">Carregando missão...</div>;
   }
 
   const totalQuestions = lesson.perguntas.length;
   const question = lesson.perguntas[currentSession.questionIndex];
   const isLastQuestion = currentSession.questionIndex >= totalQuestions - 1;
 
-  function handleSelect(index: number) {
-    if (selectedIndex !== null) return;
-    const answer = answerQuestion(index);
-    setSelectedIndex(index);
-    setFeedback({ correct: answer.correct, explicacao: answer.explicacao });
+  function handleAnswer(answer: number | string) {
+    if (feedback) return;
+    const res = answerQuestion(answer);
+    setSelectedIndex(typeof answer === "number" ? answer : null);
+    setFeedback({
+      correct: res.correct,
+      explicacao: res.explicacao,
+      respostaCerta: !res.correct ? res.respostaCerta : undefined,
+    });
     setPhase("feedback");
   }
 
@@ -103,6 +116,12 @@ export default function LessonPageClient({
     if (isLastQuestion) {
       if (!currentSession) return;
       const { correctCount, incorrectCount } = currentSession;
+      // Domínio mínimo: sem 70% de acerto a missão não conta — refazer.
+      if (correctCount / totalQuestions < MASTERY_THRESHOLD) {
+        resetSession();
+        setPhase("retry");
+        return;
+      }
       const lessonResult = completeLesson();
       setResult({
         xpEarned: lessonResult.xpEarned,
@@ -133,14 +152,16 @@ export default function LessonPageClient({
         <QuestionCard
           question={question}
           selectedIndex={selectedIndex}
-          correctIndex={selectedIndex !== null ? question.correta : null}
-          onSelect={handleSelect}
+          correctIndex={feedback ? question.correta ?? null : null}
+          answeredCorrect={feedback ? feedback.correct : null}
+          onAnswer={handleAnswer}
         />
       </div>
       {phase === "feedback" && feedback && (
         <FeedbackBanner
           correct={feedback.correct}
           explicacao={feedback.explicacao}
+          respostaCerta={feedback.respostaCerta}
           onContinue={handleContinue}
         />
       )}

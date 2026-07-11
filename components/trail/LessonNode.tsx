@@ -12,6 +12,7 @@ export default function LessonNode({
   color,
   missionNumber,
   offset,
+  highlight = false,
 }: {
   unitId: string;
   lessonId: string;
@@ -20,12 +21,13 @@ export default function LessonNode({
   color: string;
   missionNumber: number;
   offset: number;
+  highlight?: boolean;
 }) {
   const locked = state === "locked";
 
   const node = (
     <div className="relative flex flex-col items-center" style={{ transform: `translateX(${offset}px)` }}>
-      {state === "current" && (
+      {highlight && (
         <span
           className="absolute -top-9 z-10 animate-bounce rounded-xl bg-white px-3 py-1 text-xs font-extrabold shadow-md dark:bg-slate-800"
           style={{ color }}
@@ -38,7 +40,7 @@ export default function LessonNode({
           locked
             ? "border-black/10 bg-slate-300 text-slate-500 dark:border-black/30 dark:bg-slate-700 dark:text-slate-400"
             : "border-black/25 text-white active:translate-y-1 active:border-b-4"
-        } ${state === "current" ? "animate-pulse-ring" : ""}`}
+        } ${highlight ? "animate-pulse-ring" : ""}`}
         style={locked ? undefined : { backgroundColor: color }}
       >
         {locked ? "🔒" : missionNumber}

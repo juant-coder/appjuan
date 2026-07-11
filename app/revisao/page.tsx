@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { Question } from "@/types/content";
 import { ALL_UNITS } from "@/lib/units";
+import { checkAnswer } from "@/lib/questions";
 import { useAppStore } from "@/store/useAppStore";
 import QuestionCard from "@/components/lesson/QuestionCard";
 import FeedbackBanner from "@/components/lesson/FeedbackBanner";
@@ -79,12 +80,12 @@ export default function RevisaoPage() {
   const question = questions[index];
   const isLast = index >= questions.length - 1;
 
-  function handleSelect(optionIndex: number) {
-    if (selectedIndex !== null || !questions) return;
+  function handleAnswer(answer: number | string) {
+    if (feedback || !questions) return;
     const q = questions[index];
-    const correct = optionIndex === q.correta;
+    const correct = checkAnswer(q, answer);
     if (correct) setCorrectCount((c) => c + 1);
-    setSelectedIndex(optionIndex);
+    setSelectedIndex(typeof answer === "number" ? answer : null);
     setFeedback({ correct, explicacao: q.explicacao });
   }
 
@@ -114,8 +115,9 @@ export default function RevisaoPage() {
         <QuestionCard
           question={question}
           selectedIndex={selectedIndex}
-          correctIndex={selectedIndex !== null ? question.correta : null}
-          onSelect={handleSelect}
+          correctIndex={feedback ? question.correta ?? null : null}
+          answeredCorrect={feedback ? feedback.correct : null}
+          onAnswer={handleAnswer}
         />
       </div>
       {feedback && (

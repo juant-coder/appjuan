@@ -253,6 +253,18 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "O perfil de risco não é fixo — pode evoluir conforme mudam a idade, a renda, os objetivos e a tolerância pessoal a oscilações."
+        },
+        {
+          "cenario": "João juntou R$8.000 e quer trocar de carro daqui a 6 meses. Ele viu que ações de uma empresa famosa subiram 40% no último ano e está tentado a colocar tudo lá para o dinheiro render mais até a compra.",
+          "pergunta": "Qual é a melhor decisão para o João?",
+          "opcoes": [
+            "Deixar o dinheiro em um investimento seguro e líquido (ex: Tesouro Selic), pois o prazo é curto e o objetivo é certo",
+            "Colocar tudo nas ações, já que subiram 40% no passado",
+            "Metade em ações e metade em criptomoedas",
+            "Guardar o dinheiro em casa"
+          ],
+          "correta": 0,
+          "explicacao": "Objetivo certo em prazo curto não combina com renda variável: uma queda nos 6 meses poderia adiar a troca do carro. Rentabilidade passada não garante futuro."
         }
       ]
     },
@@ -321,6 +333,13 @@
           ],
           "correta": 0,
           "explicacao": "Quem não investe vê o poder de compra derreter — a inflação é um imposto invisível sobre o dinheiro parado."
+        },
+        {
+          "tipo": "digite",
+          "pergunta": "Complete digitando: o índice oficial que mede a inflação no Brasil é o ______.",
+          "resposta": "IPCA",
+          "aceitas": ["ipca", "o ipca"],
+          "explicacao": "IPCA — Índice Nacional de Preços ao Consumidor Amplo, calculado pelo IBGE."
         }
       ]
     },

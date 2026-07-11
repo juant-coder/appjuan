@@ -215,6 +215,13 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "Na maioria dos cenários de juros, a poupança perde para CDBs de 100% do CDI mesmo depois de descontado o IR do CDB."
+        },
+        {
+          "tipo": "digite",
+          "pergunta": "Complete digitando a sigla: a taxa de referência da renda fixa, que anda colada na Selic, é o ______.",
+          "resposta": "CDI",
+          "aceitas": ["cdi", "o cdi"],
+          "explicacao": "CDI — Certificado de Depósito Interbancário, a régua usada para comparar quase toda a renda fixa."
         }
       ]
     },

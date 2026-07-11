@@ -1,10 +1,12 @@
 export default function FeedbackBanner({
   correct,
   explicacao,
+  respostaCerta,
   onContinue,
 }: {
   correct: boolean;
   explicacao: string;
+  respostaCerta?: string;
   onContinue: () => void;
 }) {
   return (
@@ -24,6 +26,11 @@ export default function FeedbackBanner({
         >
           {correct ? "Lucro na conta! 📈" : "O mercado caiu... 📉"}
         </p>
+        {!correct && respostaCerta && (
+          <p className="mt-1 text-sm font-extrabold text-red-700 dark:text-red-300">
+            Resposta certa: {respostaCerta}
+          </p>
+        )}
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{explicacao}</p>
         <button
           type="button"

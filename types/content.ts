@@ -1,7 +1,15 @@
 export interface Question {
   pergunta: string;
-  opcoes: string[];
-  correta: number;
+  /** "escolha" (padrão): múltipla escolha · "digite": responder digitando */
+  tipo?: "escolha" | "digite";
+  /** Texto de cenário/estudo de caso exibido antes da pergunta */
+  cenario?: string;
+  opcoes?: string[];
+  correta?: number;
+  /** Resposta esperada quando tipo === "digite" */
+  resposta?: string;
+  /** Variações aceitas da resposta digitada */
+  aceitas?: string[];
   explicacao: string;
 }
 

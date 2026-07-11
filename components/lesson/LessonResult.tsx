@@ -32,13 +32,32 @@ export default function LessonResult({
   perfect,
   newBadgeTitles,
 }: {
-  mode: "success" | "failed";
+  mode: "success" | "failed" | "retry";
   xpEarned?: number;
   correctCount?: number;
   incorrectCount?: number;
   perfect?: boolean;
   newBadgeTitles?: string[];
 }) {
+  if (mode === "retry") {
+    return (
+      <div className="mx-auto flex min-h-screen max-w-md flex-col items-center justify-center gap-4 p-8 text-center">
+        <span className="animate-bounce-in text-6xl">🎯</span>
+        <h1 className="font-heading text-2xl font-extrabold">Quase lá!</h1>
+        <p className="text-slate-500 dark:text-slate-400">
+          Para dominar a missão você precisa acertar pelo menos 70% dos desafios. Revise as
+          explicações e tente de novo — é assim que o conhecimento gruda de verdade.
+        </p>
+        <Link
+          href="/"
+          className="mt-2 rounded-2xl border-b-4 border-black/25 bg-brand-green px-6 py-3 font-extrabold text-white active:translate-y-0.5"
+        >
+          TENTAR NOVAMENTE
+        </Link>
+      </div>
+    );
+  }
+
   if (mode === "failed") {
     return (
       <div className="mx-auto flex min-h-screen max-w-md flex-col items-center justify-center gap-4 p-8 text-center">

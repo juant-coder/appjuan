@@ -3,6 +3,7 @@ import { persist } from "zustand/middleware";
 import type { AppState, AppStore } from "@/types/store";
 import { todayStr, daysBetween } from "@/lib/date";
 import { getLesson } from "@/lib/units";
+import { checkAnswer } from "@/lib/questions";
 import { evaluateBadges } from "@/lib/badges";
 
 const MAX_HEARTS = 5;
@@ -24,6 +25,9 @@ const initialState: AppState = {
   avatar: "🤑",
   history: [],
   reviewSuggested: false,
+  onboarded: false,
+  focus: [],
+  unlockedUpTo: 0,
 };
 
 const XP_PER_REVIEW_CORRECT = 5;
@@ -68,7 +72,7 @@ export const useAppStore = create<AppStore>()(
         });
       },
 
-      answerQuestion: (optionIndex) => {
+      answerQuestion: (answer) => {
         const state = get();
         const session = state.currentSession;
         if (!session) {
@@ -79,7 +83,7 @@ export const useAppStore = create<AppStore>()(
         if (!question) {
           return { correct: false, correctIndex: -1, explicacao: "" };
         }
-        const correct = optionIndex === question.correta;
+        const correct = checkAnswer(question, answer);
 
         set((s) => {
           if (!s.currentSession) return {};
@@ -97,7 +101,12 @@ export const useAppStore = create<AppStore>()(
           get().loseHeart();
         }
 
-        return { correct, correctIndex: question.correta, explicacao: question.explicacao };
+        return {
+          correct,
+          correctIndex: question.correta ?? -1,
+          explicacao: question.explicacao,
+          respostaCerta: question.resposta,
+        };
       },
 
       nextQuestion: () => {
@@ -226,6 +235,10 @@ export const useAppStore = create<AppStore>()(
 
       dismissReview: () => {
         set({ reviewSuggested: false });
+      },
+
+      completeOnboarding: (focus, unlockedUpTo) => {
+        set({ focus, unlockedUpTo, onboarded: true });
       },
 
       checkAndAwardBadges: () => {
