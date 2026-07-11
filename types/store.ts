@@ -23,6 +23,7 @@ export interface AnswerResult {
   correct: boolean;
   correctIndex: number;
   explicacao: string;
+  respostaCerta?: string;
 }
 
 export interface CompleteLessonResult {
@@ -52,12 +53,15 @@ export interface AppState {
   avatar: string;
   history: HistoryEntry[];
   reviewSuggested: boolean;
+  onboarded: boolean;
+  focus: string[];
+  unlockedUpTo: number;
 }
 
 export interface AppActions {
   hydrateOnLoad: () => void;
   startLesson: (unitId: string, lessonId: string) => void;
-  answerQuestion: (optionIndex: number) => AnswerResult;
+  answerQuestion: (answer: number | string) => AnswerResult;
   nextQuestion: () => void;
   completeLesson: () => CompleteLessonResult;
   loseHeart: () => void;
@@ -68,6 +72,7 @@ export interface AppActions {
   setAvatar: (avatar: string) => void;
   completeReview: (correctCount: number) => number;
   dismissReview: () => void;
+  completeOnboarding: (focus: string[], unlockedUpTo: number) => void;
 }
 
 export type AppStore = AppState & AppActions;

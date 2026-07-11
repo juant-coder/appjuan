@@ -1,11 +1,13 @@
 import Header from "@/components/layout/Header";
 import BottomNav from "@/components/layout/BottomNav";
 import ReviewBanner from "@/components/layout/ReviewBanner";
+import OnboardingGate from "@/components/layout/OnboardingGate";
 import TrailMap from "@/components/trail/TrailMap";
 
 export default function Home() {
   return (
     <>
+      <OnboardingGate />
       <Header />
       <main>
         <ReviewBanner />

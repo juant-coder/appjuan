@@ -32,13 +32,24 @@ export function getAllLessonIdsFlat(): string[] {
 
 export function isLessonUnlocked(
   lessonId: string,
-  progress: Record<string, LessonProgress>
+  progress: Record<string, LessonProgress>,
+  unlockedUpTo = 0
 ): boolean {
   const flat = getAllLessonIdsFlat();
   const index = flat.indexOf(lessonId);
-  if (index <= 0) return true;
+  if (index <= 0 || index <= unlockedUpTo) return true;
   const previousLessonId = flat[index - 1];
   return Boolean(progress[previousLessonId]?.completed);
+}
+
+/** Índice global da primeira lição de cada seção, na ordem da trilha. */
+export function getSectionStartIndexes(): number[] {
+  let acc = 0;
+  return ALL_UNITS.map((u) => {
+    const start = acc;
+    acc += u.licoes.length;
+    return start;
+  });
 }
 
 export function isUnitComplete(unitId: string, progress: Record<string, LessonProgress>): boolean {

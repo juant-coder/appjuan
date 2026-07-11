@@ -10,14 +10,14 @@ investimento (regras CVM). Parcerias exibidas com disclaimer individual.
 
 ## Fase 1 — Mecânica de estudo completa (front-end, sem backend)
 
-- [ ] **Domínio para avançar**: só concluir a missão com mínimo de acertos
+- [x] **Domínio para avançar**: só concluir a missão com mínimo de acertos
       (ex: ≥70%); errou demais → refazer. Nada de passar "de qualquer jeito".
 - [ ] **Meta diária estilo Duolingo**: usuário escolhe 5/10/15/25 min por dia
       (ou XP equivalente); anel de progresso diário na home; streak passa a
       contar meta batida.
-- [ ] **Novos formatos de pergunta**: completar a frase digitando; estudo de
+- [x] **Novos formatos de pergunta**: completar a frase digitando; estudo de
       caso com cenário (texto + pergunta); manter múltipla escolha e V/F.
-- [ ] **Prova de nivelamento geral**: teste inicial que posiciona o usuário
+- [x] **Prova de nivelamento geral**: teste inicial que posiciona o usuário
       no ponto certo da trilha (desbloqueia seções compatíveis com o nível).
 
 ## Fase 2 — Contas e nuvem (Supabase)

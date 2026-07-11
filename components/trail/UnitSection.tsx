@@ -10,11 +10,15 @@ export default function UnitSection({
   progress,
   startIndex,
   nivel,
+  unlockedUpTo,
+  highlightIndex,
 }: {
   unit: Unit;
   progress: Record<string, LessonProgress>;
   startIndex: number;
   nivel: number;
+  unlockedUpTo: number;
+  highlightIndex: number;
 }) {
   const gridColor = `${unit.cor}14`;
 
@@ -86,7 +90,7 @@ export default function UnitSection({
         {unit.licoes.map((lesson, i) => {
           const globalIndex = startIndex + i;
           const completed = Boolean(progress[lesson.id]?.completed);
-          const unlocked = isLessonUnlocked(lesson.id, progress);
+          const unlocked = isLessonUnlocked(lesson.id, progress, unlockedUpTo);
           const state = completed ? "completed" : unlocked ? "current" : "locked";
           return (
             <LessonNode
@@ -98,6 +102,7 @@ export default function UnitSection({
               color={unit.cor}
               missionNumber={globalIndex + 1}
               offset={Math.round(Math.sin(globalIndex * 1.05) * 46)}
+              highlight={globalIndex === highlightIndex}
             />
           );
         })}

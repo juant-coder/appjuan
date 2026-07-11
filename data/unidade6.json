@@ -153,6 +153,18 @@
           ],
           "correta": 0,
           "explicacao": "Histórico de pagamento em dia é o principal fator — um bom score barateia crédito quando você realmente precisar."
+        },
+        {
+          "cenario": "A fatura do cartão da Ana chegou em R$3.000, mas ela só tem R$1.500 disponíveis este mês. O banco oferece: pagar o mínimo (R$300) e deixar o resto no rotativo, ou parcelar a fatura em 6x com juros bem menores.",
+          "pergunta": "Qual é a atitude mais inteligente para a Ana?",
+          "opcoes": [
+            "Parcelar a fatura com juros menores e cortar gastos para quitar o quanto antes",
+            "Pagar só o mínimo e deixar o resto no rotativo",
+            "Ignorar a fatura este mês",
+            "Fazer um novo cartão para pagar o antigo"
+          ],
+          "correta": 0,
+          "explicacao": "O rotativo tem os juros mais altos do mercado. Entre as opções ruins, o parcelamento com juros menores é o menor dano — junto com um plano para quitar rápido."
         }
       ]
     },

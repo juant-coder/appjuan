@@ -90,6 +90,13 @@ export default function PerfilPage() {
           <h2 className="mb-3 font-heading text-lg font-extrabold">Conquistas 🏆</h2>
           <BadgeGrid />
         </section>
+
+        <a
+          href="mailto:juantarosa@gmail.com?subject=Feedback%20Grana%2B&body=O%20que%20achei%3A%0A%0AO%20que%20senti%20falta%3A%0A%0AO%20que%20me%20faria%20voltar%20amanh%C3%A3%3A"
+          className="block rounded-2xl border-2 border-b-4 border-slate-300 py-3 text-center font-extrabold text-slate-600 active:translate-y-0.5 dark:border-slate-600 dark:text-slate-300"
+        >
+          💬 ENVIAR FEEDBACK / SUGESTÃO
+        </a>
       </main>
       <BottomNav />
     </>
