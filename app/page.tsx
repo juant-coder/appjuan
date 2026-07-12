@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import BottomNav from "@/components/layout/BottomNav";
 import ReviewBanner from "@/components/layout/ReviewBanner";
 import OnboardingGate from "@/components/layout/OnboardingGate";
+import Disclaimer from "@/components/layout/Disclaimer";
 import TrailMap from "@/components/trail/TrailMap";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
     <>
       <OnboardingGate />
       <Header />
-      <main>
+      <main className="pb-24">
         <ReviewBanner />
         <div className="mx-auto max-w-md px-4 pt-4">
           <h1 className="font-heading text-xl font-extrabold">Sua trilha de investidor 🚀</h1>
@@ -18,6 +19,7 @@ export default function Home() {
           </p>
         </div>
         <TrailMap />
+        <Disclaimer />
       </main>
       <BottomNav />
     </>

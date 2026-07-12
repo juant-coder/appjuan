@@ -4,6 +4,8 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import BottomNav from "@/components/layout/BottomNav";
 import BadgeGrid from "@/components/badges/BadgeGrid";
+import Disclaimer from "@/components/layout/Disclaimer";
+import BackupSection from "@/components/layout/BackupSection";
 import { useAppStore } from "@/store/useAppStore";
 
 const AVATARS = [
@@ -97,6 +99,10 @@ export default function PerfilPage() {
         >
           💬 ENVIAR FEEDBACK / SUGESTÃO
         </a>
+
+        <BackupSection />
+
+        <Disclaimer />
       </main>
       <BottomNav />
     </>

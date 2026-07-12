@@ -92,6 +92,9 @@ export default function OnboardingPage() {
         >
           Pular — quero começar do zero
         </button>
+        <p className="text-center text-[11px] leading-relaxed text-slate-400 dark:text-slate-500">
+          Conteúdo exclusivamente educacional — o Grana+ não faz recomendação de investimentos.
+        </p>
       </div>
     );
   }
