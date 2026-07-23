@@ -1,3 +1,5 @@
+import type { Answer } from "@/types/content";
+
 export interface LessonProgress {
   lessonId: string;
   completed: boolean;
@@ -24,6 +26,8 @@ export interface AnswerResult {
   correctIndex: number;
   explicacao: string;
   respostaCerta?: string;
+  /** Reflexão da opção escolhida numa simulação de decisão (tipo "decisao") */
+  reflexao?: string;
 }
 
 export interface CompleteLessonResult {
@@ -61,7 +65,7 @@ export interface AppState {
 export interface AppActions {
   hydrateOnLoad: () => void;
   startLesson: (unitId: string, lessonId: string) => void;
-  answerQuestion: (answer: number | string) => AnswerResult;
+  answerQuestion: (answer: Answer) => AnswerResult;
   nextQuestion: () => void;
   completeLesson: () => CompleteLessonResult;
   loseHeart: () => void;

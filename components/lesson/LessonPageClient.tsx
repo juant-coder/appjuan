@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { Answer } from "@/types/content";
 import { getLesson } from "@/lib/units";
 import { useAppStore } from "@/store/useAppStore";
 import badgesData from "@/data/badges.json";
@@ -40,6 +41,7 @@ export default function LessonPageClient({
     correct: boolean;
     explicacao: string;
     respostaCerta?: string;
+    reflexao?: string;
   } | null>(null);
   const [result, setResult] = useState<{
     xpEarned: number;
@@ -95,7 +97,7 @@ export default function LessonPageClient({
   const question = lesson.perguntas[currentSession.questionIndex];
   const isLastQuestion = currentSession.questionIndex >= totalQuestions - 1;
 
-  function handleAnswer(answer: number | string) {
+  function handleAnswer(answer: Answer) {
     if (feedback) return;
     const res = answerQuestion(answer);
     setSelectedIndex(typeof answer === "number" ? answer : null);
@@ -103,6 +105,7 @@ export default function LessonPageClient({
       correct: res.correct,
       explicacao: res.explicacao,
       respostaCerta: !res.correct ? res.respostaCerta : undefined,
+      reflexao: res.reflexao,
     });
     setPhase("feedback");
   }
@@ -162,6 +165,7 @@ export default function LessonPageClient({
           correct={feedback.correct}
           explicacao={feedback.explicacao}
           respostaCerta={feedback.respostaCerta}
+          reflexao={feedback.reflexao}
           onContinue={handleContinue}
         />
       )}

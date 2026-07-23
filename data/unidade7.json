@@ -69,6 +69,26 @@
           "opcoes": ["Verdadeiro", "Falso"],
           "correta": 0,
           "explicacao": "Manter o foco em objetivos de longo prazo ajuda a relativizar oscilações de curto prazo, favorecendo decisões mais racionais e disciplinadas."
+        },
+        {
+          "tipo": "decisao",
+          "cenario": "A bolsa caiu 15% em duas semanas por conta de uma crise política. Você tem uma parte do seu dinheiro em ações, com foco em longo prazo (aposentadoria daqui a 20 anos), e vê notícias alarmantes o dia todo.",
+          "pergunta": "O que você faz?",
+          "escolhas": [
+            {
+              "texto": "Vendo tudo agora, para não perder mais",
+              "reflexao": "Vender no meio de uma queda transforma uma perda no papel em perda de verdade — e historicamente quem vende no pânico costuma perder a recuperação que vem depois."
+            },
+            {
+              "texto": "Mantenho a estratégia e sigo investindo normalmente",
+              "reflexao": "Se o objetivo é longo prazo e nada mudou nos seus fundamentos financeiros, manter o plano (e até aproveitar preços mais baixos) costuma ser a atitude mais racional."
+            },
+            {
+              "texto": "Paro de olhar as notícias e de investir até a poeira baixar",
+              "reflexao": "Parar de acompanhar reduz a ansiedade, mas parar de investir também significa perder a chance de comprar mais barato — o ideal é manter o plano, só reduzir o consumo de notícias alarmistas."
+            }
+          ],
+          "explicacao": "Vender no pânico é um dos vieses mais caros do investidor — mas isso não significa ignorar a realidade, e sim ter um plano definido antes da crise chegar."
         }
       ]
     },
