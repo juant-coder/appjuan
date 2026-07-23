@@ -75,6 +75,18 @@
           "opcoes": ["Falso", "Verdadeiro"],
           "correta": 0,
           "explicacao": "Somados ao longo do mês e do ano, os pequenos gastos recorrentes podem consumir uma fatia enorme da renda — vale mapeá-los."
+        },
+        {
+          "tipo": "ordenar",
+          "pergunta": "Coloque na ordem certa os passos para montar um orçamento pessoal do zero:",
+          "passos": [
+            "Listar toda a renda mensal",
+            "Anotar todos os gastos, incluindo os pequenos",
+            "Separar gastos essenciais dos não essenciais",
+            "Definir quanto vai para poupança/investimentos antes de gastar o resto",
+            "Revisar o orçamento todo mês e ajustar o que não funcionou"
+          ],
+          "explicacao": "Sem saber quanto entra e quanto sai, é impossível decidir quanto investir com segurança — o orçamento vem antes de qualquer aplicação."
         }
       ]
     },
@@ -165,6 +177,26 @@
           ],
           "correta": 0,
           "explicacao": "O rotativo tem os juros mais altos do mercado. Entre as opções ruins, o parcelamento com juros menores é o menor dano — junto com um plano para quitar rápido."
+        },
+        {
+          "tipo": "decisao",
+          "cenario": "Você recebeu um bônus de R$5.000 no trabalho. Seu cartão de crédito tem uma dívida de R$2.000 com juros de cerca de 12% ao mês, mas você também não tem nenhuma reserva de emergência guardada.",
+          "pergunta": "O que você faz com o bônus?",
+          "escolhas": [
+            {
+              "texto": "Pago a dívida do cartão inteira",
+              "reflexao": "Juros de cartão passam de 100% ao ano — eliminar essa dívida costuma valer mais que qualquer investimento. Mas ficar sem nenhuma reserva pode te empurrar de volta pro cartão no primeiro imprevisto."
+            },
+            {
+              "texto": "Guardo tudo como reserva de emergência",
+              "reflexao": "Ter reserva é essencial, mas enquanto isso os juros do cartão continuam corroendo muito mais rápido do que qualquer rendimento da reserva."
+            },
+            {
+              "texto": "Divido: parte na dívida, parte na reserva",
+              "reflexao": "Essa costuma ser a escolha mais equilibrada: reduz a dívida mais cara e ainda deixa uma proteção mínima para não recorrer ao cartão de novo."
+            }
+          ],
+          "explicacao": "Não existe resposta 100% certa aqui — o importante é comparar o custo da dívida com a urgência da reserva antes de decidir."
         }
       ]
     },

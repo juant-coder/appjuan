@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import type { Question } from "@/types/content";
+import type { Answer, Question } from "@/types/content";
 import { ALL_UNITS } from "@/lib/units";
 import { checkAnswer } from "@/lib/questions";
 import { useAppStore } from "@/store/useAppStore";
@@ -27,7 +27,9 @@ export default function RevisaoPage() {
     const pool: Question[] = [];
     for (const unit of ALL_UNITS) {
       for (const lesson of unit.licoes) {
-        if (progress[lesson.id]?.completed) pool.push(...lesson.perguntas);
+        if (progress[lesson.id]?.completed) {
+          pool.push(...lesson.perguntas.filter((q) => q.tipo !== "calculadora"));
+        }
       }
     }
     const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, REVIEW_SIZE);
@@ -80,7 +82,7 @@ export default function RevisaoPage() {
   const question = questions[index];
   const isLast = index >= questions.length - 1;
 
-  function handleAnswer(answer: number | string) {
+  function handleAnswer(answer: Answer) {
     if (feedback || !questions) return;
     const q = questions[index];
     const correct = checkAnswer(q, answer);

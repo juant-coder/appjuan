@@ -164,6 +164,19 @@
           ],
           "correta": 0,
           "explicacao": "O grande poder dos juros compostos está em transformar aportes modestos e constantes em valores expressivos ao longo do tempo."
+        },
+        {
+          "tipo": "montar-frase",
+          "pergunta": "Monte a frase que define juros compostos:",
+          "banco": ["juros", "compostos", "incidem", "sobre", "o", "juros", "simples", "valor", "acumulado", "poupança"],
+          "respostaFrase": ["juros", "compostos", "incidem", "sobre", "o", "valor", "acumulado"],
+          "explicacao": "Juros compostos incidem sobre o valor acumulado — é o \"juros sobre juros\" que faz o dinheiro crescer mais rápido com o tempo."
+        },
+        {
+          "tipo": "calculadora",
+          "calculadora": "juros-compostos",
+          "pergunta": "Simule o efeito dos juros compostos no seu dinheiro",
+          "explicacao": "Repare como o valor final cresce muito mais rápido quanto mais tempo o dinheiro fica investido — esse é o efeito bola de neve na prática."
         }
       ]
     },
@@ -265,6 +278,12 @@
           ],
           "correta": 0,
           "explicacao": "Objetivo certo em prazo curto não combina com renda variável: uma queda nos 6 meses poderia adiar a troca do carro. Rentabilidade passada não garante futuro."
+        },
+        {
+          "tipo": "calculadora",
+          "calculadora": "reserva-emergencia",
+          "pergunta": "Calcule o tamanho ideal da sua reserva de emergência",
+          "explicacao": "O número certo depende da sua estabilidade de renda: quem tem renda variável ou é autônomo costuma mirar no topo da faixa (6 meses)."
         }
       ]
     },

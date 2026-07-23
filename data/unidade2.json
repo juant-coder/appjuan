@@ -222,6 +222,17 @@
           "resposta": "CDI",
           "aceitas": ["cdi", "o cdi"],
           "explicacao": "CDI — Certificado de Depósito Interbancário, a régua usada para comparar quase toda a renda fixa."
+        },
+        {
+          "tipo": "parear",
+          "pergunta": "Relacione cada termo à sua definição:",
+          "pares": [
+            { "esquerda": "CDI", "direita": "Taxa de referência dos empréstimos entre bancos" },
+            { "esquerda": "FGC", "direita": "Fundo que garante até R$250 mil por CPF por instituição" },
+            { "esquerda": "CDB", "direita": "Título de renda fixa emitido por um banco" },
+            { "esquerda": "Liquidez diária", "direita": "Poder resgatar o investimento a qualquer momento" }
+          ],
+          "explicacao": "Esses quatro termos aparecem juntos o tempo todo na renda fixa — vale a pena decorar a diferença entre eles."
         }
       ]
     },

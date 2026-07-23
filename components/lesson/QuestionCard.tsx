@@ -1,8 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { Question } from "@/types/content";
+import type { Answer, Question } from "@/types/content";
 import OptionButton from "@/components/lesson/OptionButton";
+import MatchPairs from "@/components/lesson/MatchPairs";
+import SequenceBuilder from "@/components/lesson/SequenceBuilder";
+import DecisionScenario from "@/components/lesson/DecisionScenario";
+import JurosCompostosCalculator from "@/components/lesson/calculators/JurosCompostosCalculator";
+import ReservaEmergenciaCalculator from "@/components/lesson/calculators/ReservaEmergenciaCalculator";
 
 export default function QuestionCard({
   question,
@@ -16,7 +21,7 @@ export default function QuestionCard({
   correctIndex: number | null;
   /** null enquanto não respondeu; true/false depois (usado no modo digitar) */
   answeredCorrect: boolean | null;
-  onAnswer: (answer: number | string) => void;
+  onAnswer: (answer: Answer) => void;
 }) {
   const [typed, setTyped] = useState("");
   const answered = answeredCorrect !== null;
@@ -74,6 +79,35 @@ export default function QuestionCard({
             </button>
           )}
         </form>
+      ) : question.tipo === "parear" && question.pares ? (
+        <MatchPairs pares={question.pares} disabled={answered} onComplete={onAnswer} />
+      ) : question.tipo === "montar-frase" && question.banco && question.respostaFrase ? (
+        <SequenceBuilder
+          banco={question.banco}
+          expectedLength={question.respostaFrase.length}
+          variant="palavra"
+          disabled={answered}
+          onSubmit={onAnswer}
+        />
+      ) : question.tipo === "ordenar" && question.passos ? (
+        <SequenceBuilder
+          banco={question.passos}
+          expectedLength={question.passos.length}
+          variant="passo"
+          disabled={answered}
+          onSubmit={onAnswer}
+        />
+      ) : question.tipo === "decisao" && question.escolhas ? (
+        <DecisionScenario
+          escolhas={question.escolhas}
+          selectedIndex={selectedIndex}
+          disabled={answered}
+          onSelect={onAnswer}
+        />
+      ) : question.tipo === "calculadora" && question.calculadora === "juros-compostos" ? (
+        <JurosCompostosCalculator disabled={answered} onContinue={() => onAnswer("ok")} />
+      ) : question.tipo === "calculadora" && question.calculadora === "reserva-emergencia" ? (
+        <ReservaEmergenciaCalculator disabled={answered} onContinue={() => onAnswer("ok")} />
       ) : (
         <div className="flex flex-col gap-3">
           {(question.opcoes ?? []).map((opcao, index) => {

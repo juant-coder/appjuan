@@ -101,11 +101,24 @@ export const useAppStore = create<AppStore>()(
           get().loseHeart();
         }
 
+        let respostaCerta: string | undefined;
+        if (!correct) {
+          if (question.tipo === "montar-frase") respostaCerta = question.respostaFrase?.join(" ");
+          else if (question.tipo === "ordenar") respostaCerta = question.passos?.join(" → ");
+          else respostaCerta = question.resposta;
+        }
+
+        const reflexao =
+          question.tipo === "decisao" && typeof answer === "number"
+            ? question.escolhas?.[answer]?.reflexao
+            : undefined;
+
         return {
           correct,
           correctIndex: question.correta ?? -1,
           explicacao: question.explicacao,
-          respostaCerta: question.resposta,
+          respostaCerta,
+          reflexao,
         };
       },
 

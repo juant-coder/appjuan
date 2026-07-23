@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import type { Question } from "@/types/content";
+import type { Answer, Question } from "@/types/content";
 import nivelamentoData from "@/data/nivelamento.json";
 import { ALL_UNITS, getSectionStartIndexes } from "@/lib/units";
 import { useAppStore } from "@/store/useAppStore";
@@ -130,7 +130,7 @@ export default function OnboardingPage() {
   const question = NIVELAMENTO[index];
   const isLast = index >= NIVELAMENTO.length - 1;
 
-  function handleAnswer(answer: number | string) {
+  function handleAnswer(answer: Answer) {
     if (feedback) return;
     const correct = typeof answer === "number" && answer === question.correta;
     if (correct) setCorrectCount((c) => c + 1);
