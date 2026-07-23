@@ -35,7 +35,7 @@ export default function TrailMap() {
   }
 
   return (
-    <div className="mx-auto flex max-w-md flex-col gap-6 px-4 pb-28 pt-4">
+    <div className="mx-auto flex max-w-md flex-col gap-6 px-4 pb-6 pt-4">
       {sections.map(({ unit, startIndex }, i) => (
         <UnitSection
           key={unit.id}
