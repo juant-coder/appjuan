@@ -28,6 +28,7 @@ const initialState: AppState = {
   onboarded: false,
   focus: [],
   unlockedUpTo: 0,
+  lastFeedbackMilestone: 0,
 };
 
 const XP_PER_REVIEW_CORRECT = 5;
@@ -254,6 +255,10 @@ export const useAppStore = create<AppStore>()(
         set({ focus, unlockedUpTo, onboarded: true });
       },
 
+      setFeedbackMilestone: (milestone) => {
+        set({ lastFeedbackMilestone: milestone });
+      },
+
       checkAndAwardBadges: () => {
         const state = get();
         const newIds = evaluateBadges(state);
@@ -268,7 +273,14 @@ export const useAppStore = create<AppStore>()(
     }),
     {
       name: "granamais-storage",
-      version: 1,
+      version: 2,
+      migrate: (persisted) => {
+        const state = (persisted ?? {}) as Partial<AppState>;
+        return {
+          ...state,
+          lastFeedbackMilestone: state.lastFeedbackMilestone ?? 0,
+        } as AppState;
+      },
     }
   )
 );

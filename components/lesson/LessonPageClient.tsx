@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/lib/analytics";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { Answer } from "@/types/content";
@@ -54,11 +55,17 @@ export default function LessonPageClient({
   useEffect(() => {
     if (useAppStore.getState().hearts > 0) {
       startLesson(unitId, lessonId);
+      
+      void trackEvent("lesson_started", {
+        unit_id: unitId,
+        lesson_id: lessonId,
+      });
     } else {
       setPhase("failed");
     }
+    
     return () => resetSession();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [unitId, lessonId]);
 
   if (!lesson) {

@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  basePath: "/appjuan",
-  trailingSlash: true,
+  reactStrictMode: true,
 };
 
 export default nextConfig;

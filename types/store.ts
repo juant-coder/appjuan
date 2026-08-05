@@ -60,6 +60,8 @@ export interface AppState {
   onboarded: boolean;
   focus: string[];
   unlockedUpTo: number;
+  /** Último marco de missões (3, 6, 9...) em que já pedimos feedback */
+  lastFeedbackMilestone: number;
 }
 
 export interface AppActions {
@@ -77,6 +79,7 @@ export interface AppActions {
   completeReview: (correctCount: number) => number;
   dismissReview: () => void;
   completeOnboarding: (focus: string[], unlockedUpTo: number) => void;
+  setFeedbackMilestone: (milestone: number) => void;
 }
 
 export type AppStore = AppState & AppActions;

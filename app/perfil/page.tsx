@@ -6,6 +6,8 @@ import BottomNav from "@/components/layout/BottomNav";
 import BadgeGrid from "@/components/badges/BadgeGrid";
 import Disclaimer from "@/components/layout/Disclaimer";
 import BackupSection from "@/components/layout/BackupSection";
+import ContaSection from "@/components/auth/ContaSection";
+import FeedbackForm from "@/components/feedback/FeedbackForm";
 import { useAppStore } from "@/store/useAppStore";
 
 const AVATARS = [
@@ -93,12 +95,11 @@ export default function PerfilPage() {
           <BadgeGrid />
         </section>
 
-        <a
-          href="mailto:juantarosa@gmail.com?subject=Feedback%20Grana%2B&body=O%20que%20achei%3A%0A%0AO%20que%20senti%20falta%3A%0A%0AO%20que%20me%20faria%20voltar%20amanh%C3%A3%3A"
-          className="block rounded-2xl border-2 border-b-4 border-slate-300 py-3 text-center font-extrabold text-slate-600 active:translate-y-0.5 dark:border-slate-600 dark:text-slate-300"
-        >
-          💬 ENVIAR FEEDBACK / SUGESTÃO
-        </a>
+        <section className="rounded-3xl border border-black/5 bg-white p-5 dark:border-white/5 dark:bg-slate-900">
+          <FeedbackForm contexto="perfil" />
+        </section>
+
+        <ContaSection />
 
         <BackupSection />
 

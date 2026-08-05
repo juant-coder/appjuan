@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FeedbackPrompt from "@/components/feedback/FeedbackPrompt";
 
 const MONEY = ["💵", "🪙", "💸", "📈", "💰"];
 
@@ -109,6 +110,8 @@ export default function LessonResult({
           ))}
         </div>
       )}
+      <FeedbackPrompt />
+
       <div className="mt-2 flex w-full flex-col gap-3">
         <Link
           href="/"

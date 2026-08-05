@@ -12,7 +12,7 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   title: "Grana+",
   description: "Aprenda a investir de forma gamificada, no seu ritmo.",
-  manifest: "/appjuan/manifest.webmanifest",
+  manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
