@@ -1,4 +1,4 @@
-import type { Lesson, Question, Unit } from "@/types/content";
+import type { Lesson, Unit } from "@/types/content";
 import type { LessonProgress } from "@/types/store";
 import unidade1 from "@/data/unidade1.json";
 import unidade2 from "@/data/unidade2.json";
@@ -8,57 +8,15 @@ import unidade5 from "@/data/unidade5.json";
 import unidade6 from "@/data/unidade6.json";
 import unidade7 from "@/data/unidade7.json";
 
-/**
- * Embaralha um array com Fisher-Yates, sem alterar o original.
- */
-function shuffle<T>(items: T[]): T[] {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
-
-/**
- * As questões vêm do JSON com a resposta correta quase sempre no índice 0
- * (letra A). Aqui embaralhamos a ordem das alternativas e recalculamos o
- * índice correto, mantendo o rastreio pelo índice original (e não pelo
- * texto) para não quebrar em caso de opções com texto repetido.
- */
-function shuffleQuestionOptions(question: Question): Question {
-  if (!question.opcoes || typeof question.correta !== "number") return question;
-
-  const originalIndexes = question.opcoes.map((_, i) => i);
-  const shuffledIndexes = shuffle(originalIndexes);
-
-  return {
-    ...question,
-    opcoes: shuffledIndexes.map((i) => question.opcoes![i]),
-    correta: shuffledIndexes.indexOf(question.correta),
-  };
-}
-
-function shuffleLessonOptions(lesson: Lesson): Lesson {
-  return {
-    ...lesson,
-    perguntas: lesson.perguntas.map(shuffleQuestionOptions),
-  };
-}
-
-function shuffleUnitOptions(unit: Unit): Unit {
-  return {
-    ...unit,
-    licoes: unit.licoes.map(shuffleLessonOptions),
-  };
-}
-
-const RAW_UNITS = [unidade1, unidade6, unidade7, unidade2, unidade3, unidade4, unidade5] as Unit[];
-
-// Embaralhado uma vez por carregamento do app: garante que a mesma questão
-// mostre a mesma ordem entre a tela e a checagem de resposta (ambas leem
-// deste mesmo array), evitando desincronização durante uma sessão.
-export const ALL_UNITS: Unit[] = RAW_UNITS.map(shuffleUnitOptions);
+export const ALL_UNITS: Unit[] = [
+  unidade1,
+  unidade6,
+  unidade7,
+  unidade2,
+  unidade3,
+  unidade4,
+  unidade5,
+] as Unit[];
 
 export function getUnit(unitId: string): Unit | undefined {
   return ALL_UNITS.find((u) => u.id === unitId);
